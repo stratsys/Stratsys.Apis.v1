@@ -67,6 +67,7 @@ _NCrunch*
 # Ignore NuGet packages
 packages/*
 !packages/repositories.config
+Stratsys.Apis.v1.Tests/App.config
 
 # Publish Web Output
 *.Publish.xml

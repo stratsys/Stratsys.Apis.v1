@@ -64,6 +64,10 @@ _NCrunch*
 *.ncrunchproject
 *.ncrunchsolution
 
+# Ignore NuGet packages
+packages/*
+!packages/repositories.config
+
 # Publish Web Output
 *.Publish.xml
 /Web/App_Data/combres.xml

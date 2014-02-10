@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratsys.Apis.v1", "Stratsys.Apis.v1\Stratsys.Apis.v1.csproj", "{FBAE657D-6EDD-403E-8B92-33F5EA70C8F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratsys.Apis.v1.Tests", "Stratsys.Apis.v1.Tests\Stratsys.Apis.v1.Tests.csproj", "{113BB857-8213-4054-A017-C74E518947C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBAE657D-6EDD-403E-8B92-33F5EA70C8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBAE657D-6EDD-403E-8B92-33F5EA70C8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBAE657D-6EDD-403E-8B92-33F5EA70C8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBAE657D-6EDD-403E-8B92-33F5EA70C8F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113BB857-8213-4054-A017-C74E518947C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113BB857-8213-4054-A017-C74E518947C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113BB857-8213-4054-A017-C74E518947C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113BB857-8213-4054-A017-C74E518947C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -10,7 +10,7 @@
 
         public override string Controller
         {
-            get { return "Departments"; }
+            get { return "departments"; }
         }
 
         public DepartmentResource Departments { get; private set; }

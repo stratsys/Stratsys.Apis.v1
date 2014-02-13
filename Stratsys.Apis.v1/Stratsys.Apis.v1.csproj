@@ -51,22 +51,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\Kpis\KpiColumnResource.cs" />
+    <Compile Include="Apis\Kpis\KpiColumnService.cs" />
+    <Compile Include="Apis\Kpis\KpiDataResource.cs" />
+    <Compile Include="Apis\Kpis\KpiDataService.cs" />
+    <Compile Include="Apis\Kpis\KpiResource.cs" />
+    <Compile Include="Apis\Kpis\KpiService.cs" />
+    <Compile Include="Apis\Kpis\Requests\FilterKpiColumnsRequest.cs" />
+    <Compile Include="Apis\Kpis\Requests\FilterKpiDataRequest.cs" />
+    <Compile Include="Apis\Kpis\Requests\FilterKpisRequest.cs" />
+    <Compile Include="Apis\Kpis\Requests\SaveOrUpdateKpiDataRequest.cs" />
     <Compile Include="Apis\Organization\DepartmentResource.cs" />
     <Compile Include="Apis\Organization\DepartmentService.cs" />
     <Compile Include="Apis\Organization\Requests\FilterDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetDepartmentRequest.cs" />
     <Compile Include="Apis\Organization\Requests\ListDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\SaveOrUpdateDepartmentRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardResource.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardService.cs" />
     <Compile Include="Apis\StratsysClientRequest.cs" />
     <Compile Include="Apis\StratsysClientService.cs" />
+    <Compile Include="Dtos\Kpis\KpiColumnDto.cs" />
+    <Compile Include="Dtos\Kpis\KpiDataDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDto.cs" />
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
+    <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
+    <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Apis\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

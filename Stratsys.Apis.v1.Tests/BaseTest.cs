@@ -7,7 +7,7 @@ namespace Stratsys.Apis.v1.Tests
     public abstract class BaseTest
     {
         protected string ClientId = ConfigurationManager.AppSettings.Get("TestClientId");
-        protected string ClientSecret = ConfigurationManager.AppSettings.Get("TestClientSecret"); //ask support for access to ApiPublicTests if wanted
+        protected string ClientSecret = ConfigurationManager.AppSettings.Get("TestClientSecret"); //ask Stratsys support for access to database used in tests.
 
         [TestFixtureSetUp]
         public void SetUpFixtureBase_DoNotCall()

@@ -7,8 +7,8 @@
     <ProjectGuid>{113BB857-8213-4054-A017-C74E518947C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stratsys.Apis.v1.Tests</RootNamespace>
-    <AssemblyName>Stratsys.Apis.v1.Tests</AssemblyName>
+    <RootNamespace>Stratsys.Apis.v1.ExampleTests</RootNamespace>
+    <AssemblyName>Stratsys.Apis.v1.ExampleTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,12 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\Kpis\KpiColumnServiceUT.cs" />
+    <Compile Include="Apis\Kpis\KpiDataServiceUT.cs" />
+    <Compile Include="Apis\Kpis\KpiServiceUT.cs" />
     <Compile Include="Apis\Organizations\DepartmentServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +73,9 @@
       <Project>{fbae657d-6edd-403e-8b92-33f5ea70c8f4}</Project>
       <Name>Stratsys.Apis.v1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Apis\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

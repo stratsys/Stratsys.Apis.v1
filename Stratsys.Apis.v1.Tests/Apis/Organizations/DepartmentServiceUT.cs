@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Net;
 using NUnit.Framework;
 using Stratsys.Apis.v1.Apis.Organization;
 using Stratsys.Apis.v1.Dtos.Organization;
+using Stratsys.Apis.v1.Tests;
 
-namespace Stratsys.Apis.v1.Tests.Apis.Organizations
+namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {
     public class DepartmentServiceUT : BaseTest
     {
@@ -18,7 +20,7 @@ namespace Stratsys.Apis.v1.Tests.Apis.Organizations
         public void When_filtering_on_departments_by_name_Should_get_filtered_departments(string nameFilter, int expectedNumberOfDepartments)
         {
             var departments = Departments.Filter(nameFilter).Fetch().Result;
-            Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments), "expectedNumberOfDepartments");
+            Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase("1", 8)]
@@ -40,13 +42,15 @@ namespace Stratsys.Apis.v1.Tests.Apis.Organizations
         }
 
         [TestCase("123456")]
-        public void When_retrieving_department_by_non_existing_id_Should_get_null(string id)
+        public void When_retrieving_department_by_non_existing_id_Should_fail(string id)
         {
-            var stratsysApiMetadata = Departments.Get(id).Fetch();
-            Assert.That(stratsysApiMetadata.Success, Is.True);
-            
-            var department = stratsysApiMetadata.Result;
-            Assert.That(department, Is.Null);
+            var getDepartmentRequest = Departments.Get(id);
+            Assert.That(getDepartmentRequest.GetHttpResponse().StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
+
+            var stratsysApiMetadata = getDepartmentRequest.Fetch();
+            Assert.That(stratsysApiMetadata.Success, Is.False);
+            Assert.That(stratsysApiMetadata.Message, Is.EqualTo("Department undefined: 123456"));
+            Assert.That(stratsysApiMetadata.Result, Is.Null);
         }
 
         [TestCase("133")]

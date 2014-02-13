@@ -5,12 +5,12 @@ namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
     public class GetDepartmentRequest : StratsysClientRequest<DepartmentDto>
     {
-        private readonly string _id;
+        private readonly string m_id;
 
         public GetDepartmentRequest(IClientService service, string id)
             : base(service)
         {
-            _id = id;
+            m_id = id;
         }
 
         public override string HttpMethod
@@ -20,7 +20,7 @@ namespace Stratsys.Apis.v1.Apis.Organization.Requests
 
         public override string RestPath
         {
-            get { return _id; }
+            get { return m_id; }
         }
     }
 }

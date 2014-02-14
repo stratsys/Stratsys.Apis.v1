@@ -15,23 +15,23 @@ NuGet packages needs to be restored for project to build. For usage of example t
 
 Resources
 --------------
-The following Stratsys entity types can be accessed using Stratsys Api.
-- Departments
-- Kpis
-- KpiData
-- KpiColumns
-- Periodicities
-- Scorecards
+The following Stratsys entity types can be accessed using Stratsys Api v1.
+- **Departments**
+- **Kpis**
+- **KpiData**
+- **KpiColumns**
+- **Periodicities**
+- **Scorecards**
 
 Technical usage
 --------------
 Synchronous and asynchronous calls both are supported by client library. The resulting object from the response and the HttpResponseMessage are accessed in examples below. 
 ```csharp
 var departments = new DepartmentService(ClientId, ClientSecret).Departments;
-departments.Get(id).Fetch()
-await departments.Get(id).FetchAsync()
 departments.Get(id).GetHttpResponse()
+departments.Get(id).Fetch()
 await departments.Get(id).GetHttpResponseAsync()
+await departments.Get(id).FetchAsync()
 ```
 
 NuGet Feed
@@ -40,7 +40,7 @@ Stratsys Api v1 - .NET Client Library can alse be retrieved with NuGet feed http
 
 Api Documentation
 --------------
-Further detailed documentation of Stratsys Api can be found in Stratsys Developer Centre within Stratsys.
+Further detailed documentation of Stratsys Api v1 can be found from Stratsys Developer page.
 
 References
 --------------
@@ -48,5 +48,5 @@ http://www.stratsys.se - Stratsys
 
 About Stratsys
 --------------
-Stratsys help companies and organizations to become successful and competitive by supporting them in their work to achieve their goals. With the help of Stratsys methods and tools, business strategies are made real.
+'Stratsys help companies and organizations to become successful and competitive by supporting them in their work to achieve their goals. With the help of Stratsys methods and tools, business strategies are made real.'
 

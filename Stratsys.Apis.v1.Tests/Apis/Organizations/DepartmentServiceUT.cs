@@ -2,6 +2,8 @@
 using System.Net;
 using NUnit.Framework;
 using Stratsys.Apis.v1.Apis.Organization;
+using Stratsys.Apis.v1.Apis.Organization.Resources;
+using Stratsys.Apis.v1.Apis.Organization.Services;
 using Stratsys.Apis.v1.Dtos.Organization;
 using Stratsys.Apis.v1.Tests;
 

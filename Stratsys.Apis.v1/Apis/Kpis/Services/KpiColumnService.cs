@@ -1,4 +1,6 @@
-﻿namespace Stratsys.Apis.v1.Apis.Kpis
+﻿using Stratsys.Apis.v1.Apis.Kpis.Resources;
+
+namespace Stratsys.Apis.v1.Apis.Kpis.Services
 {
     public class KpiColumnService: StratsysClientService
     {

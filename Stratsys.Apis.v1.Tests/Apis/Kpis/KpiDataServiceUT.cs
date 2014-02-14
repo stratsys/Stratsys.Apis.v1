@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using Stratsys.Apis.v1.Apis.Kpis;
+using Stratsys.Apis.v1.Apis.Kpis.Resources;
+using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Dtos.Kpis;
 using Stratsys.Apis.v1.Tests;
 
@@ -60,7 +62,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpiDataSingle.Value, Is.EqualTo(value));
         }
 
-        [TestCase("16365", "5", "18791", "2011-12-31", 75.0)]
+        [TestCase("16365", "5", "18791", "2011-12-31", 22.0)]
         public void When_updating_kpiData_Should_return_new_value(
             string kpiId, string departmentId, string kpiColumnId, string date, double? value)
         {

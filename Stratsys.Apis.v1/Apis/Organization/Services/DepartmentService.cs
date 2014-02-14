@@ -1,4 +1,6 @@
-﻿namespace Stratsys.Apis.v1.Apis.Organization
+﻿using Stratsys.Apis.v1.Apis.Organization.Resources;
+
+namespace Stratsys.Apis.v1.Apis.Organization.Services
 {
     public class DepartmentService : StratsysClientService
     {

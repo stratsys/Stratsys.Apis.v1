@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using NUnit.Framework;
-using Stratsys.Apis.v1.Apis.Scorecards;
+using Stratsys.Apis.v1.Apis.Scorecards.Resources;
+using Stratsys.Apis.v1.Apis.Scorecards.Services;
 using Stratsys.Apis.v1.Tests;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards

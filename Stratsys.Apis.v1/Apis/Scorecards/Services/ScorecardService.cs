@@ -1,4 +1,6 @@
-﻿namespace Stratsys.Apis.v1.Apis.Scorecards
+﻿using Stratsys.Apis.v1.Apis.Scorecards.Resources;
+
+namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 {
     public class ScorecardService : StratsysClientService
     {

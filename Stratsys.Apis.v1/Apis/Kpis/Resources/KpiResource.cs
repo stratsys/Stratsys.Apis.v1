@@ -1,7 +1,7 @@
 ﻿using Stratsys.Apis.v1.Apis.Kpis.Requests;
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis.Kpis
+namespace Stratsys.Apis.v1.Apis.Kpis.Resources
 {
     public class KpiResource
     {

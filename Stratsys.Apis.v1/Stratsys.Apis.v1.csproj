@@ -51,26 +51,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apis\Kpis\KpiColumnResource.cs" />
-    <Compile Include="Apis\Kpis\KpiColumnService.cs" />
-    <Compile Include="Apis\Kpis\KpiDataResource.cs" />
-    <Compile Include="Apis\Kpis\KpiDataService.cs" />
-    <Compile Include="Apis\Kpis\KpiResource.cs" />
-    <Compile Include="Apis\Kpis\KpiService.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiColumnsRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiDataRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpisRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\SaveOrUpdateKpiDataRequest.cs" />
-    <Compile Include="Apis\Organization\DepartmentResource.cs" />
-    <Compile Include="Apis\Organization\DepartmentService.cs" />
+    <Compile Include="Apis\Kpis\Resources\KpiColumnResource.cs" />
+    <Compile Include="Apis\Kpis\Resources\KpiDataResource.cs" />
+    <Compile Include="Apis\Kpis\Resources\KpiResource.cs" />
+    <Compile Include="Apis\Kpis\Services\KpiColumnService.cs" />
+    <Compile Include="Apis\Kpis\Services\KpiDataService.cs" />
+    <Compile Include="Apis\Kpis\Services\KpiService.cs" />
     <Compile Include="Apis\Organization\Requests\FilterDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetDepartmentRequest.cs" />
     <Compile Include="Apis\Organization\Requests\ListDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\SaveOrUpdateDepartmentRequest.cs" />
+    <Compile Include="Apis\Organization\Resources\DepartmentResource.cs" />
+    <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
-    <Compile Include="Apis\Scorecards\ScorecardResource.cs" />
-    <Compile Include="Apis\Scorecards\ScorecardService.cs" />
+    <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
+    <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
+    <Compile Include="Apis\Shared\Requests\GetPeriodicityRequest.cs" />
+    <Compile Include="Apis\Shared\Requests\ListPeriodicitiesRequest.cs" />
+    <Compile Include="Apis\Shared\Resources\PeriodicityResource.cs" />
+    <Compile Include="Apis\Shared\Services\AuthorizationService.cs" />
+    <Compile Include="Apis\Shared\Requests\CheckAccessRequest.cs" />
+    <Compile Include="Apis\Shared\Resources\AuthorizationResource.cs" />
+    <Compile Include="Apis\Shared\Services\PeriodicityService.cs" />
     <Compile Include="Apis\StratsysClientRequest.cs" />
     <Compile Include="Apis\StratsysClientService.cs" />
     <Compile Include="Dtos\Kpis\KpiColumnDto.cs" />
@@ -86,9 +93,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Apis\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

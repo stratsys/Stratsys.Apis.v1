@@ -23,6 +23,10 @@ The following Stratsys entity types can be accessed using Stratsys Api.
 - Periodicities
 - Scorecards
 
+NuGet Feed
+--------------
+Stratsys Api v1 - .NET Client Library can alse be retrieved with NuGet feed https://www.myget.org/F/stratsys/
+
 Api Documentation
 --------------
 Further detailed documentation of Stratsys Api can be found in Stratsys Developer Centre within Stratsys.

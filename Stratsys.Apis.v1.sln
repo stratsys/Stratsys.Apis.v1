@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratsys.Apis.v1", "Stratsys.Apis.v1\Stratsys.Apis.v1.csproj", "{FBAE657D-6EDD-403E-8B92-33F5EA70C8F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratsys.Apis.v1.ExampleTests", "Stratsys.Apis.v1.Tests\Stratsys.Apis.v1.ExampleTests.csproj", "{113BB857-8213-4054-A017-C74E518947C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratsys.Apis.v1.ExampleTests", "Stratsys.Apis.v1.ExampleTests\Stratsys.Apis.v1.ExampleTests.csproj", "{113BB857-8213-4054-A017-C74E518947C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

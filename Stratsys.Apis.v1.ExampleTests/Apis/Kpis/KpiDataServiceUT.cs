@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using Stratsys.Apis.v1.Apis.Kpis;
 using Stratsys.Apis.v1.Apis.Kpis.Resources;
 using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Dtos.Kpis;

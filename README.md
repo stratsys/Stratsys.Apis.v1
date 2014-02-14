@@ -23,6 +23,17 @@ The following Stratsys entity types can be accessed using Stratsys Api.
 - Periodicities
 - Scorecards
 
+Technical usage
+--------------
+Synchronous and asynchronous calls both are supported by client library. The resulting object from the response and the HttpResponseMessage are accessed by two different methods. 
+<br>*Examples*<br>
+```csharp
+new DepartmentService(ClientId, ClientSecret).Departments.Get(id).Fetch()  <br>
+new DepartmentService(ClientId, ClientSecret).Departments.Get(id).FetchAsync()  <br>
+new DepartmentService(ClientId, ClientSecret).Departments.Get(id).GetHttpResponse()  <br>
+new DepartmentService(ClientId, ClientSecret).Departments.Get(id).GetHttpResponseAsync()  <br>
+```
+
 NuGet Feed
 --------------
 Stratsys Api v1 - .NET Client Library can alse be retrieved with NuGet feed https://www.myget.org/F/stratsys/

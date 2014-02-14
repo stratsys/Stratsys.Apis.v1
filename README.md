@@ -16,12 +16,12 @@ NuGet packages needs to be restored for project to build. For usage of example t
 Resources
 --------------
 The following Stratsys entity types can be accessed using Stratsys Api v1.
-- **Departments**
-- **Kpis**
-- **KpiData**
-- **KpiColumns**
-- **Periodicities**
-- **Scorecards**
+- *Departments*
+- *Kpis*
+- *KpiData*
+- *KpiColumns*
+- *Periodicities*
+- *Scorecards*
 
 Technical usage
 --------------
@@ -48,5 +48,5 @@ http://www.stratsys.se - Stratsys
 
 About Stratsys
 --------------
-'Stratsys help companies and organizations to become successful and competitive by supporting them in their work to achieve their goals. With the help of Stratsys methods and tools, business strategies are made real.'
+*Stratsys help companies and organizations to become successful and competitive by supporting them in their work to achieve their goals. With the help of Stratsys methods and tools, business strategies are made real.*
 

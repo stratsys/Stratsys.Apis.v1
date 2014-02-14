@@ -25,13 +25,13 @@ The following Stratsys entity types can be accessed using Stratsys Api.
 
 Technical usage
 --------------
-Synchronous and asynchronous calls both are supported by client library. The resulting object from the response and the HttpResponseMessage are accessed by two different methods. 
-<br>*Examples*<br>
+Synchronous and asynchronous calls both are supported by client library. The resulting object from the response and the HttpResponseMessage are accessed in examples below. 
 ```csharp
-new DepartmentService(ClientId, ClientSecret).Departments.Get(id).Fetch()  <br>
-new DepartmentService(ClientId, ClientSecret).Departments.Get(id).FetchAsync()  <br>
-new DepartmentService(ClientId, ClientSecret).Departments.Get(id).GetHttpResponse()  <br>
-new DepartmentService(ClientId, ClientSecret).Departments.Get(id).GetHttpResponseAsync()  <br>
+var departments = new DepartmentService(ClientId, ClientSecret).Departments;
+departments.Get(id).Fetch()
+await departments.Get(id).FetchAsync()
+departments.Get(id).GetHttpResponse()
+await departments.Get(id).GetHttpResponseAsync()
 ```
 
 NuGet Feed

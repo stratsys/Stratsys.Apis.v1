@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using Stratsys.Apis.v1.Apis.Kpis.Resources;
 using Stratsys.Apis.v1.Apis.Kpis.Services;
@@ -32,14 +33,14 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
         }
 
         [TestCase("16365", "2011-01-01", 22)]
-        public void When_filtering_on_kpiData_by_startDate_Should_get_filtered_kpiData(string kpiId, string startDate, int expectedNumberOfKpiData)
+        public void When_filtering_on_kpiData_by_startDate_Should_get_filtered_kpiData(string kpiId, DateTime startDate, int expectedNumberOfKpiData)
         {
             var kpiData = KpiData.Filter(kpiId, startDate: startDate).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
         [TestCase("16365", "2011-01-01", 14)]
-        public void When_filtering_on_kpiData_by_endDate_Should_get_filtered_kpiData(string kpiId, string endDate, int expectedNumberOfKpiData)
+        public void When_filtering_on_kpiData_by_endDate_Should_get_filtered_kpiData(string kpiId, DateTime endDate, int expectedNumberOfKpiData)
         {
             var kpiData = KpiData.Filter(kpiId, endDate: endDate).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
@@ -47,7 +48,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
 
         [TestCase("16365", "1", "18094", "2011-01-01", "2011-12-31", "2011-12-31", 50.0)]
         public void When_filtering_on_single_kpiData_Should_get_single_kpiData(
-            string kpiId, string departmentIdFilter, string kpiColumnId, string startDate, string endDate,
+            string kpiId, string departmentIdFilter, string kpiColumnId, DateTime startDate, DateTime endDate,
             string expectedDate, double? value
             )
         {

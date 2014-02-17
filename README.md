@@ -3,15 +3,15 @@ Stratsys Api v1 - .NET Client Library
 
 Introduction
 --------------
-Repository contains both Stratsys.Apis.v1 used for accessing Stratsys Apis v1 as well as Stratsys.Apis.v1.ExampleTests with examples of usage. All available functionality in Stratsys Api v1 is accessible using this client library. 
+Repository contains both Stratsys.Apis.v1 used for accessing Stratsys Apis v1 as well as Stratsys.Apis.v1.ExampleTests with examples of usage. All functionality available in Stratsys Api v1 is accessible using this client library. 
 
 Authorization
 --------------
-ClientId and ClientSecret needed for authorization is administrated on an application inside Stratsys. Access to temporary demo environment can be given by contacting Stratsys support.
+ClientId and ClientSecret needed for authorization is generated from creating an application inside Stratsys. Access to a demo environment for testing purposes can be retrieved by contacting Stratsys support.
 
 Setup
 --------------
-NuGet packages needs to be restored for project to build. For usage of example tests Stratsys.Apis.v1.ExampleTests/App.config needs to be set with valid TestClientId and TestClientSecret.
+NuGet packages needs to be restored for solution to build. For usage of example tests Stratsys.Apis.v1.ExampleTests/App.config needs to be set with valid TestClientId and TestClientSecret.
 
 Resources
 --------------
@@ -40,7 +40,7 @@ Stratsys Api v1 - .NET Client Library can alse be retrieved with NuGet feed http
 
 Api Documentation
 --------------
-Further detailed documentation of Stratsys Api v1 can be found from Stratsys Developer page.
+Further detailed documentation of Stratsys Api v1 can be found within Stratsys Developer page.
 
 References
 --------------

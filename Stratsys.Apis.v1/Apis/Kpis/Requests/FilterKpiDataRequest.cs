@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Stratsys.Apis.v1.Dtos.Kpis;
 using Stratsys.Core.Apis.Services;
 
@@ -13,16 +14,23 @@ namespace Stratsys.Apis.v1.Apis.Kpis.Requests
             string kpiId,
             string departmentId,
             string kpiColumnId,
-            string startDate,
-            string endDate
+            DateTime? startDate,
+            DateTime? endDate
             )
             : base(clientService)
         {
             m_kpiId = kpiId;
             RequestParameters.Add("departmentId", departmentId);
             RequestParameters.Add("kpiColumnId", kpiColumnId);
-            RequestParameters.Add("startDate", startDate);
-            RequestParameters.Add("endDate", endDate);
+            if (startDate.HasValue)
+            {
+                RequestParameters.Add("startDate", startDate.Value.ToShortDateString());
+            }
+
+            if (endDate.HasValue)
+            {
+                RequestParameters.Add("endDate", endDate.Value.ToShortDateString());
+            }
         }
 
         public override string HttpMethod

@@ -1,4 +1,5 @@
-﻿using Stratsys.Apis.v1.Apis.Kpis.Requests;
+﻿using System;
+using Stratsys.Apis.v1.Apis.Kpis.Requests;
 using Stratsys.Apis.v1.Dtos.Kpis;
 using Stratsys.Core.Apis.Services;
 
@@ -22,8 +23,8 @@ namespace Stratsys.Apis.v1.Apis.Kpis.Resources
             string kpiId,
             string departmentId = null,
             string kpiColumnId = null,
-            string startDate = null,
-            string endDate = null)
+            DateTime? startDate = null,
+            DateTime? endDate = null)
         {
             return new FilterKpiDataRequest(m_clientService, kpiId, departmentId, kpiColumnId, startDate, endDate);
         }

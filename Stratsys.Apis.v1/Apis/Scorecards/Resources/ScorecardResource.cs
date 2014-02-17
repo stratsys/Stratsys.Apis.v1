@@ -17,9 +17,9 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             return new ListScorecardsRequest(m_service);
         }
 
-        public GetScorecardRequest Get(string scorecard)
+        public GetScorecardRequest Get(string scorecardId)
         {
-            return new GetScorecardRequest(m_service, scorecard);
+            return new GetScorecardRequest(m_service, scorecardId);
         }
     }
 }

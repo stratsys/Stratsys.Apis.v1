@@ -46,10 +46,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
-        [TestCase("16365", "1", "18094", "2011-01-01", "2011-12-31", "2011-12-31", 50.0)]
+        [TestCase("16365", "1", "18094", "2011-01-01", "2011-12-31", "2011-12-31", "Utfall Kvinnor/Flickor", 0, 30.0)]
         public void When_filtering_on_single_kpiData_Should_get_single_kpiData(
             string kpiId, string departmentIdFilter, string kpiColumnId, DateTime startDate, DateTime endDate,
-            string expectedDate, double? value
+            string expectedDate, string expectedKpiColumnName, int expectedKpiColumnPosition, double? expectedValue
             )
         {
             var kpiData = KpiData.Filter(kpiId, departmentIdFilter, kpiColumnId, startDate, endDate).Fetch().Result;
@@ -59,7 +59,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpiDataSingle.DepartmentId, Is.EqualTo(departmentIdFilter));
             Assert.That(kpiDataSingle.KpiColumnId, Is.EqualTo(kpiColumnId));
             Assert.That(kpiDataSingle.Date, Is.EqualTo(expectedDate));
-            Assert.That(kpiDataSingle.Value, Is.EqualTo(value));
+            Assert.That(kpiDataSingle.KpiColumnName, Is.EqualTo(expectedKpiColumnName));
+            Assert.That(kpiDataSingle.KpiColumnPosition, Is.EqualTo(expectedKpiColumnPosition));
+            Assert.That(kpiDataSingle.Value, Is.EqualTo(expectedValue));
         }
 
         [TestCase("16365", "5", "18791", "2011-12-31", 22.0)]
@@ -79,7 +81,41 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(newValue, Is.EqualTo(value));
         }
 
-        [TestCase("16365", "1", "18094", "2011-12-31", 50.0, 75.0)]
+        [TestCase("16365", "5", "utfall kvinnor/flickor", "2011-12-31", 22.0)]
+        public void When_updating_kpiData_by_kpiColumnName_Should_return_new_value(
+            string kpiId, string departmentId, string kpiColumnName, string date, double? value)
+        {
+            var kpiData = new KpiDataDto
+            {
+                Date = date,
+                DepartmentId = departmentId,
+                KpiColumnName = kpiColumnName,
+                KpiId = kpiId,
+                Value = value
+            };
+
+            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            Assert.That(newValue, Is.EqualTo(value));
+        }
+
+        [TestCase("16365", "5", 0, "2011-12-31", 22.0)]
+        public void When_updating_kpiData_by_kpiColumnPosition_Should_return_new_value(
+            string kpiId, string departmentId, int kpiColumnPosition, string date, double? value)
+        {
+            var kpiData = new KpiDataDto
+            {
+                Date = date,
+                DepartmentId = departmentId,
+                KpiColumnPosition = kpiColumnPosition,
+                KpiId = kpiId,
+                Value = value
+            };
+
+            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            Assert.That(newValue, Is.EqualTo(value));
+        }
+
+        [TestCase("16365", "1", "18094", "2011-12-31", 30.0, 75.0)]
         public void When_updating_kpiData_for_locked_input_Should_return_old_value(
             string kpiId, string departmentId, string kpiColumnId, string date, double? oldValue, double? value)
         {

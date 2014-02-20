@@ -27,5 +27,10 @@ namespace Stratsys.Apis.v1.Apis.Comments.Resources
         {
             return new GetCommentRequest(m_clientService, id);
         }
+
+        public UpdateCommentRequest Update(UpdateCommentDto comment)
+        {
+            return new UpdateCommentRequest(m_clientService, comment);
+        }
     }
 }

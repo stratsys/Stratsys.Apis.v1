@@ -54,6 +54,7 @@
     <Compile Include="Apis\Comments\Requests\AddCommentRequest.cs" />
     <Compile Include="Apis\Comments\Requests\FilterCommentsRequest.cs" />
     <Compile Include="Apis\Comments\Requests\GetCommentRequest.cs" />
+    <Compile Include="Apis\Comments\Requests\UpdateCommentRequest.cs" />
     <Compile Include="Apis\Comments\Resources\CommentResource.cs" />
     <Compile Include="Apis\Comments\Services\CommentService.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiColumnsRequest.cs" />

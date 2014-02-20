@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\Comments\Requests\AddCommentRequest.cs" />
+    <Compile Include="Apis\Comments\Requests\FilterCommentsRequest.cs" />
+    <Compile Include="Apis\Comments\Requests\GetCommentRequest.cs" />
+    <Compile Include="Apis\Comments\Resources\CommentResource.cs" />
+    <Compile Include="Apis\Comments\Services\CommentService.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiColumnsRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiDataRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpisRequest.cs" />
@@ -78,8 +83,10 @@
     <Compile Include="Apis\Shared\Requests\CheckAccessRequest.cs" />
     <Compile Include="Apis\Shared\Resources\AuthorizationResource.cs" />
     <Compile Include="Apis\Shared\Services\PeriodicityService.cs" />
+    <Compile Include="Apis\StratsysApi.cs" />
     <Compile Include="Apis\StratsysClientRequest.cs" />
     <Compile Include="Apis\StratsysClientService.cs" />
+    <Compile Include="Dtos\Comments\CommentDto.cs" />
     <Compile Include="Dtos\Kpis\KpiColumnDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDataDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDto.cs" />

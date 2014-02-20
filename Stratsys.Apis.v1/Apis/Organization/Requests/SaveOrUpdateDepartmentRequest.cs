@@ -3,7 +3,7 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
-    public class SaveOrUpdateDepartmentRequest : StratsysClientRequest<DepartmentDto>
+    public class SaveOrUpdateDepartmentRequest : StratsysClientRequest<string>
     {
         private readonly DepartmentDto m_department;
 

@@ -55,7 +55,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         }
 
         [TestCase("133")]
-        public void When_creating_department_Should_get_created_department(string parentId)
+        public void When_creating_department_Should_get_created_departmentId(string parentId)
         {
             var name = Guid.NewGuid().ToString();
             var shortName = Guid.NewGuid().ToString();
@@ -66,7 +66,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 ShortName = shortName,
                 ParentId = parentId
             };
-            var department = Departments.SaveOrUpdate(departmentDto).Fetch().Result;
+            var departmentId = Departments.SaveOrUpdate(departmentDto).Fetch().Result;
+            Assert.That(departmentId, Is.Not.Null.Or.Empty);
+            var department = Departments.Get(departmentId).Fetch().Result;
             Assert.That(department.Id, Is.Not.Null.Or.Empty);
             Assert.That(department.Name, Is.EqualTo(name));
             Assert.That(department.ShortName, Is.EqualTo(shortName));
@@ -82,7 +84,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 Name = newName,
                 ShortName = newShortName
             };
-            var department = Departments.SaveOrUpdate(departmentDto).Fetch().Result;
+            var departmentId = Departments.SaveOrUpdate(departmentDto).Fetch().Result;
+            Assert.That(departmentId, Is.Not.Null.Or.Empty);
+            var department = Departments.Get(departmentId).Fetch().Result;
             Assert.That(department.Id, Is.Not.Null.Or.Empty);
             Assert.That(department.Name, Is.EqualTo(newName));
             Assert.That(department.ShortName, Is.EqualTo(newShortName));

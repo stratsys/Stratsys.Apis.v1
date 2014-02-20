@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using NUnit.Framework;
+using Stratsys.Apis.v1.Apis;
 
 namespace Stratsys.Apis.v1.Tests
 {
@@ -8,6 +9,8 @@ namespace Stratsys.Apis.v1.Tests
     {
         protected string ClientId = ConfigurationManager.AppSettings.Get("TestClientId");
         protected string ClientSecret = ConfigurationManager.AppSettings.Get("TestClientSecret"); //ask Stratsys support for access to database used in tests.
+        protected StratsysApi Api { get { return new StratsysApi(ClientId, ClientSecret); } }
+
 
         [TestFixtureSetUp]
         public void SetUpFixtureBase_DoNotCall()

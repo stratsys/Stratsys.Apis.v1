@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\Comments\CommentServiceUT.cs" />
     <Compile Include="Apis\Kpis\ExampleFlowFindAndUpdateKpiData.cs" />
     <Compile Include="Apis\Kpis\KpiColumnServiceUT.cs" />
     <Compile Include="Apis\Kpis\KpiDataServiceUT.cs" />

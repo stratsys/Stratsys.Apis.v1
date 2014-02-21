@@ -87,7 +87,9 @@
     <Compile Include="Apis\StratsysApi.cs" />
     <Compile Include="Apis\StratsysClientRequest.cs" />
     <Compile Include="Apis\StratsysClientService.cs" />
+    <Compile Include="Dtos\Comments\AddCommentDto.cs" />
     <Compile Include="Dtos\Comments\CommentDto.cs" />
+    <Compile Include="Dtos\Comments\UpdateCommentDto.cs" />
     <Compile Include="Dtos\Kpis\KpiColumnDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDataDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDto.cs" />

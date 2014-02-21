@@ -24,7 +24,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
-        [TestCase("1", 8)]
+        [TestCase("5", 10)]
         public void When_filtering_on_departments_by_parentId_Should_get_filtered_departments(string parentIdFilter, int expectedNumberOfDepartments)
         {
             var departments = Departments.Filter(parentId: parentIdFilter).Fetch().Result;
@@ -90,6 +90,27 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(department.Id, Is.Not.Null.Or.Empty);
             Assert.That(department.Name, Is.EqualTo(newName));
             Assert.That(department.ShortName, Is.EqualTo(newShortName));
+        }
+
+        [TestCase("ChangedNameInPlanning", 1)]
+        [TestCase("OtherNameInPlanning", 0)]
+        [TestCase("DeletedInPlanning", 1)]
+        [TestCase("MovedInPlanning", 1)]
+        public void Filter_by_name_in_active_version(string nameFilter, int expectedNumberOfDepartments)
+        {
+            var departments = Departments.Filter(nameFilter).Fetch().Result;
+            Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
+        }
+
+        [TestCase("151", "MovedInPlanning", "MIP", "150")]
+        public void Get_department_by_id_in_active_version(string id, string expectedName, string expectedShortName, string expectedParentId)
+        {
+            var department = Departments.Get(id).Fetch().Result;
+            Assert.That(department, Is.Not.Null);
+            Assert.That(department.Id, Is.EqualTo(id));
+            Assert.That(department.Name, Is.EqualTo(expectedName));
+            Assert.That(department.ShortName, Is.EqualTo(expectedShortName));
+            Assert.That(department.ParentId, Is.EqualTo(expectedParentId));
         }
 
         private DepartmentResource Departments

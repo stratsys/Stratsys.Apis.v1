@@ -76,9 +76,12 @@
     <Compile Include="Apis\Organization\Resources\UserResource.cs" />
     <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
+    <Compile Include="Apis\Scorecards\Requests\FilterNodesRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Resources\NodeResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
+    <Compile Include="Apis\Scorecards\Services\NodeService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
     <Compile Include="Apis\Shared\Requests\GetPeriodicityRequest.cs" />
     <Compile Include="Apis\Shared\Requests\ListPeriodicitiesRequest.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Dtos\Kpis\KpiDto.cs" />
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
+    <Compile Include="Dtos\Scorecards\NodeDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />

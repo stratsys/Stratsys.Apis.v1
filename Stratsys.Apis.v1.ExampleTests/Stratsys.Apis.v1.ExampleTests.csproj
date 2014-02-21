@@ -61,6 +61,7 @@
     <Compile Include="Apis\Kpis\KpiServiceUT.cs" />
     <Compile Include="Apis\Organizations\DepartmentServiceUT.cs" />
     <Compile Include="Apis\Organizations\UserServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\NodeServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
     <Compile Include="Apis\Shared\AuthorizationServiceUT.cs" />
     <Compile Include="Apis\Shared\PeriodicityServiceUT.cs" />

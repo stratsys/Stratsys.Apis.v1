@@ -57,6 +57,11 @@ namespace Stratsys.Apis.v1.Apis
             get { return new ScorecardService(ClientId, ClientSecret).Scorecards; }
         }
 
+        public NodeResource Nodes
+        {
+            get { return new NodeService(ClientId, ClientSecret).Nodes; }
+        }
+
         public PeriodicityResource Periodicities
         {
             get { return new PeriodicityService(ClientId, ClientSecret).Periodicities; }

@@ -49,7 +49,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
         [TestCase("16365", "1", "18094", "2011-01-01", "2011-12-31", "2011-12-31", "Utfall Kvinnor/Flickor", 0, 30.0)]
         public void When_filtering_on_single_kpiData_Should_get_single_kpiData(
             string kpiId, string departmentIdFilter, string kpiColumnId, DateTime startDate, DateTime endDate,
-            string expectedDate, string expectedKpiColumnName, int expectedKpiColumnPosition, double? expectedValue
+            string expectedDate, string expectedKpiColumnName, int expectedKpiColumnIndex, double? expectedValue
             )
         {
             var kpiData = KpiData.Filter(kpiId, departmentIdFilter, kpiColumnId, startDate, endDate).Fetch().Result;
@@ -60,7 +60,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpiDataSingle.KpiColumnId, Is.EqualTo(kpiColumnId));
             Assert.That(kpiDataSingle.Date, Is.EqualTo(expectedDate));
             Assert.That(kpiDataSingle.KpiColumnName, Is.EqualTo(expectedKpiColumnName));
-            Assert.That(kpiDataSingle.KpiColumnPosition, Is.EqualTo(expectedKpiColumnPosition));
+            Assert.That(kpiDataSingle.KpiColumnIndex, Is.EqualTo(expectedKpiColumnIndex));
             Assert.That(kpiDataSingle.Value, Is.EqualTo(expectedValue));
         }
 
@@ -99,14 +99,14 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
         }
 
         [TestCase("16365", "5", 0, "2011-12-31", 22.0)]
-        public void When_updating_kpiData_by_kpiColumnPosition_Should_return_new_value(
-            string kpiId, string departmentId, int kpiColumnPosition, string date, double? value)
+        public void When_updating_kpiData_by_kpiColumnIndex_Should_return_new_value(
+            string kpiId, string departmentId, int kpiColumnIndex, string date, double? value)
         {
             var kpiData = new KpiDataDto
             {
                 Date = date,
                 DepartmentId = departmentId,
-                KpiColumnPosition = kpiColumnPosition,
+                KpiColumnIndex = kpiColumnIndex,
                 KpiId = kpiId,
                 Value = value
             };

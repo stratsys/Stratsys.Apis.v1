@@ -7,6 +7,6 @@
         public string Name { get; set; }
         public string Postfix { get; set; }
         public string Prefix { get; set; }
-        public int Position { get; set; }
+        public int Index { get; set; }
     }
 }

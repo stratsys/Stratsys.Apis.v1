@@ -98,7 +98,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(newValue, Is.EqualTo(value));
         }
 
-        [TestCase("16365", "5", 0, "2011-12-31", 22.0)]
+        [TestCase("16365", "5", 0, "2011-12-31", 30.0)]
         public void When_updating_kpiData_by_kpiColumnIndex_Should_return_new_value(
             string kpiId, string departmentId, int kpiColumnIndex, string date, double? value)
         {

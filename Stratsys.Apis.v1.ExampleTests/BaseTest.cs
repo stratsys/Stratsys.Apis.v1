@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Stratsys.Apis.v1.Apis;
 
-namespace Stratsys.Apis.v1.Tests
+namespace Stratsys.Apis.v1.ExampleTests
 {
     [TestFixture]
     public abstract class BaseTest

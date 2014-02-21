@@ -47,6 +47,11 @@ namespace Stratsys.Apis.v1.Apis
             get { return new DepartmentService(ClientId, ClientSecret).Departments; }
         }
 
+        public UserResource Users
+        {
+            get { return new UserService(ClientId, ClientSecret).Users; }
+        }
+
         public ScorecardResource Scorecards
         {
             get { return new ScorecardService(ClientId, ClientSecret).Scorecards; }

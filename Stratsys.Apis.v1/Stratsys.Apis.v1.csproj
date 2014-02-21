@@ -68,11 +68,14 @@
     <Compile Include="Apis\Kpis\Services\KpiDataService.cs" />
     <Compile Include="Apis\Kpis\Services\KpiService.cs" />
     <Compile Include="Apis\Organization\Requests\FilterDepartmentsRequest.cs" />
+    <Compile Include="Apis\Organization\Requests\FilterUsersRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetDepartmentRequest.cs" />
     <Compile Include="Apis\Organization\Requests\ListDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\SaveOrUpdateDepartmentRequest.cs" />
     <Compile Include="Apis\Organization\Resources\DepartmentResource.cs" />
+    <Compile Include="Apis\Organization\Resources\UserResource.cs" />
     <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
+    <Compile Include="Apis\Organization\Services\UserService.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Dtos\Kpis\KpiDataDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDto.cs" />
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
+    <Compile Include="Dtos\Organization\UserDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />

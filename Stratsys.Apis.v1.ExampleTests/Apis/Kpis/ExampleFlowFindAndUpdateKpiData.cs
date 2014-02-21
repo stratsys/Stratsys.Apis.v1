@@ -11,7 +11,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
 {
     public class ExampleFlowFindAndUpdateKpiData : BaseTest
     {
-        [TestCase("kommunstyrelsen", "Arbetskraftens storlek 16-64", "Utfall Kvinnor/Flickor", "2011-12-31", 30.0)]
+        [TestCase("kommunstyrelsen", "Arbetskraftens storlek 16-64", "Utfall Kvinnor/Flickor", "2011-12-31", 22.0)]
         public void Example_Find_and_update_kpiData(
             string uniqueDepartmentName, string uniqueKpiName, string uniqueKpiColumnName, 
             string date, double? value)

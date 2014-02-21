@@ -23,10 +23,12 @@ namespace Stratsys.Apis.v1.Apis.Kpis.Resources
             string kpiId,
             string departmentId = null,
             string kpiColumnId = null,
+            string kpiColumnName = null,
+            int? kpiColumnIndex = null,
             DateTime? startDate = null,
             DateTime? endDate = null)
         {
-            return new FilterKpiDataRequest(m_clientService, kpiId, departmentId, kpiColumnId, startDate, endDate);
+            return new FilterKpiDataRequest(m_clientService, kpiId, departmentId, kpiColumnId, kpiColumnName, kpiColumnIndex, startDate, endDate);
         }
     }
 }

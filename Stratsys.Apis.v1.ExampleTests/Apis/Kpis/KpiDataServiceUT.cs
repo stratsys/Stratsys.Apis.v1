@@ -32,6 +32,20 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
+        [TestCase("16365", "Utfall Kvinnor/Flickor", 6)]
+        public void When_filtering_on_kpiData_by_kpiColumnName_Should_get_filtered_kpiData(string kpiId, string kpiColumnName, int expectedNumberOfKpiData)
+        {
+            var kpiData = KpiData.Filter(kpiId, kpiColumnName: kpiColumnName).Fetch().Result;
+            Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
+        }
+
+        [TestCase("16365", 0, 6)]
+        public void When_filtering_on_kpiData_by_kpiColumnIndex_Should_get_filtered_kpiData(string kpiId, int kpiColumnIndex, int expectedNumberOfKpiData)
+        {
+            var kpiData = KpiData.Filter(kpiId, kpiColumnIndex: kpiColumnIndex).Fetch().Result;
+            Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
+        }
+
         [TestCase("16365", "2011-01-01", 22)]
         public void When_filtering_on_kpiData_by_startDate_Should_get_filtered_kpiData(string kpiId, DateTime startDate, int expectedNumberOfKpiData)
         {
@@ -46,13 +60,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
-        [TestCase("16365", "1", "18094", "2011-01-01", "2011-12-31", "2011-12-31", "Utfall Kvinnor/Flickor", 0, 30.0)]
+        [TestCase("16365", "1", "18094", "2011-01-01", "2011-12-31", "2011-12-31", "Utfall Kvinnor/Flickor", 0, 22.0)]
         public void When_filtering_on_single_kpiData_Should_get_single_kpiData(
             string kpiId, string departmentIdFilter, string kpiColumnId, DateTime startDate, DateTime endDate,
             string expectedDate, string expectedKpiColumnName, int expectedKpiColumnIndex, double? expectedValue
             )
         {
-            var kpiData = KpiData.Filter(kpiId, departmentIdFilter, kpiColumnId, startDate, endDate).Fetch().Result;
+            var kpiData = KpiData.Filter(kpiId, departmentIdFilter, kpiColumnId, startDate: startDate, endDate: endDate).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(1));
             var kpiDataSingle = kpiData[0];
             Assert.That(kpiDataSingle.KpiId, Is.EqualTo(kpiId));
@@ -81,6 +95,26 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(newValue, Is.EqualTo(value));
         }
 
+        [TestCase("16365", "5", "1", "Utfall Kvinnor/Flickor", "2011-12-31", 22.0)]
+        public void When_updating_kpiData_for_consolidation_child_Should_update_chain(
+            string kpiId, string departmentId, string parentId, string kpiColumnName, string date, double? value)
+        {
+            var kpiData = new KpiDataDto
+            {
+                Date = date,
+                DepartmentId = departmentId,
+                KpiColumnName = kpiColumnName,
+                KpiId = kpiId,
+                Value = value
+            };
+
+            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            Assert.That(newValue, Is.EqualTo(value));
+            var kpiDataDtos = KpiData.Filter(kpiId, parentId, kpiColumnName: kpiColumnName, startDate: DateTime.Parse(date), endDate: DateTime.Parse(date)).Fetch().Result;
+            Assert.That(kpiDataDtos.Count, Is.EqualTo(1));
+            Assert.That(kpiDataDtos[0].Value, Is.EqualTo(value));
+        }
+
         [TestCase("16365", "5", "utfall kvinnor/flickor", "2011-12-31", 22.0)]
         public void When_updating_kpiData_by_kpiColumnName_Should_return_new_value(
             string kpiId, string departmentId, string kpiColumnName, string date, double? value)
@@ -98,7 +132,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(newValue, Is.EqualTo(value));
         }
 
-        [TestCase("16365", "5", 0, "2011-12-31", 30.0)]
+        [TestCase("16365", "5", 0, "2011-12-31", 22.0)]
         public void When_updating_kpiData_by_kpiColumnIndex_Should_return_new_value(
             string kpiId, string departmentId, int kpiColumnIndex, string date, double? value)
         {
@@ -115,7 +149,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(newValue, Is.EqualTo(value));
         }
 
-        [TestCase("16365", "1", "18094", "2011-12-31", 30.0, 75.0)]
+        [TestCase("16365", "1", "18094", "2011-12-31", 22.0, 75.0)]
         public void When_updating_kpiData_for_locked_input_Should_return_old_value(
             string kpiId, string departmentId, string kpiColumnId, string date, double? oldValue, double? value)
         {

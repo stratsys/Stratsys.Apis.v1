@@ -9,19 +9,18 @@ namespace Stratsys.Apis.v1.Apis.Kpis.Requests
     {
         private readonly string m_kpiId;
 
-        public FilterKpiDataRequest(
-            IClientService clientService,
-            string kpiId,
-            string departmentId,
-            string kpiColumnId,
-            DateTime? startDate,
-            DateTime? endDate
-            )
+        public FilterKpiDataRequest(IClientService clientService, string kpiId, string departmentId, string kpiColumnId, string kpiColumnName, int? kpiColumnIndex, DateTime? startDate, DateTime? endDate)
             : base(clientService)
         {
             m_kpiId = kpiId;
             RequestParameters.Add("departmentId", departmentId);
             RequestParameters.Add("kpiColumnId", kpiColumnId);
+            RequestParameters.Add("kpiColumnName", kpiColumnName);
+
+            if (kpiColumnIndex.HasValue)
+            {
+                RequestParameters.Add("kpiColumnIndex", kpiColumnIndex + "");
+            }
             if (startDate.HasValue)
             {
                 RequestParameters.Add("startDate", startDate.Value.ToShortDateString());

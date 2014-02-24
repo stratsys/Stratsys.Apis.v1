@@ -51,6 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\Activities\Requests\FilterActivitiesRequest.cs" />
+    <Compile Include="Apis\Activities\Requests\GetStatusRequest.cs" />
+    <Compile Include="Apis\Activities\Requests\ListStatusesRequest.cs" />
+    <Compile Include="Apis\Activities\Resources\ActivityResource.cs" />
+    <Compile Include="Apis\Activities\Resources\StatusResource.cs" />
+    <Compile Include="Apis\Activities\Services\StatusService.cs" />
+    <Compile Include="Apis\Activities\Services\ActivityService.cs" />
     <Compile Include="Apis\Comments\Requests\AddCommentRequest.cs" />
     <Compile Include="Apis\Comments\Requests\FilterCommentsRequest.cs" />
     <Compile Include="Apis\Comments\Requests\GetCommentRequest.cs" />
@@ -76,12 +83,12 @@
     <Compile Include="Apis\Organization\Resources\UserResource.cs" />
     <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
-    <Compile Include="Apis\Scorecards\Requests\FilterNodesRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\FilterTextNodesRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
-    <Compile Include="Apis\Scorecards\Resources\NodeResource.cs" />
+    <Compile Include="Apis\Scorecards\Resources\TextNodeResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
-    <Compile Include="Apis\Scorecards\Services\NodeService.cs" />
+    <Compile Include="Apis\Scorecards\Services\TextNodeService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
     <Compile Include="Apis\Shared\Requests\GetPeriodicityRequest.cs" />
     <Compile Include="Apis\Shared\Requests\ListPeriodicitiesRequest.cs" />
@@ -93,6 +100,8 @@
     <Compile Include="Apis\StratsysApi.cs" />
     <Compile Include="Apis\StratsysClientRequest.cs" />
     <Compile Include="Apis\StratsysClientService.cs" />
+    <Compile Include="Dtos\Activities\ActivityDto.cs" />
+    <Compile Include="Dtos\Activities\StatusDto.cs" />
     <Compile Include="Dtos\Comments\AddCommentDto.cs" />
     <Compile Include="Dtos\Comments\CommentDto.cs" />
     <Compile Include="Dtos\Comments\UpdateCommentDto.cs" />
@@ -101,7 +110,7 @@
     <Compile Include="Dtos\Kpis\KpiDto.cs" />
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
-    <Compile Include="Dtos\Scorecards\NodeDto.cs" />
+    <Compile Include="Dtos\Scorecards\TextNodeDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />

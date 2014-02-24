@@ -1,4 +1,6 @@
-﻿using Stratsys.Apis.v1.Apis.Comments.Resources;
+﻿using Stratsys.Apis.v1.Apis.Activities.Resources;
+using Stratsys.Apis.v1.Apis.Activities.Services;
+using Stratsys.Apis.v1.Apis.Comments.Resources;
 using Stratsys.Apis.v1.Apis.Comments.Services;
 using Stratsys.Apis.v1.Apis.Kpis.Resources;
 using Stratsys.Apis.v1.Apis.Kpis.Services;
@@ -57,9 +59,19 @@ namespace Stratsys.Apis.v1.Apis
             get { return new ScorecardService(ClientId, ClientSecret).Scorecards; }
         }
 
-        public NodeResource Nodes
+        public TextNodeResource TextNodes
         {
-            get { return new NodeService(ClientId, ClientSecret).Nodes; }
+            get { return new TextNodeService(ClientId, ClientSecret).TextNodes; }
+        }
+
+        public ActivityResource Activities
+        {
+            get { return new ActivityService(ClientId, ClientSecret).Activities; }
+        }
+
+        public StatusResource Statuses
+        {
+            get { return new StatusService(ClientId, ClientSecret).Statuses; }
         }
 
         public PeriodicityResource Periodicities
@@ -71,6 +83,5 @@ namespace Stratsys.Apis.v1.Apis
         {
             get { return new AuthorizationService(ClientId, ClientSecret).Authorizations; }
         }
-
     }
 }

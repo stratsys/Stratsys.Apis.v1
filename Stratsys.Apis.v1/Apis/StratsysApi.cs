@@ -2,6 +2,8 @@
 using Stratsys.Apis.v1.Apis.Activities.Services;
 using Stratsys.Apis.v1.Apis.Comments.Resources;
 using Stratsys.Apis.v1.Apis.Comments.Services;
+using Stratsys.Apis.v1.Apis.Gadgets.Resources;
+using Stratsys.Apis.v1.Apis.Gadgets.Services;
 using Stratsys.Apis.v1.Apis.Kpis.Resources;
 using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Apis.Organization.Resources;
@@ -82,6 +84,11 @@ namespace Stratsys.Apis.v1.Apis
         public AuthorizationResource Authorizations
         {
             get { return new AuthorizationService(ClientId, ClientSecret).Authorizations; }
+        }
+
+        public ReportingListResource ReportingLists
+        {
+            get { return new ReportingListService(ClientId, ClientSecret).ReportingLists; }
         }
     }
 }

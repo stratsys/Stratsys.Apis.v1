@@ -4,16 +4,17 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Activities.Requests
 {
-    public class FilterActivitiesRequest: StratsysClientRequest<IList<ActivityDto>>
+    public class FilterActivitiesRequest : StratsysClientRequest<IList<ActivityDto>>
     {
         public FilterActivitiesRequest(
-            IClientService clientService, 
-            string id, 
-            string departmentId, 
-            string name, 
+            IClientService clientService,
+            string id,
+            string departmentId,
+            string name,
             string scorecardId,
             string statusId
-            ) : base(clientService)
+            )
+            : base(clientService)
         {
             RequestParameters.Add("id", id);
             RequestParameters.Add("departmentId", departmentId);

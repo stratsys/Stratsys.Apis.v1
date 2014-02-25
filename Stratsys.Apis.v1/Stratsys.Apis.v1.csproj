@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\Activities\Requests\FilterActivitiesRequest.cs" />
+    <Compile Include="Apis\Activities\Requests\GetStatusForActivityRequest.cs" />
     <Compile Include="Apis\Activities\Requests\GetStatusRequest.cs" />
     <Compile Include="Apis\Activities\Requests\ListStatusesRequest.cs" />
+    <Compile Include="Apis\Activities\Requests\UpdateStatusForActivityRequest.cs" />
     <Compile Include="Apis\Activities\Resources\ActivityResource.cs" />
     <Compile Include="Apis\Activities\Resources\StatusResource.cs" />
     <Compile Include="Apis\Activities\Services\StatusService.cs" />
@@ -64,6 +66,10 @@
     <Compile Include="Apis\Comments\Requests\UpdateCommentRequest.cs" />
     <Compile Include="Apis\Comments\Resources\CommentResource.cs" />
     <Compile Include="Apis\Comments\Services\CommentService.cs" />
+    <Compile Include="Apis\Gadgets\Requests\GetUserReportingListRequest.cs" />
+    <Compile Include="Apis\Gadgets\Requests\ListReportingListsRequest.cs" />
+    <Compile Include="Apis\Gadgets\Resources\ReportingListResource.cs" />
+    <Compile Include="Apis\Gadgets\Services\ReportingListService.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiColumnsRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpiDataRequest.cs" />
     <Compile Include="Apis\Kpis\Requests\FilterKpisRequest.cs" />
@@ -77,6 +83,7 @@
     <Compile Include="Apis\Organization\Requests\FilterDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\FilterUsersRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetDepartmentRequest.cs" />
+    <Compile Include="Apis\Organization\Requests\GetUserRequest.cs" />
     <Compile Include="Apis\Organization\Requests\ListDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\SaveOrUpdateDepartmentRequest.cs" />
     <Compile Include="Apis\Organization\Resources\DepartmentResource.cs" />
@@ -102,14 +109,19 @@
     <Compile Include="Apis\StratsysClientService.cs" />
     <Compile Include="Dtos\Activities\ActivityDto.cs" />
     <Compile Include="Dtos\Activities\StatusDto.cs" />
+    <Compile Include="Dtos\Activities\UpdateStatusDto.cs" />
     <Compile Include="Dtos\Comments\AddCommentDto.cs" />
     <Compile Include="Dtos\Comments\CommentDto.cs" />
     <Compile Include="Dtos\Comments\UpdateCommentDto.cs" />
+    <Compile Include="Dtos\Gadgets\UserReportingListDto.cs" />
+    <Compile Include="Dtos\Gadgets\ReportingListDto.cs" />
+    <Compile Include="Dtos\Gadgets\ReportingListNode.cs" />
     <Compile Include="Dtos\Kpis\KpiColumnDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDataDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDto.cs" />
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
+    <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
     <Compile Include="Dtos\Scorecards\TextNodeDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />

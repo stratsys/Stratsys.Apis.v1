@@ -21,5 +21,10 @@ namespace Stratsys.Apis.v1.Apis.Organization.Resources
         {
             return new FilterUsersRequest(m_service, email, name);
         }
+
+        public GetUserRequest Get(string id)
+        {
+            return new GetUserRequest(m_service, id);
+        }
     }
 }

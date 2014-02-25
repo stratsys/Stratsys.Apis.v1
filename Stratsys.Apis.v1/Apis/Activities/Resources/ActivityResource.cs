@@ -1,4 +1,5 @@
 ﻿using Stratsys.Apis.v1.Apis.Activities.Requests;
+using Stratsys.Apis.v1.Dtos.Activities;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Activities.Resources
@@ -21,6 +22,16 @@ namespace Stratsys.Apis.v1.Apis.Activities.Resources
             )
         {
             return new FilterActivitiesRequest(m_service, id, departmentId, name, scorecardId, statusId);
+        }
+
+        public UpdateStatusForActivityRequest UpdateStatus(UpdateStatusDto updateStatusDto)
+        {
+            return new UpdateStatusForActivityRequest(m_service, updateStatusDto);
+        }
+
+        public GetStatusForActivityRequest GetStatus(string activityId, string departmentId = null)
+        {
+            return new GetStatusForActivityRequest(m_service, activityId, departmentId);
         }
     }
 }

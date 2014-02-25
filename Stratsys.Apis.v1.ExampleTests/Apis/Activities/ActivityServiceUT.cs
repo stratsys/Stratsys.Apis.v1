@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Stratsys.Apis.v1.Dtos.Activities;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
 {
@@ -52,6 +53,28 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             Assert.That(activity.Id, Is.EqualTo(expectedId));
             Assert.That(activity.DepartmentId, Is.EqualTo(departmentId));
             Assert.That(activity.StatusId, Is.EqualTo(expectedStatusId));
+        }
+
+        [TestCase("sa", "1", "20707", "4")]
+        public void Update_status(string userId, string departmentId, string activityId, string statusId)
+        {
+            var updateStatus = new UpdateStatusDto
+            {
+                ActivityId = activityId,
+                DepartmentId = departmentId,
+                UserId = userId,
+                StatusId = statusId
+            };
+
+            var result = Api.Activities.UpdateStatus(updateStatus).Fetch().Result;
+            Assert.That(result, Is.EqualTo(statusId));
+        }
+
+        [TestCase("20707", "1", "4")]
+        public void Get_status(string activityId, string departmentId, string expectedStatusId)
+        {
+            var status = Api.Activities.GetStatus(activityId, departmentId).Fetch().Result;
+            Assert.That(status.Id, Is.EqualTo(expectedStatusId));
         }
     }
 }

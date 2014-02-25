@@ -23,6 +23,18 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(users.Count, Is.EqualTo(expectedCount));
         }
 
+        [TestCase("98", "98", "ludant", "no@thanks.com")]
+        [TestCase("ludant", "98", "ludant", "no@thanks.com")]
+        [TestCase("o@thanks.com", "98", "ludant", "no@thanks.com")]
+        public void Get_user_by_multiple_different_ids(string id, 
+            string expectedId, string expectedUsername, string expectedEmail)
+        {
+            var user = Api.Users.Get(id).Fetch().Result;
+            Assert.That(user.Id, Is.EqualTo(expectedId));
+            Assert.That(user.Username, Is.EqualTo(expectedUsername));
+            Assert.That(user.Email, Is.EqualTo(expectedEmail));
+        }
+
         [TestCase("no@thanks.com", "98", "Ludvig", "Antonsson", "ludant")]
         [TestCase("no@mail.com", null, null, null, null)]
         public void Get_user_by_email(string emailFilter, 

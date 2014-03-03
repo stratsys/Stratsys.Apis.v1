@@ -57,13 +57,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
             Assert.That(reportingListNodes.Count, Is.EqualTo(1));
             var reportingListNode = reportingListNodes[0];
 
+            Assert.That(reportingListNode.NodeType, Is.EqualTo(NodeTypeDto.Activity + ""));
             Assert.That(reportingListNode.DepartmentId, Is.EqualTo("16"));
             Assert.That(reportingListNode.DepartmentName, Is.EqualTo("Administrativa avdelningen"));
             Assert.That(reportingListNode.NodeId, Is.EqualTo("7595"));
             Assert.That(reportingListNode.NodeName, Is.EqualTo("Återkoppling på ledningsgrupp per tertial"));
             Assert.That(reportingListNode.ScorecardId, Is.EqualTo("1"));
             Assert.That(reportingListNode.ScorecardName, Is.EqualTo("Verksamhetsplan"));
-            Assert.That(reportingListNode.NodeType, Is.EqualTo(NodeTypeDto.Activity));
             Assert.That(reportingListNode.ImageTooltip, Is.EqualTo("Försenad"));
             Assert.That(reportingListNode.ImageUrl, Is.StringEnding("Images/NodeColors/delayed.png"));
             Assert.That(reportingListNode.PeriodName, Is.Null);
@@ -77,5 +77,36 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
             Assert.That(deadlineModel.DaysDelayed, Is.EqualTo(123));
             Assert.That(deadlineModel.Text, Is.EqualTo("Försenad 123 dagar"));
         }
+
+        [TestCase("4", "reporting.list@users.se")]
+        public void Get_detailed_reporting_list_for_user_Kpi_is_not_delayed(string reportTableFilterId, string userId)
+        {
+            var userReportingListItems = Api.ReportingLists.GetItemsForUser(reportTableFilterId, userId, true).Fetch().Result;
+
+            var reportingListNodes = userReportingListItems.Nodes;
+            Assert.That(reportingListNodes.Count, Is.EqualTo(6));
+            var reportingListNode = reportingListNodes[5];
+
+            Assert.That(reportingListNode.NodeType, Is.EqualTo(NodeTypeDto.Kpi + ""));
+            Assert.That(reportingListNode.DepartmentId, Is.EqualTo("16"));
+            Assert.That(reportingListNode.DepartmentName, Is.EqualTo("Administrativa avdelningen"));
+            Assert.That(reportingListNode.NodeId, Is.EqualTo("7591"));
+            Assert.That(reportingListNode.NodeName, Is.EqualTo("Nöjd uppdragsgivarindex"));
+            Assert.That(reportingListNode.ScorecardId, Is.EqualTo("1"));
+            Assert.That(reportingListNode.ScorecardName, Is.EqualTo("Verksamhetsplan"));
+            Assert.That(reportingListNode.PeriodName, Is.EqualTo("2014"));
+            Assert.That(reportingListNode.ImageUrl, Is.Null);
+            Assert.That(reportingListNode.ImageTooltip, Is.Null);
+
+            var actionModel = reportingListNode.Action;
+            Assert.That(actionModel.CssClass, Is.EqualTo("showNode"));
+            Assert.That(actionModel.Text, Is.EqualTo("Visa"));
+
+            var deadlineModel = reportingListNode.Deadline;
+            Assert.That(deadlineModel.CssClass, Is.EqualTo("deadlineDefault"));
+            Assert.That(deadlineModel.DaysDelayed, Is.EqualTo(-303));
+            Assert.That(deadlineModel.Text, Is.EqualTo("2014-12-31"));
+        }
+
     }
 }

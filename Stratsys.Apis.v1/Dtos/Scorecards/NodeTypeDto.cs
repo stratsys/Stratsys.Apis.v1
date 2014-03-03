@@ -2,7 +2,7 @@
 {
     public enum NodeTypeDto
     {
-        Text = 1,
+        Goal = 1,
         Kpi = 2,
         Activity = 3,
     }

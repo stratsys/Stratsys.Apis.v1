@@ -1,6 +1,6 @@
 ﻿namespace Stratsys.Apis.v1.Dtos.Scorecards
 {
-    public class TextNodeDto
+    public class GoalDto
     {
         public string Id { get; set; }
         public string DepartmentId { get; set; }

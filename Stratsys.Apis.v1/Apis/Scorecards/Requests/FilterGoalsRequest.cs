@@ -4,9 +4,9 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Requests
 {
-    public class FilterTextNodesRequest : StratsysClientRequest<IList<TextNodeDto>>
+    public class FilterGoalsRequest : StratsysClientRequest<IList<GoalDto>>
     {
-        public FilterTextNodesRequest(
+        public FilterGoalsRequest(
             IClientService clientService, 
             string id, 
             string departmentId, 

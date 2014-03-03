@@ -66,6 +66,7 @@
     <Compile Include="Apis\Comments\Requests\UpdateCommentRequest.cs" />
     <Compile Include="Apis\Comments\Resources\CommentResource.cs" />
     <Compile Include="Apis\Comments\Services\CommentService.cs" />
+    <Compile Include="Apis\Gadgets\Requests\FilterReportingListsRequest.cs" />
     <Compile Include="Apis\Gadgets\Requests\GetUserReportingListRequest.cs" />
     <Compile Include="Apis\Gadgets\Requests\ListReportingListsRequest.cs" />
     <Compile Include="Apis\Gadgets\Resources\ReportingListResource.cs" />
@@ -90,12 +91,12 @@
     <Compile Include="Apis\Organization\Resources\UserResource.cs" />
     <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
-    <Compile Include="Apis\Scorecards\Requests\FilterTextNodesRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\FilterGoalsRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
-    <Compile Include="Apis\Scorecards\Resources\TextNodeResource.cs" />
+    <Compile Include="Apis\Scorecards\Resources\GoalResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
-    <Compile Include="Apis\Scorecards\Services\TextNodeService.cs" />
+    <Compile Include="Apis\Scorecards\Services\GoalService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
     <Compile Include="Apis\Shared\Requests\GetPeriodicityRequest.cs" />
     <Compile Include="Apis\Shared\Requests\ListPeriodicitiesRequest.cs" />
@@ -122,7 +123,7 @@
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
-    <Compile Include="Dtos\Scorecards\TextNodeDto.cs" />
+    <Compile Include="Dtos\Scorecards\GoalDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />

@@ -22,7 +22,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             Assert.That(kpis.Count, Is.EqualTo(expectedNumberOfKpis));
         }
 
-        [TestCase("1", 167)]
+        [TestCase("1", 154)]
         public void When_filtering_on_kpis_by_departmentId_Should_get_filtered_kpis(string departmentFilter, int expectedNumberOfKpis)
         {
             var kpis = Kpis.Filter(departmentId: departmentFilter).Fetch().Result;

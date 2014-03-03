@@ -25,7 +25,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 
         [TestCase("98", "98", "ludant", "no@thanks.com")]
         [TestCase("ludant", "98", "ludant", "no@thanks.com")]
-        [TestCase("o@thanks.com", "98", "ludant", "no@thanks.com")]
+        [TestCase("no@thanks.com", "98", "ludant", "no@thanks.com")]
         public void Get_user_by_multiple_different_ids(string id, 
             string expectedId, string expectedUsername, string expectedEmail)
         {

@@ -1,3 +1,4 @@
+using System.Linq;
 using NUnit.Framework;
 using Stratsys.Apis.v1.Dtos.Activities;
 
@@ -55,9 +56,14 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             Assert.That(activity.StatusId, Is.EqualTo(expectedStatusId));
         }
 
-        [TestCase("sa", "1", "20707", "4")]
+        [TestCase("ludant", "5", "21513", "6")]
         public void Update_status(string userId, string departmentId, string activityId, string statusId)
         {
+            var activities = Api.Activities;
+            var activity = activities.Filter(activityId, departmentId).Fetch().Result.FirstOrDefault();
+            Assert.That(activity, Is.Not.Null);
+            var oldStatusId = activity.StatusId;
+
             var updateStatus = new UpdateStatusDto
             {
                 ActivityId = activityId,
@@ -65,12 +71,17 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
                 UserId = userId,
                 StatusId = statusId
             };
-
-            var result = Api.Activities.UpdateStatus(updateStatus).Fetch().Result;
+            
+            var result = activities.UpdateStatus(updateStatus).Fetch().Result;
             Assert.That(result, Is.EqualTo(statusId));
+
+            //reset status
+            updateStatus.StatusId = oldStatusId;
+            result = activities.UpdateStatus(updateStatus).Fetch().Result;
+            Assert.That(result, Is.EqualTo(oldStatusId));
         }
 
-        [TestCase("20707", "1", "4")]
+        [TestCase("21513", "5", "3")]
         public void Get_status(string activityId, string departmentId, string expectedStatusId)
         {
             var status = Api.Activities.GetStatus(activityId, departmentId).Fetch().Result;

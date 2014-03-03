@@ -61,9 +61,9 @@ namespace Stratsys.Apis.v1.Apis
             get { return new ScorecardService(ClientId, ClientSecret).Scorecards; }
         }
 
-        public TextNodeResource TextNodes
+        public GoalResource Goals
         {
-            get { return new TextNodeService(ClientId, ClientSecret).TextNodes; }
+            get { return new GoalService(ClientId, ClientSecret).Goals; }
         }
 
         public ActivityResource Activities

@@ -7,11 +7,11 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
 {
     public class ExampleFlow_GetReportingListForUserAndTickOffItems : BaseTest
     {
-        [TestCase("sa", 5, "2")]
+        [TestCase("reporting.list@users.se", 5, "6")]
         public void Get_reporting_list_items_for_user_And_change_status_or_comment(string userId, int numberOfExpectedItems, string newStatusId)
         {
             var reportingLists = Api.ReportingLists.List().Fetch().Result;
-            var reportingList = reportingLists.Single(l => l.NodeType == NodeTypeDto.Activity && l.Name.Contains("Mina aktuella åtgärder") && l.Id == "2");
+            var reportingList = reportingLists.Single(l => l.NodeType == NodeTypeDto.Activity + "" && l.Name.Contains("Mina aktuella åtgärder") && l.Id == "2");
 
             var userReportingList = Api.ReportingLists.GetItemsForUser(reportingList.Id, userId).Fetch().Result;
             Assert.That(userReportingList.Nodes.Count, Is.EqualTo(5));

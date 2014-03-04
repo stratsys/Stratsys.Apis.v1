@@ -76,6 +76,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         }
 
         [TestCase("133", "newName", "newShortName")]
+        [TestCase("133", "othernewName", "othernewShortName")]
         public void When_updating_name_for_department_Should_get_updated_department(string id, string newName, string newShortName)
         {
             var departmentDto = new DepartmentDto

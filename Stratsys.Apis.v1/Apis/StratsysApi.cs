@@ -51,6 +51,11 @@ namespace Stratsys.Apis.v1.Apis
             get { return new DepartmentService(ClientId, ClientSecret).Departments; }
         }
 
+        public GroupResource Groups
+        {
+            get { return new GroupService(ClientId, ClientSecret).Groups; }
+        }
+
         public UserResource Users
         {
             get { return new UserService(ClientId, ClientSecret).Users; }

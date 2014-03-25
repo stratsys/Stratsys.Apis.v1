@@ -26,7 +26,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         [TestCase("98", "98", "ludant", "no@thanks.com")]
         [TestCase("ludant", "98", "ludant", "no@thanks.com")]
         [TestCase("no@thanks.com", "98", "ludant", "no@thanks.com")]
-        public void Get_user_by_multiple_different_ids(string id, 
+        public void Get_user_by_multiple_different_ids(string id,
             string expectedId, string expectedUsername, string expectedEmail)
         {
             var user = Api.Users.Get(id).Fetch().Result;
@@ -37,7 +37,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 
         [TestCase("no@thanks.com", "98", "Ludvig", "Antonsson", "ludant")]
         [TestCase("no@mail.com", null, null, null, null)]
-        public void Get_user_by_email(string emailFilter, 
+        public void Get_user_by_email(string emailFilter,
             string expectedId, string expectedFirstName, string expectedLastName, string expectedUsername)
         {
             var users = Api.Users.Filter(emailFilter).Fetch().Result;

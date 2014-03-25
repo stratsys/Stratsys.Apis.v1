@@ -63,6 +63,7 @@
     <Compile Include="Apis\Kpis\KpiDataServiceUT.cs" />
     <Compile Include="Apis\Kpis\KpiServiceUT.cs" />
     <Compile Include="Apis\Organizations\DepartmentServiceUT.cs" />
+    <Compile Include="Apis\Organizations\GroupServiceUT.cs" />
     <Compile Include="Apis\Organizations\UserServiceUT.cs" />
     <Compile Include="Apis\Activities\ActivityServiceUT.cs" />
     <Compile Include="Apis\Scorecards\GoalServiceUT.cs" />

@@ -84,12 +84,16 @@
     <Compile Include="Apis\Organization\Requests\FilterDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\FilterUsersRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetDepartmentRequest.cs" />
+    <Compile Include="Apis\Organization\Requests\GetGroupRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetUserRequest.cs" />
     <Compile Include="Apis\Organization\Requests\ListDepartmentsRequest.cs" />
+    <Compile Include="Apis\Organization\Requests\ListGroupsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\SaveOrUpdateDepartmentRequest.cs" />
     <Compile Include="Apis\Organization\Resources\DepartmentResource.cs" />
+    <Compile Include="Apis\Organization\Resources\GroupResource.cs" />
     <Compile Include="Apis\Organization\Resources\UserResource.cs" />
     <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
+    <Compile Include="Apis\Organization\Services\GroupService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterGoalsRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
@@ -121,6 +125,7 @@
     <Compile Include="Dtos\Kpis\KpiDataDto.cs" />
     <Compile Include="Dtos\Kpis\KpiDto.cs" />
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
+    <Compile Include="Dtos\Organization\GroupDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
     <Compile Include="Dtos\Scorecards\GoalDto.cs" />

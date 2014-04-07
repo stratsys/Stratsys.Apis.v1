@@ -102,12 +102,19 @@
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
     <Compile Include="Apis\Scorecards\Services\GoalService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
+    <Compile Include="Apis\Shared\Requests\GetIdMappingRequest.cs" />
+    <Compile Include="Apis\Shared\Requests\SaveOrUpdateIdMappingRequest.cs" />
+    <Compile Include="Apis\Shared\Requests\DeleteIdMappingRequest.cs" />
+    <Compile Include="Apis\Shared\Requests\FilterIdMappingsRequest.cs" />
     <Compile Include="Apis\Shared\Requests\GetPeriodicityRequest.cs" />
+    <Compile Include="Apis\Shared\Requests\ListIdMappingTypesRequest.cs" />
     <Compile Include="Apis\Shared\Requests\ListPeriodicitiesRequest.cs" />
+    <Compile Include="Apis\Shared\Resources\IdMappingResource.cs" />
     <Compile Include="Apis\Shared\Resources\PeriodicityResource.cs" />
     <Compile Include="Apis\Shared\Services\AuthorizationService.cs" />
     <Compile Include="Apis\Shared\Requests\CheckAccessRequest.cs" />
     <Compile Include="Apis\Shared\Resources\AuthorizationResource.cs" />
+    <Compile Include="Apis\Shared\Services\IdMappingService.cs" />
     <Compile Include="Apis\Shared\Services\PeriodicityService.cs" />
     <Compile Include="Apis\StratsysApi.cs" />
     <Compile Include="Apis\StratsysClientRequest.cs" />
@@ -130,6 +137,7 @@
     <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
     <Compile Include="Dtos\Scorecards\GoalDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
+    <Compile Include="Dtos\Shared\IdMapping.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

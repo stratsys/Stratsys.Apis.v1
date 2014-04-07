@@ -69,6 +69,8 @@
     <Compile Include="Apis\Scorecards\GoalServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
     <Compile Include="Apis\Shared\AuthorizationServiceUT.cs" />
+    <Compile Include="Apis\Shared\ExampleFlow_UseIdMappingForDepartment.cs" />
+    <Compile Include="Apis\Shared\IdMappingServiceUT.cs" />
     <Compile Include="Apis\Shared\PeriodicityServiceUT.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

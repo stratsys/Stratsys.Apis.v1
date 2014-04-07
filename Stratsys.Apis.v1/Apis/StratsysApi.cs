@@ -95,5 +95,10 @@ namespace Stratsys.Apis.v1.Apis
         {
             get { return new ReportingListService(ClientId, ClientSecret).ReportingLists; }
         }
+
+        public IdMappingResource IdMappings
+        {
+            get { return new IdMappingService(ClientId, ClientSecret).IdMappings; }
+        }
     }
 }

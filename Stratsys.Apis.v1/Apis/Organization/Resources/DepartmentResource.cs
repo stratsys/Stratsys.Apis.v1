@@ -18,14 +18,23 @@ namespace Stratsys.Apis.v1.Apis.Organization.Resources
             return new ListDepartmentsRequest(m_service);
         }
 
-        public FilterDepartmentsRequest Filter(string name = null, string parentId = null)
+        public FilterDepartmentsRequest Filter(
+            string name = null,
+            string parentId = null,
+            int maxResults = 100
+            )
         {
-            return new FilterDepartmentsRequest(m_service, name, parentId);
+            return new FilterDepartmentsRequest(m_service, name, parentId, maxResults);
         }
 
         public GetDepartmentRequest Get(string id)
         {
             return new GetDepartmentRequest(m_service, id);
+        }
+
+        public GetDepartmentRootRequest GetRoot()
+        {
+            return new GetDepartmentRootRequest(m_service);
         }
 
         public SaveOrUpdateDepartmentRequest SaveOrUpdate(DepartmentDto department)

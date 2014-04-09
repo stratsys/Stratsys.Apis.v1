@@ -84,6 +84,7 @@
     <Compile Include="Apis\Organization\Requests\FilterDepartmentsRequest.cs" />
     <Compile Include="Apis\Organization\Requests\FilterUsersRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetDepartmentRequest.cs" />
+    <Compile Include="Apis\Organization\Requests\GetDepartmentRootRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetGroupRequest.cs" />
     <Compile Include="Apis\Organization\Requests\GetUserRequest.cs" />
     <Compile Include="Apis\Organization\Requests\ListDepartmentsRequest.cs" />

@@ -5,7 +5,6 @@ using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Apis.Organization.Resources;
 using Stratsys.Apis.v1.Apis.Organization.Services;
 using Stratsys.Apis.v1.Dtos.Kpis;
-using Stratsys.Apis.v1.Tests;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
 {

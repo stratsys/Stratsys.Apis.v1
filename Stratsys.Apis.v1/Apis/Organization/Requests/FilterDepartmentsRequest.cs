@@ -6,11 +6,17 @@ namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
     public class FilterDepartmentsRequest : StratsysClientRequest<List<DepartmentDto>>
     {
-        public FilterDepartmentsRequest(IClientService service, string name, string parentId)
+        public FilterDepartmentsRequest(
+            IClientService service,
+            string name,
+            string parentId,
+            int maxResults
+            )
             : base(service)
         {
             RequestParameters.Add("name", name);
             RequestParameters.Add("parentId", parentId);
+            RequestParameters.Add("maxResults", maxResults + "");
         }
 
         public override string RestPath

@@ -10,11 +10,18 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {
     public class DepartmentServiceUT : BaseTest
     {
-        [Test]
-        public void When_listing_departments_Should_get_departments()
+        [TestCase(152)]
+        public void When_listing_departments_Should_get_departments(int expectedNumberOfDepartments)
         {
             var departments = Departments.List().Fetch().Result;
-            Assert.That(departments, Is.Not.Empty);
+            Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
+        }
+
+        [TestCase(50)]
+        public void When_filtering_on_departments_with_max_result_Should_get_departments(int expectedNumberOfDepartments)
+        {
+            var departments = Departments.Filter(maxResults: 50).Fetch().Result;
+            Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase("kommun", 3)]
@@ -52,6 +59,18 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(stratsysApiMetadata.Success, Is.False);
             Assert.That(stratsysApiMetadata.Message, Is.EqualTo("Department undefined: 123456"));
             Assert.That(stratsysApiMetadata.Result, Is.Null);
+        }
+
+        [TestCase("1", "Kommunfullmäktige", "organisation", null)]
+        public void When_retrieving_root_department_Should_return_department(string id, string expectedName, string expectedShortName, string expectedParentId)
+        {
+            var department = Departments.GetRoot().Fetch().Result;
+
+            Assert.That(department, Is.Not.Null);
+            Assert.That(department.Id, Is.EqualTo(id));
+            Assert.That(department.Name, Is.EqualTo(expectedName));
+            Assert.That(department.ShortName, Is.EqualTo(expectedShortName));
+            Assert.That(department.ParentId, Is.EqualTo(expectedParentId));
         }
 
         [TestCase("133")]

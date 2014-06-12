@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Organization.Services
 {
     public class DepartmentService : StratsysClientService
     {
-        public DepartmentService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public DepartmentService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             Departments = new DepartmentResource(this);
         }

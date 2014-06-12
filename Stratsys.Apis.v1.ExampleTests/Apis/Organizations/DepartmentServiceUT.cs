@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Net;
 using NUnit.Framework;
-using Stratsys.Apis.v1.Apis.Organization.Resources;
-using Stratsys.Apis.v1.Apis.Organization.Services;
 using Stratsys.Apis.v1.Dtos.Organization;
-using Stratsys.Apis.v1.Tests;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {
@@ -13,35 +10,35 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         [TestCase(152)]
         public void When_listing_departments_Should_get_departments(int expectedNumberOfDepartments)
         {
-            var departments = Departments.List().Fetch().Result;
+            var departments = Api.Departments.List().Fetch().Result;
             Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase(50)]
         public void When_filtering_on_departments_with_max_result_Should_get_departments(int expectedNumberOfDepartments)
         {
-            var departments = Departments.Filter(maxResults: 50).Fetch().Result;
+            var departments = Api.Departments.Filter(maxResults: 50).Fetch().Result;
             Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase("kommun", 3)]
         public void When_filtering_on_departments_by_name_Should_get_filtered_departments(string nameFilter, int expectedNumberOfDepartments)
         {
-            var departments = Departments.Filter(nameFilter).Fetch().Result;
+            var departments = Api.Departments.Filter(nameFilter).Fetch().Result;
             Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase("5", 10)]
         public void When_filtering_on_departments_by_parentId_Should_get_filtered_departments(string parentIdFilter, int expectedNumberOfDepartments)
         {
-            var departments = Departments.Filter(parentId: parentIdFilter).Fetch().Result;
+            var departments = Api.Departments.Filter(parentId: parentIdFilter).Fetch().Result;
             Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase("2", "Skol- och fritidsnämnden", "Skol- och fritidsnämnden", "1")]
         public void When_retrieving_department_by_id_Should_get_department(string id, string expectedName, string expectedShortName, string expectedParentId)
         {
-            var department = Departments.Get(id).Fetch().Result;
+            var department = Api.Departments.Get(id).Fetch().Result;
             Assert.That(department, Is.Not.Null);
             Assert.That(department.Id, Is.EqualTo(id));
             Assert.That(department.Name, Is.EqualTo(expectedName));
@@ -52,7 +49,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         [TestCase("123456")]
         public void When_retrieving_department_by_non_existing_id_Should_fail(string id)
         {
-            var getDepartmentRequest = Departments.Get(id);
+            var getDepartmentRequest = Api.Departments.Get(id);
             Assert.That(getDepartmentRequest.GetHttpResponse().StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
 
             var stratsysApiMetadata = getDepartmentRequest.Fetch();
@@ -64,7 +61,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         [TestCase("1", "Kommunfullmäktige", "organisation", null)]
         public void When_retrieving_root_department_Should_return_department(string id, string expectedName, string expectedShortName, string expectedParentId)
         {
-            var department = Departments.GetRoot().Fetch().Result;
+            var department = Api.Departments.GetRoot().Fetch().Result;
 
             Assert.That(department, Is.Not.Null);
             Assert.That(department.Id, Is.EqualTo(id));
@@ -85,9 +82,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 ShortName = shortName,
                 ParentId = parentId
             };
-            var departmentId = Departments.SaveOrUpdate(departmentDto).Fetch().Result;
+            var departmentId = Api.Departments.SaveOrUpdate(departmentDto).Fetch().Result;
             Assert.That(departmentId, Is.Not.Null.Or.Empty);
-            var department = Departments.Get(departmentId).Fetch().Result;
+            var department = Api.Departments.Get(departmentId).Fetch().Result;
             Assert.That(department.Id, Is.Not.Null.Or.Empty);
             Assert.That(department.Name, Is.EqualTo(name));
             Assert.That(department.ShortName, Is.EqualTo(shortName));
@@ -104,9 +101,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 Name = newName,
                 ShortName = newShortName
             };
-            var departmentId = Departments.SaveOrUpdate(departmentDto).Fetch().Result;
+            var departmentId = Api.Departments.SaveOrUpdate(departmentDto).Fetch().Result;
             Assert.That(departmentId, Is.Not.Null.Or.Empty);
-            var department = Departments.Get(departmentId).Fetch().Result;
+            var department = Api.Departments.Get(departmentId).Fetch().Result;
             Assert.That(department.Id, Is.Not.Null.Or.Empty);
             Assert.That(department.Name, Is.EqualTo(newName));
             Assert.That(department.ShortName, Is.EqualTo(newShortName));
@@ -118,27 +115,19 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         [TestCase("MovedInPlanning", 1)]
         public void Filter_by_name_in_active_version(string nameFilter, int expectedNumberOfDepartments)
         {
-            var departments = Departments.Filter(nameFilter).Fetch().Result;
+            var departments = Api.Departments.Filter(nameFilter).Fetch().Result;
             Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
         }
 
         [TestCase("151", "MovedInPlanning", "MIP", "150")]
         public void Get_department_by_id_in_active_version(string id, string expectedName, string expectedShortName, string expectedParentId)
         {
-            var department = Departments.Get(id).Fetch().Result;
+            var department = Api.Departments.Get(id).Fetch().Result;
             Assert.That(department, Is.Not.Null);
             Assert.That(department.Id, Is.EqualTo(id));
             Assert.That(department.Name, Is.EqualTo(expectedName));
             Assert.That(department.ShortName, Is.EqualTo(expectedShortName));
             Assert.That(department.ParentId, Is.EqualTo(expectedParentId));
-        }
-
-        private DepartmentResource Departments
-        {
-            get
-            {
-                return new DepartmentService(ClientId, ClientSecret).Departments;
-            }
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using Stratsys.Apis.v1.Apis.Comments.Resources;
-using Stratsys.Apis.v1.Apis.Comments.Services;
 using Stratsys.Apis.v1.Dtos.Comments;
 using Stratsys.Apis.v1.ExampleTests;
 

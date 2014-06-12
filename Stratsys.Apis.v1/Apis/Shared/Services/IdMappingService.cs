@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Shared.Services
 {
     public class IdMappingService : StratsysClientService
     {
-        public IdMappingService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public IdMappingService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             IdMappings = new IdMappingResource(this);
         }

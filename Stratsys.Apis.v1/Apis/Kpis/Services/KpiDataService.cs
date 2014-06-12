@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Kpis.Services
 {
     public class KpiDataService : StratsysClientService
     {
-        public KpiDataService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public KpiDataService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             KpiData = new KpiDataResource(this);
         }

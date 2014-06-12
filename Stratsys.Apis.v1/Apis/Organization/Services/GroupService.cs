@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Organization.Services
 {
     public class GroupService : StratsysClientService
     {
-        public GroupService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public GroupService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             Groups = new GroupResource(this);
         }

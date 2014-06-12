@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Stratsys.Apis.v1.Tests;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {

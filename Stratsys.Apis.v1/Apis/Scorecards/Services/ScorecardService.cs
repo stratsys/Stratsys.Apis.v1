@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 {
     public class ScorecardService : StratsysClientService
     {
-        public ScorecardService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public ScorecardService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             Scorecards = new ScorecardResource(this);
         }

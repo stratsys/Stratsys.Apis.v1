@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Gadgets.Services
 {
     public class ReportingListService : StratsysClientService
     {
-        public ReportingListService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public ReportingListService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             ReportingLists = new ReportingListResource(this);
         }

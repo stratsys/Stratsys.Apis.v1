@@ -4,8 +4,7 @@ namespace Stratsys.Apis.v1.Apis.Comments.Services
 {
     public class CommentService : StratsysClientService
     {
-
-        public CommentService(string clientId, string clientSecret) : base(clientId, clientSecret)
+        public CommentService(StratsysAuthentication authentication) : base(authentication)
         {
             Comments = new CommentResource(this);
         }

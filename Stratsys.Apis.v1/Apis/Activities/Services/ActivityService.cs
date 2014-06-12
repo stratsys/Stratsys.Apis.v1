@@ -4,7 +4,7 @@ namespace Stratsys.Apis.v1.Apis.Activities.Services
 {
     public class ActivityService : StratsysClientService
     {
-        public ActivityService(string clientId, string clientSecret) : base(clientId, clientSecret)
+        public ActivityService(StratsysAuthentication authentication) : base(authentication)
         {
             Activities = new ActivityResource(this);
         }

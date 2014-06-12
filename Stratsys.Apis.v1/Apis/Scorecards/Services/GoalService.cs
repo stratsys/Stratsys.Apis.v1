@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 {
     public class GoalService : StratsysClientService
     {
-        public GoalService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public GoalService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             Goals = new GoalResource(this);
         }

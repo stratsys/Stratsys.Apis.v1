@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Shared.Services
 {
     public class AuthorizationService : StratsysClientService
     {
-        public AuthorizationService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public AuthorizationService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             Authorizations = new AuthorizationResource(this);
         }

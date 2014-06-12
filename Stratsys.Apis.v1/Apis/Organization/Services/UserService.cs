@@ -4,8 +4,8 @@ namespace Stratsys.Apis.v1.Apis.Organization.Services
 {
     public class UserService : StratsysClientService
     {
-        public UserService(string clientId, string clientSecret)
-            : base(clientId, clientSecret)
+        public UserService(StratsysAuthentication authentication)
+            : base(authentication)
         {
             Users = new UserResource(this);
         }

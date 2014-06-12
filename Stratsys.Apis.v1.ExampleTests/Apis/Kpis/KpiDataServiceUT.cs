@@ -1,9 +1,6 @@
 using System;
 using NUnit.Framework;
-using Stratsys.Apis.v1.Apis.Kpis.Resources;
-using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Dtos.Kpis;
-using Stratsys.Apis.v1.Tests;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
 {
@@ -12,7 +9,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
         [TestCase("1234567", "1")]
         public void When_filtering_on_kpiData_and_kpi_does_not_exist_Should_fail(string kpiId, string departmentIdFilter)
         {
-            var stratsysApiMetadata = KpiData.Filter(kpiId, departmentIdFilter).Fetch();
+            var stratsysApiMetadata = Api.KpiData.Filter(kpiId, departmentIdFilter).Fetch();
             Assert.That(stratsysApiMetadata.Success, Is.False);
             Assert.That(stratsysApiMetadata.Message, Is.EqualTo("Kpi undefined: 1234567 ('Department: 1')"));
             Assert.That(stratsysApiMetadata.Result, Is.Null);
@@ -21,42 +18,42 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
         [TestCase("16365", "1", 18)]
         public void When_filtering_on_kpiData_by_departmentId_Should_get_filtered_kpiData(string kpiId, string departmentIdFilter, int expectedNumberOfKpiData)
         {
-            var kpiData = KpiData.Filter(kpiId, departmentIdFilter).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, departmentIdFilter).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
         [TestCase("16365", "18094", 3)]
         public void When_filtering_on_kpiData_by_kpiColumnId_Should_get_filtered_kpiData(string kpiId, string kpiColumnId, int expectedNumberOfKpiData)
         {
-            var kpiData = KpiData.Filter(kpiId, kpiColumnId: kpiColumnId).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, kpiColumnId: kpiColumnId).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
         [TestCase("16365", "Utfall Kvinnor/Flickor", 6)]
         public void When_filtering_on_kpiData_by_kpiColumnName_Should_get_filtered_kpiData(string kpiId, string kpiColumnName, int expectedNumberOfKpiData)
         {
-            var kpiData = KpiData.Filter(kpiId, kpiColumnName: kpiColumnName).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, kpiColumnName: kpiColumnName).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
         [TestCase("16365", 0, 6)]
         public void When_filtering_on_kpiData_by_kpiColumnIndex_Should_get_filtered_kpiData(string kpiId, int kpiColumnIndex, int expectedNumberOfKpiData)
         {
-            var kpiData = KpiData.Filter(kpiId, kpiColumnIndex: kpiColumnIndex).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, kpiColumnIndex: kpiColumnIndex).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
         [TestCase("16365", "2011-01-01", 22)]
         public void When_filtering_on_kpiData_by_startDate_Should_get_filtered_kpiData(string kpiId, DateTime startDate, int expectedNumberOfKpiData)
         {
-            var kpiData = KpiData.Filter(kpiId, startDate: startDate).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, startDate: startDate).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
         [TestCase("16365", "2011-01-01", 14)]
         public void When_filtering_on_kpiData_by_endDate_Should_get_filtered_kpiData(string kpiId, DateTime endDate, int expectedNumberOfKpiData)
         {
-            var kpiData = KpiData.Filter(kpiId, endDate: endDate).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, endDate: endDate).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(expectedNumberOfKpiData));
         }
 
@@ -66,7 +63,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             string expectedDate, string expectedKpiColumnName, int expectedKpiColumnIndex, double? expectedValue
             )
         {
-            var kpiData = KpiData.Filter(kpiId, departmentIdFilter, kpiColumnId, startDate: startDate, endDate: endDate).Fetch().Result;
+            var kpiData = Api.KpiData.Filter(kpiId, departmentIdFilter, kpiColumnId, startDate: startDate, endDate: endDate).Fetch().Result;
             Assert.That(kpiData.Count, Is.EqualTo(1));
             var kpiDataSingle = kpiData[0];
             Assert.That(kpiDataSingle.KpiId, Is.EqualTo(kpiId));
@@ -91,7 +88,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
                 Value = value
             };
 
-            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            var newValue = Api.KpiData.SaveOrUpdate(kpiData).Fetch().Result;
             Assert.That(newValue, Is.EqualTo(value));
         }
 
@@ -108,9 +105,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
                 Value = value
             };
 
-            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            var newValue = Api.KpiData.SaveOrUpdate(kpiData).Fetch().Result;
             Assert.That(newValue, Is.EqualTo(value));
-            var kpiDataDtos = KpiData.Filter(kpiId, parentId, kpiColumnName: kpiColumnName, startDate: DateTime.Parse(date), endDate: DateTime.Parse(date)).Fetch().Result;
+            var kpiDataDtos = Api.KpiData.Filter(kpiId, parentId, kpiColumnName: kpiColumnName, startDate: DateTime.Parse(date), endDate: DateTime.Parse(date)).Fetch().Result;
             Assert.That(kpiDataDtos.Count, Is.EqualTo(1));
             Assert.That(kpiDataDtos[0].Value, Is.EqualTo(value));
         }
@@ -128,7 +125,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
                 Value = value
             };
 
-            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            var newValue = Api.KpiData.SaveOrUpdate(kpiData).Fetch().Result;
             Assert.That(newValue, Is.EqualTo(value));
         }
 
@@ -145,7 +142,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
                 Value = value
             };
 
-            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            var newValue = Api.KpiData.SaveOrUpdate(kpiData).Fetch().Result;
             Assert.That(newValue, Is.EqualTo(value));
         }
 
@@ -162,16 +159,8 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
                 Value = value
             };
 
-            var newValue = KpiData.SaveOrUpdate(kpiData).Fetch().Result;
+            var newValue = Api.KpiData.SaveOrUpdate(kpiData).Fetch().Result;
             Assert.That(newValue, Is.EqualTo(oldValue));
-        }
-
-        private KpiDataResource KpiData
-        {
-            get
-            {
-                return new KpiDataService(ClientId, ClientSecret).KpiData;
-            }
         }
     }
 }

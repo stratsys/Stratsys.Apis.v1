@@ -4,7 +4,7 @@ namespace Stratsys.Apis.v1.Apis.Activities.Services
 {
     public class StatusService : StratsysClientService
     {
-        public StatusService(string clientId, string clientSecret) : base(clientId, clientSecret)
+        public StatusService(StratsysAuthentication authentication) : base(authentication)
         {
             Statuses = new StatusResource(this);
         }

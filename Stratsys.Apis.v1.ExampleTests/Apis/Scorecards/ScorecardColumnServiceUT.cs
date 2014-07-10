@@ -23,6 +23,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(column.ScorecardId, Is.EqualTo(expectedScorecardId));
         }
 
+        [TestCase(96)]
+        public void Get_all_columns(int expectedCount)
+        {
+            var scorecardColumns = Api.ScorecardColumns.Filter().Fetch().Result;
+            Assert.That(scorecardColumns.Count, Is.EqualTo(expectedCount));
+        }
+
         [TestCase("1", 9)]
         public void Filter_by_scorecardId(string scorecardId, int expectedCount)
         {
@@ -42,7 +49,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(scorecardColumns.Count, Is.EqualTo(expectedCount));
         }
 
-        [TestCase(0, 18)]
+        [TestCase(0, 19)]
         [TestCase(7, 2)]
         public void Filter_by_index(int index, int expectedCount)
         {
@@ -50,8 +57,8 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(scorecardColumns.Count, Is.EqualTo(expectedCount));
         }
 
-        [TestCase(NodeTypeDto.Goal, 18)]
-        [TestCase(NodeTypeDto.Activity, 18)]
+        [TestCase(NodeTypeDto.Goal, 19)]
+        [TestCase(NodeTypeDto.Activity, 19)]
         public void Filter_by_nodeType(NodeTypeDto nodeType, int expectedCount)
         {
             var scorecardColumns = Api.ScorecardColumns.Filter(nodeType: nodeType).Fetch().Result;

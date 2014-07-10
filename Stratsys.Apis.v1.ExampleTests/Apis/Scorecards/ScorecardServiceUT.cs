@@ -5,7 +5,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 {
     public class ScorecardServiceUT : BaseTest
     {
-        [TestCase(18)]
+        [TestCase(19)]
         public void When_listing_scorecards_Should_get_scorecards(int expectedCount)
         {
             var scorecards = Api.Scorecards.List().Fetch().Result;

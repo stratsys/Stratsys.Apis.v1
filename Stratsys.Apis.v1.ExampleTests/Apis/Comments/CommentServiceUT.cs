@@ -7,7 +7,6 @@ namespace Stratsys.Apis.v1.Tests.Apis.Comments
 {
     public class CommentServiceUT : BaseTest
     {
-
         [TestCase("Arbetskraftens storlek 16-64 år", "1", 2)]
         [TestCase("Arbetskraftens storlek 16-64 år", null, 3)]
         public void Get_comments_for_kpi(

@@ -96,6 +96,7 @@
     <Compile Include="Apis\Organization\Services\DepartmentService.cs" />
     <Compile Include="Apis\Organization\Services\GroupService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
+    <Compile Include="Apis\Scorecards\Requests\CreateGoalRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterGoalsRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterScorecardColumnsRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardColumnRequest.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Dtos\Organization\DepartmentDto.cs" />
     <Compile Include="Dtos\Organization\GroupDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
+    <Compile Include="Dtos\Scorecards\CreateGoalDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
     <Compile Include="Dtos\Scorecards\GoalDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />

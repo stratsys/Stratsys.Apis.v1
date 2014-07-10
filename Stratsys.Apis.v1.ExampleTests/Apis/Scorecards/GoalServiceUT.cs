@@ -1,4 +1,6 @@
+using System;
 using NUnit.Framework;
+using Stratsys.Apis.v1.Dtos.Scorecards;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 {
@@ -62,6 +64,27 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(goal.Name, Is.EqualTo(expectedName));
             Assert.That(goal.Id, Is.EqualTo(expectedId));
             Assert.That(goal.DepartmentId, Is.EqualTo(expectedDepartmentId));
+        }
+
+        [TestCase("5", "160", "619736", "159")]
+        public void When_creating_new_goal_Should_get_id(string departmentId, string columnId, string parentNodeId, string parentColumnId)
+        {
+            var name = Guid.NewGuid() + "";
+            var createGoalDto = new CreateGoalDto
+            {
+                ColumnId = columnId,
+                DepartmentId = departmentId,
+                Name = name,
+                ParentColumnId = parentColumnId,
+                ParentNodeId = parentNodeId
+            };
+            var goalId = Api.Goals.Create(createGoalDto).Fetch().Result;
+            Assert.That(goalId, Is.Not.Null);
+
+            var goal = Api.Goals.Filter(goalId).Fetch().Result[0];
+            Assert.That(goal.Id, Is.EqualTo(goalId));
+            Assert.That(goal.DepartmentId, Is.EqualTo(departmentId));
+            Assert.That(goal.Name, Is.EqualTo(name));
         }
     }
 }

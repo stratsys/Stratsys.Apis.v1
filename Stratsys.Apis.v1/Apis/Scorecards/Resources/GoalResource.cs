@@ -1,4 +1,5 @@
 ﻿using Stratsys.Apis.v1.Apis.Scorecards.Requests;
+using Stratsys.Apis.v1.Dtos.Scorecards;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
@@ -21,6 +22,11 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             )
         {
             return new FilterGoalsRequest(m_service, id, departmentId, name, scorecardId, columnId);
+        }
+
+        public CreateGoalRequest Create(CreateGoalDto dto)
+        {
+            return new CreateGoalRequest(m_service, dto);
         }
     }
 }

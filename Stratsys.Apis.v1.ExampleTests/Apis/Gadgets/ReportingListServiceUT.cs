@@ -70,7 +70,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
 
             var actionModel = reportingListNode.Action;
             Assert.That(actionModel.CssClass, Is.EqualTo("reportNode"));
-            Assert.That(actionModel.Text, Is.EqualTo("Slutuppfölj"));
+            Assert.That(actionModel.Text, Is.EqualTo("Slutuppfölj, Kommentera"));
 
             var deadlineModel = reportingListNode.Deadline;
             Assert.That(deadlineModel.CssClass, Is.EqualTo("deadlineOverdue"));

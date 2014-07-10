@@ -16,9 +16,11 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             string id = null,
             string departmentId = null,
             string name = null,
-            string scorecardId = null)
+            string scorecardId = null,
+            string columnId = null
+            )
         {
-            return new FilterGoalsRequest(m_service, id, departmentId, name, scorecardId);
+            return new FilterGoalsRequest(m_service, id, departmentId, name, scorecardId, columnId);
         }
     }
 }

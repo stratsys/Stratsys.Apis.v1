@@ -25,6 +25,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(goals.Count, Is.EqualTo(expectedNumberOfGoals));
         }
 
+        [TestCase("2", 4)]
+        public void When_filtering_by_columnId_Should_get_filtered_goals(string columnId, int expectedNumberOfGoals)
+        {
+            var goals = Api.Goals.Filter(columnId: columnId).Fetch().Result;
+            Assert.That(goals.Count, Is.EqualTo(4));
+        }
+
         [TestCase("4")]
         public void When_filtering_by_id_Should_get_filtered_goal(string id)
         {

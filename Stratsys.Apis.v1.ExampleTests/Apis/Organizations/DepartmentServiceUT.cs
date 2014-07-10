@@ -7,7 +7,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {
     public class DepartmentServiceUT : BaseTest
     {
-        [TestCase(152)]
+        [TestCase(153)]
         public void When_listing_departments_Should_get_departments(int expectedNumberOfDepartments)
         {
             var departments = Api.Departments.List().Fetch().Result;

@@ -4,7 +4,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {
     public class UserServiceUT : BaseTest
     {
-        [TestCase(349)]
+        [TestCase(348)]
         public void Get_all_users(int expectedCount)
         {
             var users = Api.Users.List().Fetch().Result;

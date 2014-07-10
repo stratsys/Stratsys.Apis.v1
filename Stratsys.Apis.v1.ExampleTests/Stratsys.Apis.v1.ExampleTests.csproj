@@ -67,6 +67,7 @@
     <Compile Include="Apis\Organizations\UserServiceUT.cs" />
     <Compile Include="Apis\Activities\ActivityServiceUT.cs" />
     <Compile Include="Apis\Scorecards\GoalServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardColumnServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
     <Compile Include="Apis\Shared\AuthorizationServiceUT.cs" />
     <Compile Include="Apis\Shared\ExampleFlow_UseIdMappingForDepartment.cs" />

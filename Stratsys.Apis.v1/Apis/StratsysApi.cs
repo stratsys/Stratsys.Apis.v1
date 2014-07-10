@@ -72,6 +72,11 @@ namespace Stratsys.Apis.v1.Apis
             get { return new ScorecardService(m_authentication).Scorecards; }
         }
 
+        public ScorecardColumnResource ScorecardColumns
+        {
+            get { return new ScorecardColumnService(m_authentication).ScorecardColumns; }
+        }
+
         public GoalResource Goals
         {
             get { return new GoalService(m_authentication).Goals; }

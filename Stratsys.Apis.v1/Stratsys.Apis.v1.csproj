@@ -97,11 +97,15 @@
     <Compile Include="Apis\Organization\Services\GroupService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterGoalsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\FilterScorecardColumnsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\GetScorecardColumnRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
     <Compile Include="Apis\Scorecards\Resources\GoalResource.cs" />
+    <Compile Include="Apis\Scorecards\Resources\ScorecardColumnResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
     <Compile Include="Apis\Scorecards\Services\GoalService.cs" />
+    <Compile Include="Apis\Scorecards\Services\ScorecardColumnService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
     <Compile Include="Apis\Shared\Requests\GetIdMappingRequest.cs" />
     <Compile Include="Apis\Shared\Requests\SaveOrUpdateIdMappingRequest.cs" />
@@ -138,6 +142,7 @@
     <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
     <Compile Include="Dtos\Scorecards\GoalDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
+    <Compile Include="Dtos\Scorecards\ScorecardColumnDto.cs" />
     <Compile Include="Dtos\Shared\IdMapping.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />

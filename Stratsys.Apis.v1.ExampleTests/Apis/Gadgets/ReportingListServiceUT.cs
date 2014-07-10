@@ -35,7 +35,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
             Assert.That(reportingList.NodeType, Is.EqualTo(expectedNodeType));
         }
 
-        [TestCase("3", "reporting.list@users.se", false, 1)]
+        [TestCase("3", "reporting.list@users.se", false, 2)]
         [TestCase("3", "reporting.list@users.se", true, 5)]
         public void Get_detailed_activity_reporting_list_for_user_Depends_on_show_all(string reportTableFilterId, string userId, bool? showAll, int expectedNumberOfNodes)
         {
@@ -54,7 +54,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
             var userReportingListItems = Api.ReportingLists.GetItemsForUser(reportTableFilterId, userId, false).Fetch().Result;
 
             var reportingListNodes = userReportingListItems.Nodes;
-            Assert.That(reportingListNodes.Count, Is.EqualTo(1));
+            Assert.That(reportingListNodes.Count, Is.EqualTo(2));
             var reportingListNode = reportingListNodes[0];
 
             Assert.That(reportingListNode.NodeType, Is.EqualTo(NodeTypeDto.Activity + ""));
@@ -104,7 +104,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
 
             var deadlineModel = reportingListNode.Deadline;
             Assert.That(deadlineModel.CssClass, Is.EqualTo("deadlineDefault"));
-            Assert.That(deadlineModel.DaysDelayed, Is.EqualTo(-303));
+            Assert.That(deadlineModel.DaysDelayed, Is.LessThan(0));
             Assert.That(deadlineModel.Text, Is.EqualTo("2014-12-31"));
         }
 

@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Stratsys.Apis.v1.Dtos.Organization;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
 {
@@ -53,6 +54,65 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             {
                 Assert.That(users.Count, Is.EqualTo(0));
             }
+        }
+
+        [TestCase("johnsmith123", "password123", "john.smith@somedomain.com", "1", "1", "John", "Smith")]
+        public void Insert_and_remove_user(string username, string password, string email,
+            string departmentId, string groupId, string firstName, string lastName)
+        {
+            var newUser = new CreateUserDto
+            {
+                Email = email,
+                FirstName = firstName,
+                LastName = lastName,
+                DepartmentId = departmentId,
+                GroupId = groupId,
+                Password = password,
+                Username = username,
+                PhoneMobile = "070-123 45 67",
+                PhoneRegular = "+46 31 123 45 67"
+            };
+            var id = Api.Users.Create(newUser).Fetch().Result;
+            var result = Api.Users.Get(id).Fetch().Result;
+            Assert.That(result.Username, Is.EqualTo(newUser.Username));
+            Assert.That(result.Email, Is.EqualTo(newUser.Email));
+            Assert.That(result.FirstName, Is.EqualTo(newUser.FirstName));
+            Assert.That(result.LastName, Is.EqualTo(newUser.LastName));
+            Assert.That(result.DepartmentId, Is.EqualTo(newUser.DepartmentId));
+            Assert.That(result.GroupId, Is.EqualTo(newUser.GroupId));
+            Assert.That(result.PhoneMobile, Is.EqualTo(newUser.PhoneMobile));
+            Assert.That(result.PhoneRegular, Is.EqualTo(newUser.PhoneRegular));
+
+            Api.Users.Delete(username).Fetch();
+        }
+
+        [TestCase("494", "user123", "user.123@somedomain.com", "1", "1", "User", "123")]
+        public void Update_user(string id, string username, string email,
+            string departmentId, string groupId, string firstName, string lastName)
+        {
+            var user = new UserDto
+            {
+                Id = id,
+                Email = email,
+                FirstName = firstName,
+                LastName = lastName,
+                DepartmentId = departmentId,
+                GroupId = groupId,
+                Username = username,
+                PhoneMobile = "070-123 45 67",
+                PhoneRegular = "+46 31 123 45 67"
+            };
+            var userId = Api.Users.Update(user).Fetch().Result;
+
+            var result = Api.Users.Get(userId).Fetch().Result;
+            Assert.That(result.Username, Is.EqualTo(user.Username));
+            Assert.That(result.Email, Is.EqualTo(user.Email));
+            Assert.That(result.FirstName, Is.EqualTo(user.FirstName));
+            Assert.That(result.LastName, Is.EqualTo(user.LastName));
+            Assert.That(result.DepartmentId, Is.EqualTo(user.DepartmentId));
+            Assert.That(result.GroupId, Is.EqualTo(user.GroupId));
+            Assert.That(result.PhoneMobile, Is.EqualTo(user.PhoneMobile));
+            Assert.That(result.PhoneRegular, Is.EqualTo(user.PhoneRegular));
         }
     }
 }

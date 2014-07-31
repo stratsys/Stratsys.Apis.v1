@@ -12,8 +12,8 @@
 
     public class UserProperties
     {
-        public string MainGroupId { get; set; }
-        public string MainDepartmentId { get; set; }
+        public string GroupId { get; set; }
+        public string DepartmentId { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }

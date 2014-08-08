@@ -14,10 +14,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
-        [TestCase("AK tar kontakt med Måns Barklund på MS för att stämma av BI arkitektu", 2)]
+        [TestCase("Återkoppling på ledningsgrupp per tertial", 1)]
         public void When_filtering_by_name_Should_get_filtered_activities(string nameFilter, int expectedNumberOfActivities)
         {
-            var activities = Api.Activities.Filter(name: nameFilter).Fetch().Result;
+            var activities = Api.Activities.Filter(name:nameFilter).Fetch().Result;
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 

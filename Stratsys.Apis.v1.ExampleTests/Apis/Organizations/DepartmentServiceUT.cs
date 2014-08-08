@@ -11,7 +11,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         public void When_listing_departments_Should_get_departments(int expectedNumberOfDepartments)
         {
             var departments = Api.Departments.List().Fetch().Result;
-            Assert.That(departments.Count, Is.EqualTo(expectedNumberOfDepartments));
+            Assert.That(departments.Count, Is.GreaterThan(expectedNumberOfDepartments));
         }
 
         [TestCase(50)]

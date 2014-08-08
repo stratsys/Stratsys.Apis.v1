@@ -111,5 +111,15 @@ namespace Stratsys.Apis.v1.Apis
         {
             get { return new IdMappingService(m_authentication).IdMappings; }
         }
+
+        public ResponsibilityRoleResource ResponsibilityRoles
+        {
+            get { return new ResponsibilityRoleService(m_authentication).ResponsibilityRoles; }
+        }
+
+        public NodeResponsibleResource NodeResponsibles
+        {
+            get { return new NodeResponsibleService(m_authentication).NodeResponsibles; }
+        }
     }
 }

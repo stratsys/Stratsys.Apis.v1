@@ -1,12 +1,13 @@
-﻿using Stratsys.Core.Apis.Services;
+﻿using Stratsys.Apis.v1.Dtos.Organization;
+using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
-    public class DeleteUserRequest : StratsysClientRequest<bool>
+    public class GetResponsibilityRoleRequest : StratsysClientRequest<ResponsibilityRoleDto>
     {
         private readonly string m_id;
 
-        public DeleteUserRequest(IClientService service, string id)
+        public GetResponsibilityRoleRequest(IClientService service, string id)
             : base(service)
         {
             m_id = id;
@@ -19,7 +20,7 @@ namespace Stratsys.Apis.v1.Apis.Organization.Requests
 
         public override string HttpMethod
         {
-            get { return "DELETE"; }
+            get { return "GET"; }
         }
     }
 }

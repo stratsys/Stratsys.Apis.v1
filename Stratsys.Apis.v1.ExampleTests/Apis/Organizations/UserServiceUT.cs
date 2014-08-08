@@ -72,8 +72,19 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 PhoneMobile = "070-123 45 67",
                 PhoneRegular = "+46 31 123 45 67"
             };
-            var id = Api.Users.Create(newUser).Fetch().Result;
-            var result = Api.Users.Get(id).Fetch().Result;
+            // Guard if test fails half way
+            if (Api.Users.Get(username).Fetch().Success)
+            {
+                Api.Users.Delete(username).Fetch();
+            }
+            var metadata = Api.Users.Create(newUser).Fetch();
+            Assert.That(metadata.Message, Is.Null);
+            Assert.That(metadata.Success);
+            var id = metadata.Result;
+            var metadata2 = Api.Users.Get(id).Fetch();
+            Assert.That(metadata2.Message, Is.Null);
+            Assert.That(metadata2.Success);
+            var result = metadata2.Result;
             Assert.That(result.Username, Is.EqualTo(newUser.Username));
             Assert.That(result.Email, Is.EqualTo(newUser.Email));
             Assert.That(result.FirstName, Is.EqualTo(newUser.FirstName));

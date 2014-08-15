@@ -15,10 +15,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
         [TestCase("1", "Verksamhetsplan")]
         public void When_retrieving_scorecard_by_id_Should_get_scorecard(string id, string expectedName)
         {
-            var department = Api.Scorecards.Get(id).Fetch().Result;
-            Assert.That(department, Is.Not.Null);
-            Assert.That(department.Id, Is.EqualTo(id));
-            Assert.That(department.Name, Is.EqualTo(expectedName));
+            var scorecardDto = Api.Scorecards.Get(id).Fetch().Result;
+            Assert.That(scorecardDto, Is.Not.Null);
+            Assert.That(scorecardDto.Id, Is.EqualTo(id));
+            Assert.That(scorecardDto.Name, Is.EqualTo(expectedName));
         }
 
         [TestCase("123456")]

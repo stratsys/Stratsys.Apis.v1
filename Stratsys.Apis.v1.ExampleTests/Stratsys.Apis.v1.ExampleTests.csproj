@@ -67,6 +67,7 @@
     <Compile Include="Apis\Organizations\ResponsibilityRoleServiceUT.cs" />
     <Compile Include="Apis\Organizations\UserServiceUT.cs" />
     <Compile Include="Apis\Activities\ActivityServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\DescriptionFieldServiceUT.cs" />
     <Compile Include="Apis\Scorecards\NodeResponsibleServiceUT.cs" />
     <Compile Include="Apis\Scorecards\GoalServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardColumnServiceUT.cs" />

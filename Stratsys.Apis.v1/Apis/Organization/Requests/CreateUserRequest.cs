@@ -22,5 +22,7 @@ namespace Stratsys.Apis.v1.Apis.Organization.Requests
         {
             get { return m_user; }
         }
+
     }
+
 }

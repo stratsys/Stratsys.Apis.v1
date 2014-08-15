@@ -18,7 +18,7 @@ namespace Stratsys.Apis.v1.Apis
 {
     public class StratsysApi
     {
-        private readonly StratsysAuthentication m_authentication;
+        private StratsysAuthentication m_authentication;
 
         [Obsolete("Use other constructor.")]
         public StratsysApi(string clientId, string clientSecret)
@@ -28,6 +28,11 @@ namespace Stratsys.Apis.v1.Apis
         }
 
         public StratsysApi(StratsysAuthentication authentication)
+        {
+            m_authentication = authentication;
+        }
+
+        public void SetAuthentication(StratsysAuthentication authentication)
         {
             m_authentication = authentication;
         }
@@ -120,6 +125,11 @@ namespace Stratsys.Apis.v1.Apis
         public NodeResponsibleResource NodeResponsibles
         {
             get { return new NodeResponsibleService(m_authentication).NodeResponsibles; }
+        }
+
+        public DescriptionFieldResource DescriptionFields
+        {
+            get { return new DescriptionFieldService(m_authentication).DescriptionFields; }
         }
     }
 }

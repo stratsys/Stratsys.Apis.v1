@@ -18,7 +18,15 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             return new FilterNodeResponsibleRequest(m_clientService,
                 filter.NodeId, filter.UserId, filter.ResponsibilityRoleId, filter.DepartmentId);
         }
+
+        public CreateNodeResponsibleRequest Create(NodeResponsibleDto filter)
+        {
+            return new CreateNodeResponsibleRequest(m_clientService, filter);
+        }
+
+        public DeleteNodeResponsibleRequest Delete(NodeResponsibleDto filter)
+        {
+            return new DeleteNodeResponsibleRequest(m_clientService, filter);
+        }
     }
-
-
 }

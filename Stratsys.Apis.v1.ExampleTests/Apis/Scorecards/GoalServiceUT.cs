@@ -81,7 +81,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var goalId = Api.Goals.Create(createGoalDto).Fetch().Result;
             Assert.That(goalId, Is.Not.Null);
 
-            var goal = Api.Goals.Filter(goalId).Fetch().Result[0];
+            var goal = Api.Goals.Filter(goalId, departmentId, null, null, columnId).Fetch().Result[0];
             Assert.That(goal.Id, Is.EqualTo(goalId));
             Assert.That(goal.DepartmentId, Is.EqualTo(departmentId));
             Assert.That(goal.Name, Is.EqualTo(name));

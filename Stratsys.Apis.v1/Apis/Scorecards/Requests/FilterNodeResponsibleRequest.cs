@@ -16,9 +16,9 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Requests
             : base(service)
         {
             RequestParameters.Add("nodeId", nodeId);
-            RequestParameters.Add("userId", userId);
-            RequestParameters.Add("responsibilityRoleId", responsibilityId);
             RequestParameters.Add("departmentId", departmentId);
+            RequestParameters.Add("responsibilityRoleId", responsibilityId);
+            RequestParameters.Add("userId", userId);
         }
 
         public override string HttpMethod

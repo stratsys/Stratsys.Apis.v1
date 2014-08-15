@@ -51,5 +51,45 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var responsibilites = Api.NodeResponsibles.Filter(nodeResponsibleDto).Fetch().Result;
             Assert.That(responsibilites.Count, Is.EqualTo(expectedCount));
         }
+
+        [TestCase("4", "1", "1", "265")]
+        [TestCase("7", "1", "1", "265")]
+        public void Create(string nodeId, string departmentId, string responsibilityRoleId, string userId)
+        {
+            var nodeResponsibleDto = new NodeResponsibleDto
+            {
+                DepartmentId = departmentId,
+                NodeId = nodeId,
+                ResponsibilityRoleId = responsibilityRoleId,
+                UserId = userId
+            };
+            var metadata = Api.NodeResponsibles.Create(nodeResponsibleDto).Fetch();
+            Assert.That(metadata.Message, Is.Null);
+            Assert.That(metadata.Success);
+            var getMetadata = Api.NodeResponsibles.Filter(nodeResponsibleDto).Fetch();
+            Assert.That(getMetadata.Message, Is.Null);
+            Assert.That(getMetadata.Success);
+            Assert.That(getMetadata.Result.Count, Is.EqualTo(1));
+        }
+
+        [TestCase("4", "1", "1", "265")]
+        [TestCase("7", "1", "1", "265")]
+        public void Delete(string nodeId, string departmentId, string responsibilityRoleId, string userId)
+        {
+            var nodeResponsibleDto = new NodeResponsibleDto
+            {
+                DepartmentId = departmentId,
+                NodeId = nodeId,
+                ResponsibilityRoleId = responsibilityRoleId,
+                UserId = userId
+            };
+            var metadata = Api.NodeResponsibles.Delete(nodeResponsibleDto).Fetch();
+            Assert.That(metadata.Message, Is.Null);
+            Assert.That(metadata.Success);
+            var getMetadata = Api.NodeResponsibles.Filter(nodeResponsibleDto).Fetch();
+            Assert.That(getMetadata.Message, Is.Null);
+            Assert.That(getMetadata.Success);
+            Assert.That(getMetadata.Result.Count, Is.EqualTo(0));
+        }
     }
 }

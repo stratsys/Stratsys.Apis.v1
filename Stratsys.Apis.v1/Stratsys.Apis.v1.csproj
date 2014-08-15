@@ -104,12 +104,17 @@
     <Compile Include="Apis\Organization\Services\ResponsibilityRoleService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
     <Compile Include="Apis\Scorecards\Requests\CreateGoalRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\CreateNodeResponsibleRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\DeleteNodeResponsibleRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\FilterDescriptionFieldRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterGoalsRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterNodeResponsibleRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\FilterScorecardColumnsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\GetDescriptionFieldRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardColumnRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Resources\DescriptionFieldResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\GoalResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\NodeResponsibleResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardColumnResource.cs" />
@@ -152,6 +157,7 @@
     <Compile Include="Dtos\Organization\ResponsibilityRoleDto.cs" />
     <Compile Include="Dtos\Organization\UserDto.cs" />
     <Compile Include="Dtos\Scorecards\CreateGoalDto.cs" />
+    <Compile Include="Dtos\Scorecards\DescriptionFieldDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeTypeDto.cs" />
     <Compile Include="Dtos\Scorecards\GoalDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeResponsibleDto.cs" />

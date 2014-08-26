@@ -26,11 +26,6 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
         {
             var request = Api.Scorecards.Get(id);
             Assert.That(request.GetHttpResponse().StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
-
-            var stratsysApiMetadata = request.Fetch();
-            Assert.That(stratsysApiMetadata.Success, Is.False);
-            Assert.That(stratsysApiMetadata.Message, Is.EqualTo("Scorecard undefined: 123456"));
-            Assert.That(stratsysApiMetadata.Result, Is.Null);
         }
     }
 }

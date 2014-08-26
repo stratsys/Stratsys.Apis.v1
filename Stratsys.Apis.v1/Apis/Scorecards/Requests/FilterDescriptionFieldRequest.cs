@@ -4,15 +4,15 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Requests
 {
-    public class FilterDescriptionFieldRequest : StratsysClientRequest<List<DescriptionFieldDto>>
+    public class FilterDescriptionFieldRequest : FilterRequest<DescriptionFieldDto>
     {
         public FilterDescriptionFieldRequest(
             IClientService service,
-            string scorecardColumnId
+            string name
             )
             : base(service)
         {
-            RequestParameters.Add("scorecardColumnId", scorecardColumnId);
+            RequestParameters.Add("name", name);
         }
 
         public override string HttpMethod

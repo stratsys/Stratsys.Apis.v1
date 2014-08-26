@@ -1,4 +1,8 @@
-﻿using Stratsys.Apis.v1.Apis.Scorecards.Requests;
+﻿using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Stratsys.Apis.v1.Apis.Scorecards.Requests;
+using Stratsys.Apis.v1.Dtos.Scorecards;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
@@ -15,6 +19,13 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
         public ListScorecardsRequest List()
         {
             return new ListScorecardsRequest(m_service);
+        }
+
+        public FilterRequest<ScorecardDto> Filter(string name)
+        {
+            var filterRequest = new FilterRequest<ScorecardDto>(m_service);
+            filterRequest.RequestParameters.Add("name", name);
+            return filterRequest;
         }
 
         public GetScorecardRequest Get(string scorecardId)

@@ -43,10 +43,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 
         [TestCase("4", "1", "1")]
         [TestCase("4", "5", "1")]
-        [TestCase("4", "75", "1")]
+        [TestCase("4", "15", "1")]
         public void When_filtering_by_id_and_department_Should_get_filtered_visible_node(string id, string departmentId, string mainDepartmentId)
         {
-            var goals = Api.Goals.Filter(id).Fetch().Result;
+            var goals = Api.Goals.Filter(id,departmentId).Fetch().Result;
             Assert.That(goals.Count, Is.EqualTo(1));
             var goal = goals[0];
             Assert.That(goal.Id, Is.EqualTo(id));

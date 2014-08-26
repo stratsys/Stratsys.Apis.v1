@@ -2,7 +2,7 @@
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
 {
-    public class IdMappingServiceUT : BaseTest
+    public class IdMappingServiceUT : ExternalCodeApiTest
     {
         protected static readonly string[] MappingTypes =
         {
@@ -17,14 +17,14 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
             "Status",
             "ReportTableFilter",
             "Node",
-            "Periodicity"
+            "Periodicity",
+            "KpiGenerator"
         };
 
         [Test]
         public void Get_all_mappingTypes()
         {
-            var mappingTypes = Api.IdMappings.ListAllTypes().Fetch().Result;
-            Assert.That(mappingTypes.Count, Is.EqualTo(MappingTypes.Length));
+            var mappingTypes = Api.IdMappings.ListAllTypes().Result;
             foreach (var mappingType in mappingTypes)
             {
                 Assert.That(MappingTypes, Has.Member(mappingType));
@@ -34,10 +34,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
         [Test, TestCaseSource("MappingTypes")]
         public void Delete_all_mappings(string mappingType)
         {
-            var idMappings = Api.IdMappings.Filter(mappingType).Fetch().Result;
+            var idMappings = Api.IdMappings.Filter(mappingType).Result;
             foreach (var mapping in idMappings)
             {
-                Api.IdMappings.Delete(mapping.MappingTypeId, mapping.ExternalId).Fetch();
+                var result = Api.IdMappings.Delete(mapping.MappingTypeId, mapping.ExternalId).Fetch();
             }
         }
 

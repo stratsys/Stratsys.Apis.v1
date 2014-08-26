@@ -3,24 +3,11 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Activities.Requests
 {
-    public class GetStatusRequest: StratsysClientRequest<StatusDto>
+    public class GetStatusRequest: GetRequest<StatusDto>
     {
-        private readonly string m_id;
-
         public GetStatusRequest(IClientService service, string id)
-            : base(service)
+            : base(service, id)
         {
-            m_id = id;
-        }
-
-        public override string HttpMethod
-        {
-            get { return "GET"; }
-        }
-
-        public override string RestPath
-        {
-            get { return m_id; }
         }
     }
 }

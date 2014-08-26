@@ -4,7 +4,7 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
-    public class FilterDepartmentsRequest : StratsysClientRequest<List<DepartmentDto>>
+    public class FilterDepartmentsRequest : FilterRequest<DepartmentDto>
     {
         public FilterDepartmentsRequest(
             IClientService service,

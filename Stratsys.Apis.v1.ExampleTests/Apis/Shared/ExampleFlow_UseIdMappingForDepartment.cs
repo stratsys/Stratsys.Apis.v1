@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
 {
-    public class ExampleFlow_UseIdMappingForDepartment : BaseTest
+    public class ExampleFlow_UseIdMappingForDepartment : ExternalCodeApiTest
     {
         private string MappingTypeId = "Department";
 
@@ -22,7 +22,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
 
         private string GetInternalId(string departmentName)
         {
-            var department = Api.Departments.Filter(departmentName).Fetch().Result;
+            var department = Api.Departments.Filter(departmentName).Result;
             Assert.That(department.Count, Is.EqualTo(1));
             return department.Single().Id;
         }
@@ -57,7 +57,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
 
         private void RemoveIdMapping(string externalId)
         {
-            Api.IdMappings.Delete(MappingTypeId, externalId).Fetch();
+            var result = Api.IdMappings.Delete(MappingTypeId, externalId).Fetch();
         }
     }
 }

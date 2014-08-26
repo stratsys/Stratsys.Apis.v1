@@ -54,4 +54,12 @@ namespace Stratsys.Apis.v1.ExampleTests
         {
         }
     }
+
+    public abstract class ExternalCodeApiTest : BaseTest
+    {
+        protected ExternalCodeApiTest()
+        {
+            ClientSecret = ConfigurationManager.AppSettings.Get("TestExternalCodeClientSecret"); //ask Stratsys support for access to database used in tests.
+        }
+    }
 }

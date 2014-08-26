@@ -4,7 +4,7 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Shared.Requests
 {
-    public class FilterIdMappingsRequest : StratsysClientRequest<IList<IdMapping>>
+    public class FilterIdMappingsRequest : FilterRequest<IdMapping>
     {
         private readonly string m_mappingTypeId;
 

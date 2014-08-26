@@ -3,7 +3,7 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Shared.Requests
 {
-    public class ListIdMappingTypesRequest : StratsysClientRequest<IList<string>>
+    public class ListIdMappingTypesRequest : ListRequest<string>
     {
         public ListIdMappingTypesRequest(IClientService service)
             : base(service)

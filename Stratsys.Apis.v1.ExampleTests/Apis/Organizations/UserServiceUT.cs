@@ -73,9 +73,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 PhoneRegular = "+46 31 123 45 67"
             };
             // Guard if test fails half way
-            if (Api.Users.Get(username).Fetch().Success)
+            var stratsysApiMetadata = Api.Users.Get(username).Fetch();
+            if (stratsysApiMetadata.Success)
             {
-                Api.Users.Delete(username).Fetch();
+                var b = Api.Users.Delete(username).Fetch();
             }
             var metadata = Api.Users.Create(newUser).Fetch();
             Assert.That(metadata.Message, Is.Null);

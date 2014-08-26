@@ -1,4 +1,5 @@
 ﻿using Stratsys.Apis.v1.Apis.Activities.Requests;
+using Stratsys.Apis.v1.Dtos.Activities;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Activities.Resources
@@ -12,9 +13,9 @@ namespace Stratsys.Apis.v1.Apis.Activities.Resources
             m_service = service;
         }
 
-        public GetStatusRequest Get(string id)
+        public GetRequest<StatusDto> Get(string id)
         {
-            return new GetStatusRequest(m_service, id);
+            return new GetRequest<StatusDto>(m_service, id);
         }
 
         public ListStatusesRequest List()

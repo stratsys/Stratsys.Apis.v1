@@ -67,16 +67,22 @@
     <Compile Include="Apis\Organizations\ResponsibilityRoleServiceUT.cs" />
     <Compile Include="Apis\Organizations\UserServiceUT.cs" />
     <Compile Include="Apis\Activities\ActivityServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\DescriptionFieldValueServiceClientUT.cs" />
+    <Compile Include="Apis\Scorecards\DescriptionFieldValueServiceUT.cs" />
     <Compile Include="Apis\Scorecards\DescriptionFieldServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\KeywordGroupsServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\NodeKeywordsServiceUT.cs" />
     <Compile Include="Apis\Scorecards\NodeResponsibleServiceUT.cs" />
     <Compile Include="Apis\Scorecards\GoalServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardColumnServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardNodeServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
     <Compile Include="Apis\Shared\AuthorizationServiceUT.cs" />
     <Compile Include="Apis\Shared\ExampleFlow_UseIdMappingForDepartment.cs" />
     <Compile Include="Apis\Shared\IdMappingServiceUT.cs" />
     <Compile Include="Apis\Shared\PeriodicityServiceUT.cs" />
     <Compile Include="BaseTest.cs" />
+    <Compile Include="ClientBaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

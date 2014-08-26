@@ -17,9 +17,9 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             return new GetDescriptionFieldRequest(m_clientService, id);
         }
 
-        public FilterDescriptionFieldRequest Filter(string scorecardColumnId = null)
+        public FilterDescriptionFieldRequest Filter(string name = null)
         {
-            return new FilterDescriptionFieldRequest(m_clientService, scorecardColumnId);
+            return new FilterDescriptionFieldRequest(m_clientService, name);
         }
     }
 }

@@ -28,11 +28,15 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
-        [TestCase("3", 164)]
+        [TestCase("3", 150)]
         public void When_filtering_by_statusId_Should_get_filtered_activities(string statusId, int expectedNumberOfActivities)
         {
             var activities = Api.Activities.Filter(statusId: statusId).Fetch().Result;
-            Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
+            Assert.That(activities.Count, Is.GreaterThan(expectedNumberOfActivities));
+            foreach (var activity in activities)
+            {
+                Assert.That(activity.StatusId, Is.EqualTo(statusId));
+            }
         }
 
         [TestCase("21513", 2)]

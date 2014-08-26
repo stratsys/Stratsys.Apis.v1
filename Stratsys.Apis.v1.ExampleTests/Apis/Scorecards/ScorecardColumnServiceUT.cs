@@ -57,7 +57,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(scorecardColumns.Count, Is.EqualTo(expectedCount));
         }
 
-        [TestCase(NodeTypeDto.Goal, 19)]
+        [TestCase(NodeTypeDto.Goal, 58)]
         [TestCase(NodeTypeDto.Activity, 19)]
         public void Filter_by_nodeType(NodeTypeDto nodeType, int expectedCount)
         {

@@ -10,8 +10,8 @@ namespace Stratsys.Apis.v1.Dtos.Scorecards
         public string Name { get; set; }
         public DepartmentDto Department { get; set; }
         public ScorecardDto Scorecard { get; set; }
-        public ScorecardColumnDto Column { get; set; }
-        public IList<DescriptionFieldValueDto> Descriptions { get; set; }
+        public ScorecardColumnDto ScorecardColumn { get; set; }
+        public IList<DescriptionFieldValueDto> DescriptionFields { get; set; }
         public IList<KeywordDto> Keywords { get; set; }
         public IList<NodeResponsibleDto> Responsibles { get; set; }
     }

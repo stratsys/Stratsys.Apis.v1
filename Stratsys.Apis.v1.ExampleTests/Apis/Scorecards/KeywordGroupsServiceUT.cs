@@ -42,7 +42,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
                 .Filter(node)
                 .Result.Single();
 
-            var keywordGroupDtos = Api.KeywordGroups.Filter(nodeDto.Column.Id).Result;
+            var keywordGroupDtos = Api.KeywordGroups.Filter(nodeDto.ScorecardColumn.Id).Result;
 
             var dtos = keywordGroupDtos.Where(k => k.Name == keywordGroup).ToList();
             Assert.That(dtos.Count, Is.EqualTo(1), string.Join(",", keywordGroupDtos.Select(k => k.Name)));

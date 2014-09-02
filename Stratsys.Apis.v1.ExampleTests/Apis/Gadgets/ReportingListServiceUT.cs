@@ -35,7 +35,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
             Assert.That(reportingList.NodeType, Is.EqualTo(expectedNodeType));
         }
 
-        [TestCase("3", "reporting.list@users.se", false, 2)]
+        [TestCase("3", "reporting.list@users.se", false, 1)]
         [TestCase("3", "reporting.list@users.se", true, 5)]
         public void Get_detailed_activity_reporting_list_for_user_Depends_on_show_all(string reportTableFilterId, string userId, bool? showAll, int expectedNumberOfNodes)
         {
@@ -49,12 +49,19 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
         }
 
         [TestCase("3", "reporting.list@users.se")]
+        public void Get_user(string reportTableFilterId, string userId)
+        {
+            var user = Api.Users.Get(userId).Fetch().Result;
+            Assert.That(user.Username, Is.EqualTo("InLi1001"));
+        }
+
+        [TestCase("3", "reporting.list@users.se")]
         public void Get_detailed_reporting_list_for_user_Activity_is_delayed(string reportTableFilterId, string userId)
         {
             var userReportingListItems = Api.ReportingLists.GetItemsForUser(reportTableFilterId, userId, false).Fetch().Result;
 
             var reportingListNodes = userReportingListItems.Nodes;
-            Assert.That(reportingListNodes.Count, Is.EqualTo(2));
+            Assert.That(reportingListNodes.Count, Is.EqualTo(1));
             var reportingListNode = reportingListNodes[0];
 
             Assert.That(reportingListNode.NodeType, Is.EqualTo(NodeTypeDto.Activity + ""));
@@ -74,8 +81,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
 
             var deadlineModel = reportingListNode.Deadline;
             Assert.That(deadlineModel.CssClass, Is.EqualTo("deadlineOverdue"));
-            Assert.That(deadlineModel.DaysDelayed, Is.EqualTo(123));
-            Assert.That(deadlineModel.Text, Is.EqualTo("Försenad 123 dagar"));
+            Assert.That(deadlineModel.Text, Is.EqualTo("Försenad " + deadlineModel.DaysDelayed + " dagar"));
         }
 
         [TestCase("4", "reporting.list@users.se")]

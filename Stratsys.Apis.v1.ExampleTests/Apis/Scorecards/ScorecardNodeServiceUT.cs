@@ -19,7 +19,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var dto = resource.Get(nodeId);
             Assert.That(dto.Name, Is.EqualTo("Arbetskraftens storlek 16-64 år"));
             Assert.That(dto.Scorecard.Name, Is.EqualTo("Verksamhetsplan"));
-            Assert.That(dto.Column.Name, Is.EqualTo("Mätetal"));
+            Assert.That(dto.ScorecardColumn.Name, Is.EqualTo("Mätetal"));
             Assert.That(dto.Department.Id, Is.EqualTo(departmentId));
         }
 
@@ -44,7 +44,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 
             var dto = resource.Get(nodeId);
             Assert.That(dto.Name, Is.EqualTo("Bostadsbyggnadstakten ska vara hög"));
-            Assert.That(dto.Descriptions, Is.Null);
+            Assert.That(dto.DescriptionFields, Is.Null);
         }
 
         [TestCase("1", "1", "21412")]
@@ -57,7 +57,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 
             var dto = resource.Get(nodeId, "descriptions");
             Assert.That(dto.Name, Is.EqualTo("Bostadsbyggnadstakten ska vara hög"));
-            Assert.That(dto.Descriptions.Count, Is.EqualTo(1));
+            Assert.That(dto.DescriptionFields.Count, Is.EqualTo(1));
 
         }
 
@@ -88,7 +88,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var dto = resource.Get(nodeId);
             Assert.That(dto.Name, Is.StringStarting("Stadens soliditet"));
             Assert.That(dto.Scorecard.Name, Is.EqualTo("Verksamhetsplan"));
-            Assert.That(dto.Column.Name, Is.EqualTo("Mätetal"));
+            Assert.That(dto.ScorecardColumn.Name, Is.EqualTo("Mätetal"));
             Assert.That(dto.Department.Id, Is.EqualTo(departmentId));
 
             var generic = "Stadens soliditet " + DateTime.Now.ToString("T");
@@ -110,7 +110,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var dto = resource.Get(nodeId);
             Assert.That(dto.Name, Is.StringStarting("Stadens soliditet"));
             Assert.That(dto.Scorecard.Name, Is.EqualTo("Verksamhetsplan"));
-            Assert.That(dto.Column.Name, Is.EqualTo("Mätetal"));
+            Assert.That(dto.ScorecardColumn.Name, Is.EqualTo("Mätetal"));
             Assert.That(dto.Department.Id, Is.EqualTo(departmentId));
 
         }

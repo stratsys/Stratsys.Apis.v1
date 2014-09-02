@@ -24,7 +24,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
         public void When_filtering_by_departmentId_Should_get_filtered_goals(string departmentId, int expectedNumberOfGoals)
         {
             var goals = Api.Goals.Filter(departmentId: departmentId).Fetch().Result;
-            Assert.That(goals.Count, Is.EqualTo(expectedNumberOfGoals));
+            Assert.That(goals.Count, Is.GreaterThan(expectedNumberOfGoals));
         }
 
         [TestCase("2", 4)]

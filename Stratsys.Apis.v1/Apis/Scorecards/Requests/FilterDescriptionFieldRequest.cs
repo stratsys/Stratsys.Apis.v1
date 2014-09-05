@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Stratsys.Apis.v1.Dtos.Scorecards;
+﻿using Stratsys.Apis.v1.Dtos.Scorecards;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Requests

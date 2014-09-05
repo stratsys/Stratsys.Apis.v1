@@ -1,6 +1,4 @@
-﻿using Stratsys.Apis.v1.Dtos.Scorecards;
-
-namespace Stratsys.Apis.v1.Dtos.Gadgets
+﻿namespace Stratsys.Apis.v1.Dtos.Gadgets
 {
     public class ReportingListNode
     {

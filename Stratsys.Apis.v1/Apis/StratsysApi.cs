@@ -14,7 +14,6 @@ using Stratsys.Apis.v1.Apis.Scorecards.Resources;
 using Stratsys.Apis.v1.Apis.Scorecards.Services;
 using Stratsys.Apis.v1.Apis.Shared.Resources;
 using Stratsys.Apis.v1.Apis.Shared.Services;
-using Stratsys.Apis.v1.Dtos.Scorecards;
 
 namespace Stratsys.Apis.v1.Apis
 {
@@ -84,11 +83,6 @@ namespace Stratsys.Apis.v1.Apis
             { return new ScorecardsPath(m_authentication, id); }
         }
 
-        //public IDepartmentScorecardNodeResource Scorecard(string id)
-        //{
-        //    { return new ScorecardNodeService(m_authentication).Scorecard(id); }
-        //}
-
         public ScorecardColumnResource ScorecardColumns
         {
             get { return new ScorecardColumnService(m_authentication).ScorecardColumns; }
@@ -144,17 +138,9 @@ namespace Stratsys.Apis.v1.Apis
             get { return new DescriptionFieldService(m_authentication).DescriptionFields; }
         }
 
-        public DescriptionFieldValueResource DescriptionFieldValues(
-            string scorecardId, string departmentId, string nodeId)
-        {
-            return new DescriptionFieldValueService(m_authentication, scorecardId, departmentId, nodeId).DescriptionFieldsValue;
-        }
-
         public KeywordGroupResource KeywordGroups
         {
             get { return new KeywordGroupService(m_authentication).Keywordgroups; }
         }
-
-
     }
 }

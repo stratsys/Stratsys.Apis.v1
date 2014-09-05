@@ -12,6 +12,11 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             m_clientService = clientService;
         }
 
+        public GetRequest<DescriptionFieldValueDto> Get(string id)
+        {
+            return new GetRequest<DescriptionFieldValueDto>(m_clientService, id);
+        }
+
         public ListRequest<DescriptionFieldValueDto> List()
         {
             return new ListRequest<DescriptionFieldValueDto>(m_clientService);

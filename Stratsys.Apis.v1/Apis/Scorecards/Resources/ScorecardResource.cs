@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using Stratsys.Apis.v1.Apis.Scorecards.Requests;
+﻿using Stratsys.Apis.v1.Apis.Scorecards.Requests;
 using Stratsys.Apis.v1.Dtos.Scorecards;
 using Stratsys.Core.Apis.Services;
 

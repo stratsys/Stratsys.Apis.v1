@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Stratsys.Apis.v1.Dtos.Organization;
+﻿using Stratsys.Apis.v1.Dtos.Organization;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Requests

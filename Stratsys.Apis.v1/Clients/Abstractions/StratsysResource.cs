@@ -25,7 +25,11 @@ namespace Stratsys.Apis.v1.Clients.Abstractions
 
         public T Get(string id)
         {
-            return m_httpClient.GetAsync<T>(m_controller + "/" + id).Result;
+            var builder = new RequestUriBuilder
+            {
+                RestUriPath = "/" + id,
+            };
+            return m_httpClient.GetAsync<T>(m_controller + builder.Build()).Result;
         }
 
         public T Get(string id, string fields)
@@ -39,15 +43,34 @@ namespace Stratsys.Apis.v1.Clients.Abstractions
             return m_httpClient.GetAsync<T>(m_controller + builder.Build()).Result;
         }
 
-        public IList<T> List()
+        public IList<T> List(string name = null)
         {
-            return m_httpClient.GetAsync<IList<T>>(m_controller).Result;
+            var builder = new RequestUriBuilder();
+            if (name != null)
+            {
+                builder.QueryParameters.Add("name", name);
+            }
+            var path = m_controller + builder.Build();
+            return m_httpClient.GetAsync<IList<T>>(path).Result;
+        }
+
+        public IList<T> Filter(string name = null)
+        {
+            var builder = new RequestUriBuilder
+            {
+                RestUriPath = "/filter",
+                QueryParameters = new Dictionary<string, string>()
+            };
+            if (name != null)
+            {
+                builder.QueryParameters.Add("name", name);
+            }
+            return m_httpClient.GetAsync<IList<T>>(m_controller + builder.Build()).Result;
         }
 
         public IList<T> Filter(FilterQueryBuilder builder)
         {
-            var path = m_controller + builder.Build();
-            return m_httpClient.GetAsync<IList<T>>(path).Result;
+            return m_httpClient.GetAsync<IList<T>>(m_controller + builder.Build()).Result;
         }
 
         public T Put(T value)
@@ -65,18 +88,13 @@ namespace Stratsys.Apis.v1.Clients.Abstractions
             return m_httpClient.PostAsync<T, string>(m_controller, value).Result;
         }
 
-        public T Post(string id)
-        {
-            return m_httpClient.PostAsync<string, T>(m_controller + "/" + id, null).Result;
-        }
-
         public bool Delete(string id)
         {
-            var requestUriBuilder = new RequestUriBuilder
+            var builder = new RequestUriBuilder
             {
                 RestUriPath = "/" + id
             };
-            return m_httpClient.DeleteAsync<string, bool>(m_controller + requestUriBuilder.Build()).Result;
+            return m_httpClient.DeleteAsync<string, bool>(m_controller + builder.Build()).Result;
         }
     }
 }

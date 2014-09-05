@@ -1,19 +1,28 @@
 ﻿using Stratsys.Apis.v1.Apis.Scorecards.Resources;
-using Stratsys.Apis.v1.Apis.Scorecards.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards
 {
     public class ScorecardsDepartmentsPath
     {
+        private readonly StratsysAuthentication m_authentication;
+        private readonly Path m_path;
 
         public ScorecardsDepartmentsPath(StratsysAuthentication authentication,
-            string scorecardId, string departmentId)
+            Path path)
         {
-            var scorecardNodeService = new ScorecardNodeService(authentication, scorecardId,departmentId);
-            Nodes = scorecardNodeService.Nodes;
+            m_authentication = authentication;
+            m_path = path;
         }
 
-        public ScorecardNodeResource Nodes { get; private set; }
+        public ScorecardNodeResource Nodes
+        {
+            get { return new ScorecardNodeResource(new GenericService(m_authentication, m_path.Nodes)); }
+        }
+
+        public ScorecardsDepartmentsNodesPath Node(string id)
+        {
+            return new ScorecardsDepartmentsNodesPath(m_authentication, m_path.Node(id));
+        }
 
     }
 }

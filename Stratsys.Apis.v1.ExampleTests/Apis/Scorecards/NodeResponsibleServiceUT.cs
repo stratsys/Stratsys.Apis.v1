@@ -21,25 +21,6 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(responsibilites.Count, Is.EqualTo(expectedCount));
         }
 
-        [TestCase("3030", null, "1", 3)]
-        [TestCase("3030", "1", "1", 1)]
-        [TestCase("3030", "2", "1", 1)]
-        [TestCase("3030", "94", "1", 1)]
-        public void Get_resp_for_node(string nodeId, string departmentId, string responsibilityRoleId, int expectedCount)
-        {
-           
-
-
-            var nodeResponsibleDto = new NodeResponsibleDto
-            {
-                NodeId = nodeId,
-                DepartmentId = departmentId,
-                ResponsibilityRoleId = responsibilityRoleId
-            };
-            var responsibilites = Api.NodeResponsibles.Filter(nodeResponsibleDto).Fetch().Result;
-            Assert.That(responsibilites.Count, Is.EqualTo(expectedCount));
-        }
-
         [TestCase("23", null, 1)]
         [TestCase("23", "1", 1)]
         [TestCase("3030", null, 3)]

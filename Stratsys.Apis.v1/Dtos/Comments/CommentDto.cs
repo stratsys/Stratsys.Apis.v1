@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Stratsys.Apis.v1.Dtos.Comments
+﻿namespace Stratsys.Apis.v1.Dtos.Comments
 {
     public class CommentDto
     {

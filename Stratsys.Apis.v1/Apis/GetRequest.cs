@@ -8,6 +8,11 @@ namespace Stratsys.Apis.v1.Apis
     {
         private readonly string m_id;
 
+        public GetRequest(IClientService service)
+            : base(service)
+        {
+        }
+
         public GetRequest(IClientService service, string id)
             : base(service)
         {
@@ -23,6 +28,7 @@ namespace Stratsys.Apis.v1.Apis
         {
             get { return m_id; }
         }
+
 
         public T Result
         {
@@ -121,7 +127,15 @@ namespace Stratsys.Apis.v1.Apis
         }
     }
 
-    public class PutRequest<T> : StratsysClientRequest<string>
+    public class PutRequest<T> : PutRequest<T, T>
+    {
+        public PutRequest(IClientService clientService, T dto)
+            : base(clientService, dto)
+        {
+        }
+    }
+
+    public class PutRequest<T, TR> : StratsysClientRequest<TR>
     {
         private readonly T m_dto;
 

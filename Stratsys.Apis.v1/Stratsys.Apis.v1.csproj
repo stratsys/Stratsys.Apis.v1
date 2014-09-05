@@ -116,6 +116,7 @@
     <Compile Include="Apis\Scorecards\Requests\GetScorecardColumnRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Resources\CreateNodeResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\KeywordGroupResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\DescriptionFieldResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\GoalResource.cs" />
@@ -125,14 +126,13 @@
     <Compile Include="Apis\Scorecards\Resources\ScorecardNodeResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
     <Compile Include="Apis\Scorecards\ScorecardPath.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardsDepartmentsNodesPath.cs" />
     <Compile Include="Apis\Scorecards\ScorecardsDepartmentsPath.cs" />
     <Compile Include="Apis\Scorecards\Services\KeywordGroupService.cs" />
     <Compile Include="Apis\Scorecards\Services\DescriptionFieldService.cs" />
     <Compile Include="Apis\Scorecards\Services\GoalService.cs" />
-    <Compile Include="Apis\Scorecards\Services\DescriptionFieldValueService.cs" />
     <Compile Include="Apis\Scorecards\Services\NodeResponsibleService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardColumnService.cs" />
-    <Compile Include="Apis\Scorecards\Services\ScorecardNodeService.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardService.cs" />
     <Compile Include="Apis\ServiceAccountBasicAuthentication.cs" />
     <Compile Include="Apis\Shared\Requests\GetIdMappingRequest.cs" />

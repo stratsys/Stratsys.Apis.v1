@@ -181,9 +181,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 
             var fetch = resource.Put(valueDto).Fetch();
             Assert.That(fetch.Success, fetch.Message);
-            var id = fetch.Result;
+            //var id = fetch.Result;
 
-            Assert.That(id, Is.EqualTo(nodeId));
+            //Assert.That(id, Is.EqualTo(nodeId));
 
             var node = resource.Get(nodeId).Result;
             Assert.That(node.Name, Is.EqualTo(generic));

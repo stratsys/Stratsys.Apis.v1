@@ -66,6 +66,8 @@
     <Compile Include="Apis\Comments\Requests\UpdateCommentRequest.cs" />
     <Compile Include="Apis\Comments\Resources\CommentResource.cs" />
     <Compile Include="Apis\Comments\Services\CommentService.cs" />
+    <Compile Include="Apis\DeleteRequest.cs" />
+    <Compile Include="Apis\FilterRequest.cs" />
     <Compile Include="Apis\Gadgets\Requests\FilterReportingListsRequest.cs" />
     <Compile Include="Apis\Gadgets\Requests\GetUserReportingListRequest.cs" />
     <Compile Include="Apis\Gadgets\Requests\ListReportingListsRequest.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Apis\Kpis\Services\KpiColumnService.cs" />
     <Compile Include="Apis\Kpis\Services\KpiDataService.cs" />
     <Compile Include="Apis\Kpis\Services\KpiService.cs" />
+    <Compile Include="Apis\ListRequest.cs" />
     <Compile Include="Apis\OauthBearerAuthentication.cs" />
     <Compile Include="Apis\Organization\Requests\CreateUserRequest.cs" />
     <Compile Include="Apis\Organization\Requests\DeleteUserRequest.cs" />
@@ -105,6 +108,8 @@
     <Compile Include="Apis\Organization\Services\GroupService.cs" />
     <Compile Include="Apis\Organization\Services\ResponsibilityRoleService.cs" />
     <Compile Include="Apis\Organization\Services\UserService.cs" />
+    <Compile Include="Apis\PostRequest.cs" />
+    <Compile Include="Apis\PutRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\CreateGoalRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\CreateNodeResponsibleRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\DeleteNodeResponsibleRequest.cs" />
@@ -121,6 +126,7 @@
     <Compile Include="Apis\Scorecards\Resources\DescriptionFieldResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\GoalResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\DescriptionFieldValueResource.cs" />
+    <Compile Include="Apis\Scorecards\Resources\NodeKeywordResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\NodeResponsibleResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardColumnResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardNodeResource.cs" />
@@ -192,7 +198,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

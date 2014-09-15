@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using NUnit.Framework;
-using Stratsys.Apis.v1.Dtos.Scorecards;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 {
@@ -18,12 +17,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var nodeDto = Api.Scorecard(scorecardDto.Id).Department(departmentDto.Id)
                 .Nodes.Filter(node).Result.Single();
 
-            var keywords = Client
-                .Path("scorecards", scorecardDto.Id)
-                .Path("departments", departmentDto.Id)
-                .Path("nodes", nodeDto.Id)
-                .Resource<KeywordDto>("keywords")
-                .List();
+            var keywords = Api
+                .Scorecard(scorecardDto.Id)
+                .Department(departmentDto.Id)
+                .Node(nodeDto.Id)
+                .Keywords
+                .List()
+                .Result;
 
             var dtos = keywords.Where(k => k.Name == keyword).ToList();
             Assert.That(dtos.Count, Is.EqualTo(1), string.Join(",", keywords.Select(k => k.Name)));
@@ -41,19 +41,22 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var nodeDto = Api.Scorecard(scorecardDto.Id).Department(departmentDto.Id)
                 .Nodes.Filter(node).Result.Single();
 
-            var keywords = Client
-                .Path("scorecards", scorecardDto.Id)
-                .Path("departments", departmentDto.Id)
-                .Path("nodes",  nodeDto.Id)
-                .Resource<KeywordDto>("keywords");
+            var keywords = Api
+                .Scorecard(scorecardDto.Id)
+                .Department(departmentDto.Id)
+                .Node(nodeDto.Id)
+                .Keywords;
 
-            var list = keywords.List();
+            var list = keywords.List().Result;
+
             var dtos = list.Where(k => k.Name == keyword).ToList();
             var dto = dtos.First();
 
-            keywords.Delete(dto.Id);
-            
-            keywords.Put(dto.Id);
+            var deleteFetch = keywords.Delete(dto.Id).Fetch();
+            Assert.That(deleteFetch, Has.Message.Null);
+
+            var putFetch = keywords.Put(dto).Fetch();
+            Assert.That(putFetch, Has.Message.Null);
         }
     }
 }

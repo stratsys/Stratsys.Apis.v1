@@ -38,6 +38,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
             foreach (var mapping in idMappings)
             {
                 var result = Api.IdMappings.Delete(mapping.MappingTypeId, mapping.ExternalId).Fetch();
+                Assert.That(result, Has.Message.Null);
             }
         }
 

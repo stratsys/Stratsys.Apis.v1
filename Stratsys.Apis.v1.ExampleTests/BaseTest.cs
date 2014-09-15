@@ -43,7 +43,7 @@ namespace Stratsys.Apis.v1.ExampleTests
         /// <summary>
         /// Functions that are performed just before each test method is called.
         /// </summary>
-        public virtual void SetUp()
+        protected virtual void SetUp()
         {
         }
 
@@ -51,6 +51,21 @@ namespace Stratsys.Apis.v1.ExampleTests
         /// Functions that are performed just before each test method is called.
         /// </summary>
         protected virtual void SetUpBaseTest()
+        {
+        }
+
+        [TearDown]
+        public void TearDownBase_DoNotCall()
+        {
+            TearDownBaseTest();
+            TearDown();
+        }
+
+        protected virtual void TearDownBaseTest()
+        {
+        }
+
+        protected virtual void TearDown()
         {
         }
     }

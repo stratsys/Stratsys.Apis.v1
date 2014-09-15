@@ -60,6 +60,11 @@ namespace Stratsys.Apis.v1.Apis
             get { return m_path + "descriptionfields"; }
         }
 
+        public string Keywords
+        {
+            get { return m_path + "keywords"; }
+        }
+
         public static Path Scorecard(string id)
         {
             return new Path("scorecards/" + id + "/");

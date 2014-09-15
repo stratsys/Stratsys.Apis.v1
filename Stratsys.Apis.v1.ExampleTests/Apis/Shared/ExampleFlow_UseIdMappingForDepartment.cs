@@ -5,19 +5,28 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
 {
     public class ExampleFlow_UseIdMappingForDepartment : ExternalCodeApiTest
     {
-        private string MappingTypeId = "Department";
+        private const string MappingTypeId = "Department";
+        private const string ExternalId = "externalId_123";
 
-        [TestCase("Skol- och fritidsnämnden", "externalId_123")]
-        public void SetIdMappingAndFindResourceWithExternalId(string departmentName, string externalId)
+        protected override void SetUp()
+        {
+            RemoveIdMapping();
+        }
+
+        protected override void TearDown()
+        {
+            RemoveIdMapping();
+        }
+
+        [TestCase("Skol- och fritidsnämnden")]
+        public void SetIdMappingAndFindResourceWithExternalId(string departmentName)
         {
             var internalId = GetInternalId(departmentName);
-            SetIdMapping(externalId, internalId);
+            SetIdMapping(internalId);
 
-            AssertIdMappingIsSet(externalId, internalId);
-            AssertCanFindIdMappingFromInternalId(externalId, internalId);
-            AssertGetResourceWithExternalId(externalId, departmentName);
-
-            RemoveIdMapping(externalId);
+            AssertIdMappingIsSet(internalId);
+            AssertCanFindIdMappingFromInternalId(internalId);
+            AssertGetResourceWithExternalId(departmentName);
         }
 
         private string GetInternalId(string departmentName)
@@ -27,37 +36,37 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Shared
             return department.Single().Id;
         }
 
-        private void SetIdMapping(string externalId, string id)
+        private void SetIdMapping(string id)
         {
-            Api.IdMappings.SaveOrUpdate(MappingTypeId, externalId, id).Fetch();
+            Api.IdMappings.SaveOrUpdate(MappingTypeId, ExternalId, id).Fetch();
         }
 
-        private void AssertIdMappingIsSet(string externalId, string internalId)
+        private void AssertIdMappingIsSet(string internalId)
         {
-            var idMapping = Api.IdMappings.Get(MappingTypeId, externalId).Fetch().Result;
-            Assert.That(idMapping.ExternalId, Is.EqualTo(externalId));
+            var idMapping = Api.IdMappings.Get(MappingTypeId, ExternalId).Fetch().Result;
+            Assert.That(idMapping.ExternalId, Is.EqualTo(ExternalId));
             Assert.That(idMapping.InternalId, Is.EqualTo(internalId));
         }
 
-        private void AssertCanFindIdMappingFromInternalId(string externalId, string internalId)
+        private void AssertCanFindIdMappingFromInternalId(string internalId)
         {
             var idMappings = Api.IdMappings.Filter(MappingTypeId, internalId: internalId).Fetch().Result;
             Assert.That(idMappings.Count, Is.EqualTo(1));
             var idMapping = idMappings[0];
             Assert.That(idMapping.InternalId, Is.EqualTo(internalId));
-            Assert.That(idMapping.ExternalId, Is.EqualTo(externalId));
+            Assert.That(idMapping.ExternalId, Is.EqualTo(ExternalId));
         }
 
-        private void AssertGetResourceWithExternalId(string externalId, string departmentName)
+        private void AssertGetResourceWithExternalId(string departmentName)
         {
-            var department = Api.Departments.Get(externalId).Fetch().Result;
-            Assert.That(department.Id, Is.EqualTo(externalId));
+            var department = Api.Departments.Get(ExternalId).Fetch().Result;
+            Assert.That(department.Id, Is.EqualTo(ExternalId));
             Assert.That(department.Name, Is.EqualTo(departmentName));
         }
 
-        private void RemoveIdMapping(string externalId)
+        private void RemoveIdMapping()
         {
-            var result = Api.IdMappings.Delete(MappingTypeId, externalId).Fetch();
+            Api.IdMappings.Delete(MappingTypeId, ExternalId).Fetch();
         }
     }
 }

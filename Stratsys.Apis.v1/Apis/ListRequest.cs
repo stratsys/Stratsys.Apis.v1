@@ -4,7 +4,7 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis
 {
-    public class ListRequest<T> : StratsysClientRequest<IList<T>>
+    public class ListRequest<T> : StratsysClientRequest<List<T>>
     {
         public ListRequest(IClientService service)
             : base(service)
@@ -14,11 +14,6 @@ namespace Stratsys.Apis.v1.Apis
         public override string HttpMethod
         {
             get { return "GET"; }
-        }
-
-        public override string RestPath
-        {
-            get { return ""; }
         }
 
         public IList<T> Result

@@ -22,9 +22,9 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             return new ListRequest<DescriptionFieldValueDto>(m_clientService);
         }
 
-        public PutRequest<DescriptionFieldValueDto> Put(DescriptionFieldValueDto dto)
+        public PutRequest<DescriptionFieldValueDto, DescriptionFieldValueDto> Put(DescriptionFieldValueDto dto)
         {
-            return new PutRequest<DescriptionFieldValueDto>(m_clientService, dto);
+            return new PutRequest<DescriptionFieldValueDto, DescriptionFieldValueDto>(m_clientService, dto);
         }
     }
 }

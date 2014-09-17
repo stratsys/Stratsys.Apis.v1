@@ -25,7 +25,7 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
         public GetRequest<ScorecardNodeDto> Get(string id, string fields)
         {
             var getRequest = new GetRequest<ScorecardNodeDto>(m_clientService, id);
-            getRequest.RequestParameters.Add("fields",fields);
+            getRequest.RequestParameters.Add("fields", fields);
             return getRequest;
         }
 
@@ -43,18 +43,18 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
         public FilterRequest<ScorecardNodeDto> Filter(string name)
         {
             var filterRequest = new FilterRequest<ScorecardNodeDto>(m_clientService);
-            filterRequest.RequestParameters.Add("name",name);
+            filterRequest.RequestParameters.Add("name", name);
             return filterRequest;
         }
 
-        public PutRequest<PutNodeDto,string> Put(PutNodeDto dto)
+        public PutRequest<PutNodeDto, string> Put(PutNodeDto dto)
         {
-            return new PutRequest<PutNodeDto,string>(m_clientService, dto);
+            return new PutRequest<PutNodeDto, string>(m_clientService, dto);
         }
 
-        public PostRequest<PostNodeDto> Post(PostNodeDto dto)
+        public PostRequest<PostNodeDto, string> Post(PostNodeDto dto)
         {
-            return new PostRequest<PostNodeDto>(m_clientService, dto);
+            return new PostRequest<PostNodeDto, string>(m_clientService, dto);
         }
 
     }

@@ -1,24 +1,28 @@
-﻿using System.Collections.Generic;
-using Stratsys.Apis.v1.Dtos.Organization;
+﻿using Stratsys.Apis.v1.Dtos.Organization;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
-    public class FilterResponsibilityRolesRequest : StratsysClientRequest<List<ResponsibilityRoleDto>>
+    public class FilterResponsibilityRolesRequest : FilterRequest<ResponsibilityRoleDto>
     {
         public FilterResponsibilityRolesRequest(IClientService service)
             : base(service)
         {
         }
 
-        public override string RestPath
+        public FilterResponsibilityRolesRequest(IClientService service, string scorecardColumnId)
+            : base(service)
         {
-            get { return "filter"; }
+            RequestParameters.Add("scorecardColumnId", scorecardColumnId);
         }
 
-        public override string HttpMethod
+    }
+    public class ListResponsibilityRolesRequest : ListRequest<ResponsibilityRoleDto>
+    {
+        public ListResponsibilityRolesRequest(IClientService service)
+            : base(service)
         {
-            get { return "GET"; }
         }
+
     }
 }

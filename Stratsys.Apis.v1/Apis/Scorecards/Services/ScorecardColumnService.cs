@@ -4,9 +4,12 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 {
     public class ScorecardColumnService : StratsysClientService
     {
+        private readonly StratsysAuthentication m_authentication;
+
         public ScorecardColumnService(StratsysAuthentication authentication)
             : base(authentication)
         {
+            m_authentication = authentication;
             ScorecardColumns = new ScorecardColumnResource(this);
         }
 
@@ -17,4 +20,5 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 
         public ScorecardColumnResource ScorecardColumns { get; private set; }
     }
+
 }

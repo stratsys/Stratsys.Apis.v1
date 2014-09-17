@@ -27,5 +27,15 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             var request = Api.Scorecards.Get(id);
             Assert.That(request.GetHttpResponse().StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
         }
+
+        [TestCase("1", "Verksamhetsplan")]
+        public void Get_scorecard_columns(string id, string expectedName)
+        {
+            var columnDtos = Api.Scorecard(id).Columns.Result;
+            Assert.That(columnDtos, Is.Not.Null);
+            Assert.That(columnDtos.Count, Is.EqualTo(9));
+            var columnDto = columnDtos[1];
+            Assert.That(columnDto.Name, Is.EqualTo("Områden"));
+        }
     }
 }

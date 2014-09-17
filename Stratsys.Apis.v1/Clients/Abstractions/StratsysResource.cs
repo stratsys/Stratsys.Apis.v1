@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Stratsys.Apis.v1.Apis;
+using Stratsys.Apis.v1.Dtos;
 using Stratsys.Core.Apis.Requests;
 
 namespace Stratsys.Apis.v1.Clients.Abstractions
@@ -43,13 +44,9 @@ namespace Stratsys.Apis.v1.Clients.Abstractions
             return m_httpClient.GetAsync<T>(m_controller + builder.Build()).Result;
         }
 
-        public IList<T> List(string name = null)
+        public IList<T> List()
         {
             var builder = new RequestUriBuilder();
-            if (name != null)
-            {
-                builder.QueryParameters.Add("name", name);
-            }
             var path = m_controller + builder.Build();
             return m_httpClient.GetAsync<IList<T>>(path).Result;
         }

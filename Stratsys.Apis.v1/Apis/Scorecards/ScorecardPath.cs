@@ -26,5 +26,4 @@ namespace Stratsys.Apis.v1.Apis.Scorecards
             get { return m_scorecardColumnService.ScorecardColumns.Filter(m_id); }
         }
     }
-
 }

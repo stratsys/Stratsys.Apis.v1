@@ -11,6 +11,7 @@ namespace Stratsys.Apis.v1.ExampleTests
         protected string ClientSecret = ConfigurationManager.AppSettings.Get("TestClientSecret"); //ask Stratsys support for access to database used in tests.
         protected StratsysApi Api { get { return new StratsysApi(new ServiceAccountBasicAuthentication(ClientId, ClientSecret)); } }
 
+        protected StratsysAuthentication Auth { get { return new ServiceAccountBasicAuthentication(ClientId, ClientSecret); } }
 
         [TestFixtureSetUp]
         public void SetUpFixtureBase_DoNotCall()

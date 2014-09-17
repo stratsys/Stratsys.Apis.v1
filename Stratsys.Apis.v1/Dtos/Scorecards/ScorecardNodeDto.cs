@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Stratsys.Apis.v1.Dtos.Organization;
 
 namespace Stratsys.Apis.v1.Dtos.Scorecards
@@ -11,7 +12,7 @@ namespace Stratsys.Apis.v1.Dtos.Scorecards
         public ScorecardColumnDto ScorecardColumn { get; set; }
         public IList<DescriptionFieldValueDto> DescriptionFields { get; set; }
         public IList<KeywordDto> Keywords { get; set; }
-        public IList<NodeResponsibleDto> Responsibles { get; set; }
+        public IList<ResponsibleDto> Responsibles { get; set; }
     }
 
     public class PutNodeDto
@@ -29,4 +30,17 @@ namespace Stratsys.Apis.v1.Dtos.Scorecards
         //public string StartDate { get; set; }
         //public string EndDate { get; set; }
     }
+
+    //public class KpiTemplateDto
+    //{
+    //    public string Id { get; set; }
+    //    public string Name { get; set; }
+    //}
+
+    public class ActivityDateDto
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+    }
+
 }

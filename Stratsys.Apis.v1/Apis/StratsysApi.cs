@@ -80,12 +80,17 @@ namespace Stratsys.Apis.v1.Apis
 
         public ScorecardsPath Scorecard(string id)
         {
-            { return new ScorecardsPath(m_authentication, id); }
+            return new ScorecardsPath(m_authentication, id);
         }
 
         public ScorecardColumnResource ScorecardColumns
         {
             get { return new ScorecardColumnService(m_authentication).ScorecardColumns; }
+        }
+
+        public ScorecardColumnPath ScorecardColumn(string id)
+        {
+            return new ScorecardColumnPath(m_authentication, id);
         }
 
         public GoalResource Goals
@@ -128,9 +133,10 @@ namespace Stratsys.Apis.v1.Apis
             get { return new ResponsibilityRoleService(m_authentication).ResponsibilityRoles; }
         }
 
-        public NodeResponsibleResource NodeResponsibles
+        public ScorecardsDepartmentsNodesPath Node(string scorecardId, string departmentId, string nodeId)
         {
-            get { return new NodeResponsibleService(m_authentication).NodeResponsibles; }
+            var node = Path.Scorecard(scorecardId).Department(departmentId).Node(nodeId);
+            return new ScorecardsDepartmentsNodesPath(m_authentication,node);; 
         }
 
         public DescriptionFieldResource DescriptionFields

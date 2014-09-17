@@ -46,9 +46,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             string descriptionFieldId)
         {
             var resource = Api
-                .Scorecard(scorecardId)
-                .Department(departmentId)
-                .Node(nodeId)
+                .Node(scorecardId, departmentId, nodeId)
                 .DescriptionFields;
 
             var dto = resource.Get(descriptionFieldId).Result;

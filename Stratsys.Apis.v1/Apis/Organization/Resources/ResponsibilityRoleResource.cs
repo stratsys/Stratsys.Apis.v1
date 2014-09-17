@@ -1,4 +1,5 @@
 ﻿using Stratsys.Apis.v1.Apis.Organization.Requests;
+using Stratsys.Apis.v1.Dtos.Organization;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Resources
@@ -17,9 +18,15 @@ namespace Stratsys.Apis.v1.Apis.Organization.Resources
             return new GetResponsibilityRoleRequest(m_clientService, id);
         }
 
-        public FilterResponsibilityRolesRequest Filter()
+        public ListRequest<ResponsibilityRoleDto> List()
         {
-            return new FilterResponsibilityRolesRequest(m_clientService);
+            return new ListRequest<ResponsibilityRoleDto>(m_clientService);
+        }
+
+
+        public FilterResponsibilityRolesRequest Filter(string scorecardColumnId = null)
+        {
+            return new FilterResponsibilityRolesRequest(m_clientService, scorecardColumnId);
         }
     }
 }

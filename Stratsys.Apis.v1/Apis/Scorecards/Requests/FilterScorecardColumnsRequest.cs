@@ -4,7 +4,7 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Requests
 {
-    public class FilterScorecardColumnsRequest : StratsysClientRequest<List<ScorecardColumnDto>>
+    public class FilterScorecardColumnsRequest : FilterRequest<ScorecardColumnDto>
     {
         public FilterScorecardColumnsRequest(
             IClientService service,
@@ -25,16 +25,6 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Requests
             {
                 RequestParameters.Add("nodeType", nodeType + "");
             }
-        }
-
-        public override string HttpMethod
-        {
-            get { return "GET"; }
-        }
-
-        public override string RestPath
-        {
-            get { return "filter"; }
         }
     }
 }

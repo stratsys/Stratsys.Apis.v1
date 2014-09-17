@@ -2,13 +2,13 @@
 
 namespace Stratsys.Apis.v1.Apis
 {
-    public class PutRequest<T> : PutRequest<T, T>
-    {
-        public PutRequest(IClientService clientService, T dto)
-            : base(clientService, dto)
-        {
-        }
-    }
+    //public class PutRequest<T> : PutRequest<T, T>
+    //{
+    //    public PutRequest(IClientService clientService, T dto)
+    //        : base(clientService, dto)
+    //    {
+    //    }
+    //}
 
     public class PutRequest<T, TR> : StratsysClientRequest<TR>
     {
@@ -28,6 +28,27 @@ namespace Stratsys.Apis.v1.Apis
         public override object Body
         {
             get { return m_dto; }
+        }
+    }
+
+    public class PutIdRequest<TR> : StratsysClientRequest<TR>
+    {
+        private readonly string m_id;
+
+        public PutIdRequest(IClientService clientService, string id)
+            : base(clientService)
+        {
+            m_id = id;
+        }
+
+        public override string HttpMethod
+        {
+            get { return "PUT"; }
+        }
+
+        public override string RestPath
+        {
+            get { return m_id; }
         }
     }
 }

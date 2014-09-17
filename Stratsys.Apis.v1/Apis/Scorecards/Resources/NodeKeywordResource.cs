@@ -22,9 +22,9 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
             return new ListRequest<KeywordDto>(m_clientService);
         }
 
-        public PutRequest<KeywordDto> Put(KeywordDto dto)
+        public PutRequest<KeywordDto, KeywordDto> Put(KeywordDto dto)
         {
-            return new PutRequest<KeywordDto>(m_clientService, dto);
+            return new PutRequest<KeywordDto, KeywordDto>(m_clientService, dto);
         }
 
         public DeleteRequest<bool> Delete(string id)

@@ -3,24 +3,13 @@ using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Organization.Requests
 {
-    public class GetResponsibilityRoleRequest : StratsysClientRequest<ResponsibilityRoleDto>
+    public class GetResponsibilityRoleRequest : GetRequest<ResponsibilityRoleDto>
     {
-        private readonly string m_id;
 
         public GetResponsibilityRoleRequest(IClientService service, string id)
-            : base(service)
+            : base(service,id)
         {
-            m_id = id;
         }
 
-        public override string RestPath
-        {
-            get { return m_id; }
-        }
-
-        public override string HttpMethod
-        {
-            get { return "GET"; }
-        }
     }
 }

@@ -15,6 +15,7 @@
         public string NodeType { get; set; }
         public string ImageTooltip { get; set; }
         public string ImageUrl { get; set; }
+        public string ReportNodeDialogUrl { get; set; }
 
         public class DeadlineViewModelDto
         {

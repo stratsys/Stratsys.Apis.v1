@@ -12,6 +12,18 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(descriptionFieldDtos.Count, Is.EqualTo(count));
         }
 
+        [TestCase("Verksamhetsplan", "Områden", 1)]
+        [TestCase("Verksamhetsplan", "Mätetal", 2)]
+        [TestCase("Api playground", "Goals", 0)]
+        public void Get_by_filter(string scorecard, string column, int count)
+        {
+            var scorecardId = Api.Scorecards.Filter(scorecard).Result.Single().Id;
+            var scorecardColumnId = Api.ScorecardColumns.Filter(scorecardId, column).Result.Single().Id;
+
+            var list = Api.ScorecardColumn(scorecardColumnId).DescriptionFields.List().Result;
+            Assert.That(list.Count, Is.EqualTo(count));
+        }
+
         [TestCase("1", "Syfte", "Svara på frågan ”Varför?”")]
         [TestCase("2", "Mätmetod och rutiner", "Beskriv vilka rutiner ni har")]
         [TestCase("4", "Syfte och önskad effekt", "Med detta menas...")]

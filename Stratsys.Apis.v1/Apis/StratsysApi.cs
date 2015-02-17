@@ -136,7 +136,7 @@ namespace Stratsys.Apis.v1.Apis
         public ScorecardsDepartmentsNodesPath Node(string scorecardId, string departmentId, string nodeId)
         {
             var node = Path.Scorecard(scorecardId).Department(departmentId).Node(nodeId);
-            return new ScorecardsDepartmentsNodesPath(m_authentication,node);; 
+            return new ScorecardsDepartmentsNodesPath(m_authentication, node);
         }
 
         public DescriptionFieldResource DescriptionFields
@@ -147,6 +147,11 @@ namespace Stratsys.Apis.v1.Apis
         public KeywordGroupResource KeywordGroups
         {
             get { return new KeywordGroupService(m_authentication).Keywordgroups; }
+        }
+
+        public ScorecardViewResource ScorecardViews
+        {
+            get { return new ScorecardViewService(m_authentication).ScorecardViews; }
         }
     }
 }

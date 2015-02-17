@@ -17,5 +17,4 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 
         public ScorecardResource Scorecards { get; private set; }
     }
-
 }

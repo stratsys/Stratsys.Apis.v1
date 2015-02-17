@@ -76,6 +76,7 @@
     <Compile Include="Apis\Scorecards\ScorecardColumnServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardNodeServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\ScorecardViewServiceUT.cs" />
     <Compile Include="Apis\Shared\AuthorizationServiceUT.cs" />
     <Compile Include="Apis\Shared\ExampleFlow_UseIdMappingForDepartment.cs" />
     <Compile Include="Apis\Shared\IdMappingServiceUT.cs" />

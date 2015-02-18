@@ -38,7 +38,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
         [Test]
         public void Get_filter_url_for_department_and_node()
         {
-            var url = Api.ScorecardViews.GetUrl("124", "1", "21412").Fetch().Result;
+            var url = Api.ScorecardViews.GetUrl("124", "1", "23838").Fetch().Result;
             Assert.That(url, Is.EqualTo("https://www.stratsys.se/PermaLink/ApiPublicTests/ScorecardView.mvc?keyId=124&ChangeDepartment=1&MenuContainerId=502&NodeIdentifierId=21412"));
         }
     }

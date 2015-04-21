@@ -37,6 +37,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
         }
 
         [TestCase("no@thanks.com", "98", "Ludvig", "Antonsson", "ludant")]
+        [TestCase("thanks.com", "98", "Ludvig", "Antonsson", "ludant")]
         [TestCase("no@mail.com", null, null, null, null)]
         public void Get_user_by_email(string emailFilter,
             string expectedId, string expectedFirstName, string expectedLastName, string expectedUsername)

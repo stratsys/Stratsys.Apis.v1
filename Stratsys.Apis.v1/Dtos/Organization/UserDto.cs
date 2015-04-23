@@ -20,5 +20,6 @@
         public string LastName { get; set; }
         public string PhoneRegular { get; set; }
         public string PhoneMobile { get; set; }
+        public string LanguageCode { get; set; }
     }
 }

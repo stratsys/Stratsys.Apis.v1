@@ -34,6 +34,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(user.Id, Is.EqualTo(expectedId));
             Assert.That(user.Username, Is.EqualTo(expectedUsername));
             Assert.That(user.Email, Is.EqualTo(expectedEmail));
+            Assert.That(user.LanguageCode, Is.EqualTo("sv-SE"));
         }
 
         [TestCase("no@thanks.com", "98", "Ludvig", "Antonsson", "ludant")]
@@ -58,9 +59,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             }
         }
 
-        [TestCase("johnsmith123", "password123", "john.smith@somedomain.com", "1", "1", "John", "Smith")]
+        [TestCase("johnsmith123", "password123", "john.smith@somedomain.com", "1", "1", "John", "Smith", "en-GB")]
         public void Insert_and_remove_user(string username, string password, string email,
-            string departmentId, string groupId, string firstName, string lastName)
+            string departmentId, string groupId, string firstName, string lastName, string languageCode)
         {
             var newUser = new CreateUserDto
             {
@@ -72,7 +73,8 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
                 Password = password,
                 Username = username,
                 PhoneMobile = "070-123 45 67",
-                PhoneRegular = "+46 31 123 45 67"
+                PhoneRegular = "+46 31 123 45 67",
+                LanguageCode = languageCode
             };
             // Guard if test fails half way
             var stratsysApiMetadata = Api.Users.Get(username).Fetch();
@@ -96,6 +98,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(result.GroupId, Is.EqualTo(newUser.GroupId));
             Assert.That(result.PhoneMobile, Is.EqualTo(newUser.PhoneMobile));
             Assert.That(result.PhoneRegular, Is.EqualTo(newUser.PhoneRegular));
+            Assert.That(result.LanguageCode, Is.EqualTo(newUser.LanguageCode));
 
             Api.Users.Delete(username).Fetch();
         }

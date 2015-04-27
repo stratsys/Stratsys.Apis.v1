@@ -1,4 +1,6 @@
-﻿namespace Stratsys.Apis.v1.Dtos.Activities
+﻿using System.Collections.Generic;
+
+namespace Stratsys.Apis.v1.Dtos.Activities
 {
     public class ActivityDto
     {
@@ -6,5 +8,7 @@
         public string DepartmentId { get; set; }
         public string StatusId { get; set; }
         public string Name { get; set; }
+        public string EndDate { get; set; }
+        public IList<string> ScorecardColumnIds { get; set; }
     }
 }

@@ -18,10 +18,13 @@ namespace Stratsys.Apis.v1.Apis.Activities.Resources
             string departmentId = null,
             string name = null,
             string scorecardId = null,
-            string statusId = null
+            string statusId = null,
+            bool? isSimple = null,
+            string userId = null,
+            string fields = null
             )
         {
-            return new FilterActivitiesRequest(m_service, id, departmentId, name, scorecardId, statusId);
+            return new FilterActivitiesRequest(m_service, id, departmentId, name, scorecardId, statusId, isSimple, userId, fields);
         }
 
         public UpdateStatusForActivityRequest UpdateStatus(UpdateStatusDto updateStatusDto)

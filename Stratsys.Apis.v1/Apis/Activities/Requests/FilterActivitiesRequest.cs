@@ -7,15 +7,17 @@ namespace Stratsys.Apis.v1.Apis.Activities.Requests
     public class FilterActivitiesRequest : StratsysClientRequest<IList<ActivityDto>>
     {
         public FilterActivitiesRequest(
-            IClientService clientService, 
-            string id, 
-            string departmentId, 
-            string name, 
-            string scorecardId, 
-            string statusId, 
-            bool? isSimple,
+            IClientService clientService,
+            string id,
+            string departmentId,
+            string name,
+            string scorecardId,
+            string statusId,
             string userId,
-            string fields)
+            string fields,
+            bool onlySimple,
+            bool excludeFinished
+            )
             : base(clientService)
         {
             RequestParameters.Add("id", id);
@@ -23,13 +25,10 @@ namespace Stratsys.Apis.v1.Apis.Activities.Requests
             RequestParameters.Add("name", name);
             RequestParameters.Add("scorecardId", scorecardId);
             RequestParameters.Add("statusId", statusId);
-            if (isSimple.HasValue)
-            {
-                RequestParameters.Add("isSimple", isSimple.Value.ToString());
-            }
-            
             RequestParameters.Add("userId", userId);
             RequestParameters.Add("fields", fields);
+            RequestParameters.Add("onlySimple", onlySimple.ToString());
+            RequestParameters.Add("excludeFinished", excludeFinished.ToString());
         }
 
         public override string HttpMethod

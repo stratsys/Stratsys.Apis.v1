@@ -14,6 +14,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
+        [TestCase("ernstsson-shared1", 1)]
+        public void When_filtering_by_name(string nameFilter, int expectedNumberOfActivities)
+        {
+            var activities = Api.Activities.Filter(name:nameFilter).Fetch().Result;
+            Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
+        }
+
         [TestCase("Återkoppling på ledningsgrupp per tertial", 1)]
         public void When_filtering_by_name_Should_get_filtered_activities(string nameFilter, int expectedNumberOfActivities)
         {

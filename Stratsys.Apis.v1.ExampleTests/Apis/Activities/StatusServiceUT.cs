@@ -4,10 +4,11 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
 {
     public class StatusServiceUT : BaseTest
     {
-        [TestCase("200", 3)]
+        [TestCase("200", 4)]
+        [TestCase(null, 3)]
         public void Get_statuses(string scorecardColumnId, int expectedCount)
         {
-            var statuses = Api.Statuses.List(scorecardColumnId).Fetch().Result;
+            var statuses = Api.Statuses.Filter(scorecardColumnId).Fetch().Result;
             Assert.That(statuses.Count, Is.EqualTo(expectedCount));
         }
 

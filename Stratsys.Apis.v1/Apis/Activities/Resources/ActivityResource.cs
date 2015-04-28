@@ -20,17 +20,22 @@ namespace Stratsys.Apis.v1.Apis.Activities.Resources
             string scorecardId = null,
             string statusId = null,
             string userId = null,
-            string fields = null,
             bool onlySimple = false,
-            bool excludeFinished = false
+            bool excludeFinished = false,
+            string fields = null
             )
         {
-            return new FilterActivitiesRequest(m_service, id, departmentId, name, scorecardId, statusId, userId, fields, onlySimple, excludeFinished);
+            return new FilterActivitiesRequest(m_service, id, departmentId, name, scorecardId, statusId, userId, onlySimple, excludeFinished, fields);
         }
 
-        public UpdateStatusForActivityRequest UpdateStatus(UpdateStatusDto updateStatusDto)
+        public UpdateStatusForActivityRequest SetStatus(string activityId, string statusId)
         {
-            return new UpdateStatusForActivityRequest(m_service, updateStatusDto);
+            return new UpdateStatusForActivityRequest(m_service, activityId, statusId);
+        }
+
+        public UpdateEndDateForActivityRequest SetEndDate(string activityId, string endDate)
+        {
+            return new UpdateEndDateForActivityRequest(m_service, activityId, endDate);
         }
 
         public GetStatusForActivityRequest GetStatus(string activityId, string departmentId = null)

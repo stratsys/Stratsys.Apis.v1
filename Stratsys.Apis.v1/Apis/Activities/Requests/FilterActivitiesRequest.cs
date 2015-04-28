@@ -14,9 +14,9 @@ namespace Stratsys.Apis.v1.Apis.Activities.Requests
             string scorecardId,
             string statusId,
             string userId,
-            string fields,
             bool onlySimple,
-            bool excludeFinished
+            bool excludeFinished,
+            string fields
             )
             : base(clientService)
         {
@@ -26,9 +26,12 @@ namespace Stratsys.Apis.v1.Apis.Activities.Requests
             RequestParameters.Add("scorecardId", scorecardId);
             RequestParameters.Add("statusId", statusId);
             RequestParameters.Add("userId", userId);
-            RequestParameters.Add("fields", fields);
             RequestParameters.Add("onlySimple", onlySimple.ToString());
             RequestParameters.Add("excludeFinished", excludeFinished.ToString());
+            if (fields != null)
+            {
+                RequestParameters.Add("fields", fields);
+            }
         }
 
         public override string HttpMethod

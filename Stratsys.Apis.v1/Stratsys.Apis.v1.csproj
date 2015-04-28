@@ -55,6 +55,7 @@
     <Compile Include="Apis\Activities\Requests\GetStatusForActivityRequest.cs" />
     <Compile Include="Apis\Activities\Requests\GetStatusRequest.cs" />
     <Compile Include="Apis\Activities\Requests\ListStatusesRequest.cs" />
+    <Compile Include="Apis\Activities\Requests\UpdateEndDateForActivityRequest.cs" />
     <Compile Include="Apis\Activities\Requests\UpdateStatusForActivityRequest.cs" />
     <Compile Include="Apis\Activities\Resources\ActivityResource.cs" />
     <Compile Include="Apis\Activities\Resources\StatusResource.cs" />

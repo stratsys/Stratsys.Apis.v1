@@ -7,24 +7,38 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
     public class ActivityServiceUT : BaseTest
     {
         [TestCase("1", 98)]
-        public void When_filtering_by_scorecard_Should_get_filtered_activities(string scorecardId, int expectedNumberOfActivities)
+        public void Filter_ScorecardId(string scorecardId, int expectedNumberOfActivities)
         {
             var filterActivitiesRequest = Api.Activities.Filter(scorecardId: scorecardId);
             var activities = filterActivitiesRequest.Fetch().Result;
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
-        [TestCase("ernstsson-shared1", 1)]
-        public void When_filtering_by_name(string nameFilter, int expectedNumberOfActivities)
+        [TestCase(true, 3)]
+        public void Filter_SimpleOnly(bool simpleOnly, int expectedNumberOfActivities)
         {
-            var activities = Api.Activities.Filter(name:nameFilter).Fetch().Result;
+            var activities = Api.Activities.Filter(onlySimple: simpleOnly).Fetch().Result;
+            Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
+        }
+
+        [TestCase(true, 597)]
+        public void Filter_ExcludeFinished(bool excludeFinished, int expectedNumberOfActivities)
+        {
+            var activities = Api.Activities.Filter(excludeFinished: excludeFinished).Fetch().Result;
+            Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
+        }
+
+        [TestCase("190", 1)]
+        public void Filter_UserId(string userId, int expectedNumberOfActivities)
+        {
+            var activities = Api.Activities.Filter(userId: userId, excludeFinished: true).Fetch().Result;
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
         [TestCase("Återkoppling på ledningsgrupp per tertial", 1)]
         public void When_filtering_by_name_Should_get_filtered_activities(string nameFilter, int expectedNumberOfActivities)
         {
-            var activities = Api.Activities.Filter(name:nameFilter).Fetch().Result;
+            var activities = Api.Activities.Filter(name: nameFilter).Fetch().Result;
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
@@ -53,42 +67,34 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             Assert.That(activities.Count, Is.EqualTo(expectedNumberOfActivities));
         }
 
-        [TestCase("ta fram en arbetsgrupp", "5", @"Ta fram en arbetsgrupp för att inrätta ""Lilla miljöpriset""", "3", "21513")]
+        [TestCase("ta fram en arbetsgrupp", "5", @"Ta fram en arbetsgrupp för att inrätta ""Lilla miljöpriset""", "3", "21513", "2015-05-14")]
         public void When_filtering_on_unique_activity_Should_get_filtered_activity(
             string nameFilter, string departmentId,
-            string expectedName, string expectedStatusId, string expectedId)
+            string expectedName, string expectedStatusId, string expectedId, string expectedEndDate)
         {
-            var nodes = Api.Activities.Filter(name: nameFilter, departmentId: departmentId).Fetch().Result;
+            var nodes = Api.Activities.Filter(name: nameFilter, departmentId: departmentId, fields: "scorecardColumns").Fetch().Result;
             Assert.That(nodes.Count, Is.EqualTo(1));
             var activity = nodes[0];
             Assert.That(activity.Name, Is.EqualTo(expectedName));
             Assert.That(activity.Id, Is.EqualTo(expectedId));
             Assert.That(activity.DepartmentId, Is.EqualTo(departmentId));
             Assert.That(activity.StatusId, Is.EqualTo(expectedStatusId));
+            Assert.That(activity.EndDate, Is.EqualTo(expectedEndDate));
         }
 
-        [TestCase("ludant", "5", "21513", "6")]
-        public void Update_status(string userId, string departmentId, string activityId, string statusId)
+        [TestCase("631354", "6")]
+        public void Update_status(string activityId, string statusId)
         {
             var activities = Api.Activities;
-            var activity = activities.Filter(activityId, departmentId).Fetch().Result.FirstOrDefault();
+            var activity = activities.Filter(activityId).Fetch().Result.FirstOrDefault();
             Assert.That(activity, Is.Not.Null);
             var oldStatusId = activity.StatusId;
 
-            var updateStatus = new UpdateStatusDto
-            {
-                ActivityId = activityId,
-                DepartmentId = departmentId,
-                UserId = userId,
-                StatusId = statusId
-            };
-            
-            var result = activities.UpdateStatus(updateStatus).Fetch().Result;
+            var result = activities.SetStatus(activityId, statusId).Fetch().Result;
             Assert.That(result, Is.EqualTo(statusId));
 
-            //reset status
-            updateStatus.StatusId = oldStatusId;
-            result = activities.UpdateStatus(updateStatus).Fetch().Result;
+            //reset
+            result = activities.SetStatus(activityId, oldStatusId).Fetch().Result;
             Assert.That(result, Is.EqualTo(oldStatusId));
         }
 
@@ -97,6 +103,23 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
         {
             var status = Api.Activities.GetStatus(activityId, departmentId).Fetch().Result;
             Assert.That(status.Id, Is.EqualTo(expectedStatusId));
+        }
+
+
+        [TestCase("631654", "2015-12-31")]
+        public void Update_endDate(string activityId, string endDate)
+        {
+            var activities = Api.Activities;
+            var activity = activities.Filter(activityId).Fetch().Result.FirstOrDefault();
+            Assert.That(activity, Is.Not.Null);
+            var oldEndDate = activity.EndDate;
+
+            var result = activities.SetEndDate(activityId, endDate).Fetch().Result;
+            Assert.That(result, Is.EqualTo(endDate));
+
+            //reset
+            result = activities.SetEndDate(activityId, oldEndDate).Fetch().Result;
+            Assert.That(result, Is.EqualTo(oldEndDate));
         }
     }
 }

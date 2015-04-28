@@ -2,16 +2,16 @@
 
 namespace Stratsys.Apis.v1.Apis.Activities.Requests
 {
-    public class UpdateStatusForActivityRequest : StratsysClientRequest<string>
+    public class UpdateEndDateForActivityRequest : StratsysClientRequest<string>
     {
         private readonly string m_id;
-        private readonly string m_statusId;
+        private readonly string m_endDate;
 
-        public UpdateStatusForActivityRequest(IClientService clientService, string id, string statusId)
+        public UpdateEndDateForActivityRequest(IClientService clientService, string id, string endDate)
             : base(clientService)
         {
             m_id = id;
-            m_statusId = statusId;
+            m_endDate = endDate;
         }
 
         public override string HttpMethod
@@ -21,7 +21,7 @@ namespace Stratsys.Apis.v1.Apis.Activities.Requests
 
         public override string RestPath
         {
-            get { return string.Format("{0}/status/{1}", m_id, m_statusId); }
+            get { return string.Format("{0}/enddate/{1}", m_id, m_endDate); }
         }
     }
 }

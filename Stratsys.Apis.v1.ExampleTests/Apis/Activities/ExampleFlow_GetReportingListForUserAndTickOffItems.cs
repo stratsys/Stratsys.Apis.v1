@@ -29,7 +29,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             };
 
             //Update status to finished
-            Api.Activities.UpdateStatus(updateStatusDto).Fetch();
+            Api.Activities.SetStatus(updateStatusDto.ActivityId, updateStatusDto.StatusId).Fetch();
 
             userReportingList = Api.ReportingLists.GetItemsForUser(reportingList.Id, userId).Fetch().Result;
             Assert.That(userReportingList.Nodes.Count, Is.EqualTo(0));
@@ -39,7 +39,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
 
             //Reset status
             updateStatusDto.StatusId = oldStatusId;
-            Api.Activities.UpdateStatus(updateStatusDto).Fetch();
+            Api.Activities.SetStatus(updateStatusDto.ActivityId, updateStatusDto.StatusId).Fetch();
             status = Api.Activities.GetStatus(reportingListNode.NodeId, reportingListNode.DepartmentId).Fetch().Result;
             Assert.That(status.Id, Is.EqualTo(oldStatusId));
 

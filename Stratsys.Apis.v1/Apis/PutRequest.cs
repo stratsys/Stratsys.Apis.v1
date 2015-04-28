@@ -2,14 +2,6 @@
 
 namespace Stratsys.Apis.v1.Apis
 {
-    //public class PutRequest<T> : PutRequest<T, T>
-    //{
-    //    public PutRequest(IClientService clientService, T dto)
-    //        : base(clientService, dto)
-    //    {
-    //    }
-    //}
-
     public class PutRequest<T, TR> : StratsysClientRequest<TR>
     {
         private readonly T m_dto;

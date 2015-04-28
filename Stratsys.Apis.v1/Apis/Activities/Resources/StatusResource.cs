@@ -18,9 +18,9 @@ namespace Stratsys.Apis.v1.Apis.Activities.Resources
             return new GetRequest<StatusDto>(m_service, id);
         }
 
-        public ListStatusesRequest List()
+        public ListStatusesRequest List(string scorecardColumnId)
         {
-            return new ListStatusesRequest(m_service);
+            return new ListStatusesRequest(m_service, scorecardColumnId);
         }
     }
 }

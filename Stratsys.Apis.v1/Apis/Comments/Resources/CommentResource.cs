@@ -32,5 +32,10 @@ namespace Stratsys.Apis.v1.Apis.Comments.Resources
         {
             return new UpdateCommentRequest(m_clientService, comment);
         }
+
+        public DeleteRequest<bool> Delete(string id)
+        {
+            return new DeleteRequest<bool>(m_clientService, id);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using NUnit.Framework;
 using Stratsys.Apis.v1.Dtos.Comments;
 using Stratsys.Apis.v1.ExampleTests;
@@ -40,9 +41,31 @@ namespace Stratsys.Apis.v1.Tests.Apis.Comments
                     UserId = userId,
                     Text = "<b>Bold comment</b>"
                 };
-            var id = Api.Comments.AddComment(comment).Fetch().Result;
+
+            var response = Api.Comments.AddComment(comment).Fetch();
+            Assert.That(response.Success, Is.True);
+            var id = response.Result;
             Assert.That(id, Is.Not.Null.Or.Empty);
         }
+
+        [TestCase("3", "5", "19")]
+        public void Delete_comment_Should_get_bool(string nodeId, string departmentId, string userId)
+        {
+            var comment = new AddCommentDto
+                {
+                    DepartmentId = departmentId,
+                    NodeId = nodeId,
+                    UserId = userId,
+                    Text = "<b>Bold comment</b>"
+                };
+            var id = Api.Comments.AddComment(comment).Fetch().Result;
+            Assert.That(id, Is.Not.Null.Or.Empty);
+
+            var response = Api.Comments.Delete(id).GetHttpResponse();
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+ 
+        }
+
 
         [TestCase("1916", "<b>Bold comment</b>", "2014-01-01", "2014-02-20 18:15:41", "19", "5")]
         public void Get_comment_Should_get_comment(string id,

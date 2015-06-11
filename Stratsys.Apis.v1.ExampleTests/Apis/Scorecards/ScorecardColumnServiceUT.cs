@@ -21,6 +21,9 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(column.Definition, Is.EqualTo(expectedDefinition));
             Assert.That(column.NodeType, Is.EqualTo(expectedNodeType));
             Assert.That(column.ScorecardId, Is.EqualTo(expectedScorecardId));
+            Assert.That(column.Scorecard, Is.Not.Null);
+            Assert.That(column.Scorecard.Id, Is.EqualTo(expectedScorecardId));
+            Assert.That(column.Scorecard.Name, Is.EqualTo("Verksamhetsplan"));
         }
 
         [TestCase(96)]

@@ -21,5 +21,6 @@
         public string PhoneRegular { get; set; }
         public string PhoneMobile { get; set; }
         public string LanguageCode { get; set; }
+        public bool IsStratsysEmployee { get; set; }
     }
 }

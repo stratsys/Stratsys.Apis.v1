@@ -23,18 +23,20 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Organizations
             Assert.That(users.Count, Is.EqualTo(expectedCount));
         }
 
-        [TestCase("98", "98", "ludant", "no@thanks.com")]
-        [TestCase("ludant", "98", "ludant", "no@thanks.com")]
-        [TestCase("no@thanks.com", "98", "ludant", "no@thanks.com")]
-        [TestCase("me", "406", "SUbatch", "")]
+        [TestCase("98", "98", "ludant", "no@thanks.com", false)]
+        [TestCase("ludant", "98", "ludant", "no@thanks.com", false)]
+        [TestCase("no@thanks.com", "98", "ludant", "no@thanks.com", false)]
+        [TestCase("me", "406", "SUbatch", "", false)]
+        [TestCase("487", "487", "Johan.Kaverud", "johan.kaverud@stratsys.se", true)]
         public void Get_user_by_multiple_different_ids(string id,
-            string expectedId, string expectedUsername, string expectedEmail)
+            string expectedId, string expectedUsername, string expectedEmail, bool expectedIsStratsysEmployee)
         {
             var user = Api.Users.Get(id).Fetch().Result;
             Assert.That(user.Id, Is.EqualTo(expectedId));
             Assert.That(user.Username, Is.EqualTo(expectedUsername));
             Assert.That(user.Email, Is.EqualTo(expectedEmail));
             Assert.That(user.LanguageCode, Is.EqualTo("sv-SE"));
+            Assert.That(user.IsStratsysEmployee, Is.EqualTo(expectedIsStratsysEmployee));
         }
 
         [TestCase("no@thanks.com", "98", "Ludvig", "Antonsson", "ludant")]

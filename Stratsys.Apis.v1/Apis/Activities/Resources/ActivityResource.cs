@@ -42,5 +42,10 @@ namespace Stratsys.Apis.v1.Apis.Activities.Resources
         {
             return new GetStatusForActivityRequest(m_service, activityId, departmentId);
         }
+
+        public CreateSimpleActivityRequest CreateSimpleActivity(string name, string endDate = null)
+        {
+            return new CreateSimpleActivityRequest(m_service, name, endDate);
+        }
     }
 }

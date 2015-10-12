@@ -1,5 +1,6 @@
 using System.Linq;
 using NUnit.Framework;
+using Stratsys.Apis.v1.Apis.Activities.Resources;
 using Stratsys.Apis.v1.Dtos.Activities;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
@@ -120,6 +121,18 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Activities
             //reset
             result = activities.SetEndDate(activityId, oldEndDate).Fetch().Result;
             Assert.That(result, Is.EqualTo(oldEndDate));
+        }
+
+        [TestCase("simpleActivity1", "2015-12-01")]
+        [TestCase("simpleActivity2", null)]
+        public void Create_simpleActivity(string name, string endDate)
+        {
+            var activities = Api.Activities;
+            var activityId = activities.CreateSimpleActivity(name, endDate).Fetch().Result;
+
+            var activity = activities.Filter(activityId).Fetch().Result.FirstOrDefault();
+            Assert.That(activity.Name, Is.EqualTo(name));
+            Assert.That(activity.EndDate, Is.EqualTo(endDate));
         }
     }
 }

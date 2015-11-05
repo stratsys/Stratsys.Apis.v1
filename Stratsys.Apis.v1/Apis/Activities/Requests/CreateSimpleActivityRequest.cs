@@ -1,16 +1,15 @@
-﻿using Stratsys.Core.Apis.Services;
+﻿using Stratsys.Apis.v1.Dtos.Activities;
+using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Activities.Requests
 {
     public class CreateSimpleActivityRequest : StratsysClientRequest<string>
     {
-        private readonly string m_name;
-        private readonly string m_endDate;
+        private readonly SimpleActivityDto m_dto;
 
-        public CreateSimpleActivityRequest(IClientService service, string name, string endDate = null) : base(service)
+        public CreateSimpleActivityRequest(IClientService service, SimpleActivityDto dto) : base(service)
         {
-            m_name = name;
-            m_endDate = endDate;
+            m_dto = dto;
         }
 
         public override string HttpMethod
@@ -18,15 +17,14 @@ namespace Stratsys.Apis.v1.Apis.Activities.Requests
             get { return "POST"; }
         }
 
+        public override object Body
+        {
+            get { return m_dto; }
+        }
+
         public override string RestPath
         {
-            get
-            {
-                var namePath = string.Format("simple/{0}", m_name);
-                return !string.IsNullOrEmpty(m_endDate) 
-                    ? string.Format("{0}/{1}", namePath, m_endDate) 
-                    : namePath;
-            }
+            get { return "simple"; }
         }
     }
 }

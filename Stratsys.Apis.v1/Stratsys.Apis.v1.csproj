@@ -133,6 +133,7 @@
     <Compile Include="Apis\Scorecards\Resources\ScorecardNodeResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardViewService.cs" />
+    <Compile Include="Dtos\Activities\SimpleActivityDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardViewDto.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardViewResource.cs" />
     <Compile Include="Apis\Scorecards\ScorecardColumnPath.cs" />

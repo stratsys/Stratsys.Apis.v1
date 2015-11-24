@@ -1,6 +1,8 @@
 ﻿using System;
 using Stratsys.Apis.v1.Apis.Activities.Resources;
 using Stratsys.Apis.v1.Apis.Activities.Services;
+using Stratsys.Apis.v1.Apis.Applications.Resources;
+using Stratsys.Apis.v1.Apis.Applications.Services;
 using Stratsys.Apis.v1.Apis.Comments.Resources;
 using Stratsys.Apis.v1.Apis.Comments.Services;
 using Stratsys.Apis.v1.Apis.Gadgets.Resources;
@@ -152,6 +154,16 @@ namespace Stratsys.Apis.v1.Apis
         public ScorecardViewResource ScorecardViews
         {
             get { return new ScorecardViewService(m_authentication).ScorecardViews; }
+        }
+
+        public ApplicationResource Applications
+        {
+            get { return new ApplicationService(m_authentication).Applications; }
+        }
+
+        public VersionResource Versions
+        {
+            get { return new VersionService(m_authentication).Versions; }
         }
     }
 }

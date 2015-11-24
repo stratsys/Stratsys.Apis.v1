@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Apis\Activities\ExampleFlow_GetReportingListForUserAndTickOffItems.cs" />
     <Compile Include="Apis\Activities\StatusServiceUT.cs" />
+    <Compile Include="Apis\Applications\ApplicationServiceUT.cs" />
     <Compile Include="Apis\Comments\CommentServiceUT.cs" />
     <Compile Include="Apis\Gadgets\ReportingListServiceUT.cs" />
     <Compile Include="Apis\Kpis\ExampleFlowFindAndUpdateKpiData.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Apis\Scorecards\ScorecardNodeServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardServiceUT.cs" />
     <Compile Include="Apis\Scorecards\ScorecardViewServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\VersionServiceUT.cs" />
     <Compile Include="Apis\Shared\AuthorizationServiceUT.cs" />
     <Compile Include="Apis\Shared\ExampleFlow_UseIdMappingForDepartment.cs" />
     <Compile Include="Apis\Shared\IdMappingServiceUT.cs" />

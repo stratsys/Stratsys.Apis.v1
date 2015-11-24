@@ -62,6 +62,10 @@
     <Compile Include="Apis\Activities\Resources\StatusResource.cs" />
     <Compile Include="Apis\Activities\Services\StatusService.cs" />
     <Compile Include="Apis\Activities\Services\ActivityService.cs" />
+    <Compile Include="Apis\Applications\Requests\GetApplicationRequest.cs" />
+    <Compile Include="Apis\Applications\Requests\SetApplicationVersionRequest.cs" />
+    <Compile Include="Apis\Applications\Resources\ApplicationResource.cs" />
+    <Compile Include="Apis\Applications\Services\ApplicationService.cs" />
     <Compile Include="Apis\Comments\Requests\AddCommentRequest.cs" />
     <Compile Include="Apis\Comments\Requests\FilterCommentsRequest.cs" />
     <Compile Include="Apis\Comments\Requests\GetCommentRequest.cs" />
@@ -121,7 +125,9 @@
     <Compile Include="Apis\Scorecards\Requests\GetDescriptionFieldRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardColumnRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\GetScorecardRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\GetVersionRequest.cs" />
     <Compile Include="Apis\Scorecards\Requests\ListScorecardsRequest.cs" />
+    <Compile Include="Apis\Scorecards\Requests\ListVersionsRequest.cs" />
     <Compile Include="Apis\Scorecards\Resources\KeywordGroupResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\DescriptionFieldResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\GoalResource.cs" />
@@ -132,8 +138,12 @@
     <Compile Include="Apis\Scorecards\Resources\ScorecardColumnResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardNodeResource.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardResource.cs" />
+    <Compile Include="Apis\Scorecards\Resources\VersionResource.cs" />
     <Compile Include="Apis\Scorecards\Services\ScorecardViewService.cs" />
+    <Compile Include="Apis\Scorecards\Services\VersionService.cs" />
     <Compile Include="Dtos\Activities\SimpleActivityDto.cs" />
+    <Compile Include="Dtos\Applications\ApplicationDto.cs" />
+    <Compile Include="Dtos\Applications\ExternalSourceDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardViewDto.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardViewResource.cs" />
     <Compile Include="Apis\Scorecards\ScorecardColumnPath.cs" />
@@ -198,6 +208,7 @@
     <Compile Include="Dtos\Scorecards\ScorecardDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardColumnDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardNodeDto.cs" />
+    <Compile Include="Dtos\Scorecards\VersionDto.cs" />
     <Compile Include="Dtos\Shared\IdMapping.cs" />
     <Compile Include="Dtos\Shared\PeriodicityDto.cs" />
     <Compile Include="Dtos\StratsysApiMetadata.cs" />

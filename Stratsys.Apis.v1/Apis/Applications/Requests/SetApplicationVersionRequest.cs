@@ -1,5 +1,4 @@
-﻿using Stratsys.Apis.v1.Dtos.Applications;
-using Stratsys.Core.Apis.Services;
+﻿using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Applications.Requests
 {
@@ -19,7 +18,7 @@ namespace Stratsys.Apis.v1.Apis.Applications.Requests
 
         public override string RestPath
         {
-            get { return "version/"+ m_versionId; }
+            get { return "this/version/"+ m_versionId; }
         }
     }
 }

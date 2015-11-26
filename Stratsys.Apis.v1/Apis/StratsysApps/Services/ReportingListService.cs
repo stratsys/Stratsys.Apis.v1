@@ -1,6 +1,6 @@
-﻿using Stratsys.Apis.v1.Apis.Gadgets.Resources;
+﻿using Stratsys.Apis.v1.Apis.StratsysApps.Resources;
 
-namespace Stratsys.Apis.v1.Apis.Gadgets.Services
+namespace Stratsys.Apis.v1.Apis.StratsysApps.Services
 {
     public class ReportingListService : StratsysClientService
     {
@@ -12,7 +12,7 @@ namespace Stratsys.Apis.v1.Apis.Gadgets.Services
 
         public override string Controller
         {
-            get { return "reportingLists"; }
+            get { return "stratsys-apps/reportinglists"; }
         }
 
         public ReportingListResource ReportingLists { get; private set; }

@@ -58,7 +58,8 @@
     <Compile Include="Apis\Activities\StatusServiceUT.cs" />
     <Compile Include="Apis\Applications\ApplicationServiceUT.cs" />
     <Compile Include="Apis\Comments\CommentServiceUT.cs" />
-    <Compile Include="Apis\Gadgets\ReportingListServiceUT.cs" />
+    <Compile Include="Apis\StratsysApps\DashboardServiceUT.cs" />
+    <Compile Include="Apis\StratsysApps\ReportingListServiceUT.cs" />
     <Compile Include="Apis\Kpis\ExampleFlowFindAndUpdateKpiData.cs" />
     <Compile Include="Apis\Kpis\KpiColumnServiceUT.cs" />
     <Compile Include="Apis\Kpis\KpiDataServiceUT.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Apis\Shared\ExampleFlow_UseIdMappingForDepartment.cs" />
     <Compile Include="Apis\Shared\IdMappingServiceUT.cs" />
     <Compile Include="Apis\Shared\PeriodicityServiceUT.cs" />
+    <Compile Include="Apis\StratsysApps\ReportListServiceUT.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="ClientBaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

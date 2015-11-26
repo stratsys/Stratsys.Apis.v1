@@ -5,8 +5,6 @@ using Stratsys.Apis.v1.Apis.Applications.Resources;
 using Stratsys.Apis.v1.Apis.Applications.Services;
 using Stratsys.Apis.v1.Apis.Comments.Resources;
 using Stratsys.Apis.v1.Apis.Comments.Services;
-using Stratsys.Apis.v1.Apis.Gadgets.Resources;
-using Stratsys.Apis.v1.Apis.Gadgets.Services;
 using Stratsys.Apis.v1.Apis.Kpis.Resources;
 using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Apis.Organization.Resources;
@@ -16,6 +14,8 @@ using Stratsys.Apis.v1.Apis.Scorecards.Resources;
 using Stratsys.Apis.v1.Apis.Scorecards.Services;
 using Stratsys.Apis.v1.Apis.Shared.Resources;
 using Stratsys.Apis.v1.Apis.Shared.Services;
+using Stratsys.Apis.v1.Apis.StratsysApps.Resources;
+using Stratsys.Apis.v1.Apis.StratsysApps.Services;
 
 namespace Stratsys.Apis.v1.Apis
 {
@@ -164,6 +164,16 @@ namespace Stratsys.Apis.v1.Apis
         public VersionResource Versions
         {
             get { return new VersionService(m_authentication).Versions; }
+        }
+
+        public DashboardResource Dashboards
+        {
+            get { return new DasbhoardService(m_authentication).Dashboards; }
+        }
+
+        public ReportListResource ReportLists
+        {
+            get { return new ReportListService(m_authentication).ReportLists; }
         }
     }
 }

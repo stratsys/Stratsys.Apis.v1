@@ -1,21 +1,22 @@
-﻿using Stratsys.Apis.v1.Dtos.Gadgets;
+﻿using System.Collections.Generic;
+using Stratsys.Apis.v1.Dtos.StratsysApps;
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis.Gadgets.Requests
+namespace Stratsys.Apis.v1.Apis.StratsysApps.Requests
 {
-    public class GetUserReportingListRequest : StratsysClientRequest<UserReportingListDto>
+    public class GetUserReportListItemsRequest : StratsysClientRequest<IList<UserReportListItemDto>>
     {
         private readonly string m_userId;
-        private readonly string m_reportingListId;
+        private readonly string m_reportListId;
 
-        public GetUserReportingListRequest(IClientService clientService,
-            string reportingListId,
+        public GetUserReportListItemsRequest(IClientService clientService,
+            string reportListId,
             string userId,
             bool? showAll)
             : base(clientService)
         {
             m_userId = userId;
-            m_reportingListId = reportingListId;
+            m_reportListId = reportListId;
             if (showAll.HasValue)
             {
                 RequestParameters.Add("showAll", showAll.Value + "");
@@ -24,7 +25,7 @@ namespace Stratsys.Apis.v1.Apis.Gadgets.Requests
 
         public override string RestPath
         {
-            get { return m_reportingListId + "/" + m_userId; }
+            get { return m_reportListId + "/users/" + m_userId; }
         }
 
         public override string HttpMethod

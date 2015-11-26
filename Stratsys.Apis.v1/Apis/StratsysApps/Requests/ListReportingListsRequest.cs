@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Stratsys.Apis.v1.Dtos.Gadgets;
+using Stratsys.Apis.v1.Dtos.StratsysApps;
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis.Gadgets.Requests
+namespace Stratsys.Apis.v1.Apis.StratsysApps.Requests
 {
     public class ListReportingListsRequest : StratsysClientRequest<IList<ReportingListDto>>
     {

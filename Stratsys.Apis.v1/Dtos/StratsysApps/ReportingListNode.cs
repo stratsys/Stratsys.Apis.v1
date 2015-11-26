@@ -1,4 +1,4 @@
-﻿namespace Stratsys.Apis.v1.Dtos.Gadgets
+﻿namespace Stratsys.Apis.v1.Dtos.StratsysApps
 {
     public class ReportingListNode
     {
@@ -16,13 +16,6 @@
         public string ImageTooltip { get; set; }
         public string ImageUrl { get; set; }
         public string ReportNodeDialogUrl { get; set; }
-
-        public class DeadlineViewModelDto
-        {
-            public string CssClass { get; set; }
-            public int DaysDelayed { get; set; }
-            public string Text { get; set; }
-        }
 
         public class ActionViewModelDto
         {

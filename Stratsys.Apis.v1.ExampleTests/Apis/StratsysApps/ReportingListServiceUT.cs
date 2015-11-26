@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Stratsys.Apis.v1.Dtos.Scorecards;
 
-namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
+namespace Stratsys.Apis.v1.ExampleTests.Apis.StratsysApps
 {
     public class ReportingListServiceUT : BaseTest
     {
@@ -20,6 +20,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
         public void Filter_reportingLists(string name, NodeTypeDto? nodeType, int expectedNumberOfReportingLists)
         {
             var reportingLists = Api.ReportingLists.Filter(name, nodeType).Fetch().Result;
+            Assert.That(reportingLists.Count, Is.EqualTo(expectedNumberOfReportingLists));
+        }
+
+        [TestCase("1", 3)]
+        public void Filter_dashboardId(string dashboardId, int expectedNumberOfReportingLists)
+        {
+            var reportingLists = Api.ReportingLists.Filter(dashboardId: dashboardId).Fetch().Result;
             Assert.That(reportingLists.Count, Is.EqualTo(expectedNumberOfReportingLists));
         }
 
@@ -73,7 +80,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Gadgets
             Assert.That(reportingListNode.ScorecardName, Is.EqualTo("Verksamhetsplan"));
             Assert.That(reportingListNode.ImageTooltip, Is.EqualTo("Försenad"));
             Assert.That(reportingListNode.ImageUrl, Is.StringEnding("Images/NodeColors/delayed.png"));
-            Assert.That(reportingListNode.PeriodName, Is.Null);
+            Assert.That(reportingListNode.PeriodName, Is.EqualTo("Delår 2 2015"));
 
             var actionModel = reportingListNode.Action;
             Assert.That(actionModel.CssClass, Is.EqualTo("reportNode"));

@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
-using Stratsys.Apis.v1.Dtos.Gadgets;
 using Stratsys.Apis.v1.Dtos.Scorecards;
+using Stratsys.Apis.v1.Dtos.StratsysApps;
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis.Gadgets.Requests
+namespace Stratsys.Apis.v1.Apis.StratsysApps.Requests
 {
     public class FilterReportingListsRequest : StratsysClientRequest<IList<ReportingListDto>>
     {
-        public FilterReportingListsRequest(IClientService service, string name, NodeTypeDto? nodetype)
+        public FilterReportingListsRequest(IClientService service, string name, NodeTypeDto? nodetype, string dashboardId)
             : base(service)
         {
             RequestParameters.Add("name", name);
+            RequestParameters.Add("dashboardId", dashboardId);
             if (nodetype != null)
             {
                 RequestParameters.Add("nodetype", nodetype.Value + "");

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Stratsys.Apis.v1.Dtos.Gadgets
+namespace Stratsys.Apis.v1.Dtos.StratsysApps
 {
     public class UserReportingListDto
     {

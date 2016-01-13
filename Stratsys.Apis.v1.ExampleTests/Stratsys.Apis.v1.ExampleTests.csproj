@@ -36,8 +36,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Stratsys.Core.Apis">
-      <HintPath>..\packages\Stratsys.Core.Apis.0.33\lib\net45\Stratsys.Core.Apis.dll</HintPath>
+    <Reference Include="Stratsys.Core.Apis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stratsys.Core.Apis.0.45\lib\net45\Stratsys.Core.Apis.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

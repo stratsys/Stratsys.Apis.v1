@@ -1,4 +1,5 @@
-﻿using Stratsys.Apis.v1.Dtos.Scorecards;
+﻿using Stratsys.Apis.v1.Apis.Activities.Requests;
+using Stratsys.Apis.v1.Dtos.Scorecards;
 using Stratsys.Core.Apis.Services;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
@@ -51,11 +52,15 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Resources
         {
             return new PutRequest<PutNodeDto, string>(m_clientService, dto);
         }
-
+        
         public PostRequest<PostNodeDto, string> Post(PostNodeDto dto)
         {
             return new PostRequest<PostNodeDto, string>(m_clientService, dto);
         }
 
+        public SetSortOrderRequest SetSortOrder(string nodeId, double sortOrder)
+        {
+            return new SetSortOrderRequest(m_clientService, nodeId, sortOrder);
+        }
     }
 }

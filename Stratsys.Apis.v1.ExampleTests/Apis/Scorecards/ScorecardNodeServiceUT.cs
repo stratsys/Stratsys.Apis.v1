@@ -189,6 +189,22 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
             Assert.That(node.Name, Is.EqualTo(generic));
         }
 
+        // Stadens soliditet
+        [TestCase("1", "1", "26", 12.4)]
+        public void Set_sortorder_for_node(string scorecardId, string departmentId, string nodeId, double sortOrder)
+        {
+            var resource = Api
+                .Scorecard(scorecardId)
+                .Department(departmentId)
+                .Nodes;
+            
+            var fetch = resource.SetSortOrder(nodeId, sortOrder).Fetch();
+            Assert.That(fetch.Success, fetch.Message);
+
+            var node = resource.Get(nodeId).Result;
+            Assert.That(node.SortOrder, Is.EqualTo(sortOrder));
+        }
+
         // Api playground
         [TestCase("28", "2")]
         public void Post_node(string scorecardId, string departmentId)

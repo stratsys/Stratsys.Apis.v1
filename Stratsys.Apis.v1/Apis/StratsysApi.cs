@@ -175,5 +175,10 @@ namespace Stratsys.Apis.v1.Apis
         {
             get { return new ReportListService(m_authentication).ReportLists; }
         }
+
+        public ExternalPageResource ExternalPages
+        {
+            get { return new ExternalPageService(m_authentication).ExternalPages; }
+        }
     }
 }

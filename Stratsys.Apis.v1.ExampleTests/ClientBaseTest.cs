@@ -7,7 +7,7 @@ namespace Stratsys.Apis.v1.ExampleTests
     {
         protected StratsysClient Client
         {
-            get { return new StratsysClient(new ServiceAccountBasicAuthentication(ClientId,ClientSecret));}
+            get { return new StratsysClient(new ServiceAccountBasicAuthentication(ClientId, ClientSecret)); }
         }
     }
 }

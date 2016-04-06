@@ -76,6 +76,8 @@
     <Compile Include="Apis\Comments\Services\CommentService.cs" />
     <Compile Include="Apis\DeleteRequest.cs" />
     <Compile Include="Apis\FilterRequest.cs" />
+    <Compile Include="Apis\Organization\Resources\ExternalPageResource.cs" />
+    <Compile Include="Apis\Scorecards\Resources\NodeExternalPageResource.cs" />
     <Compile Include="Apis\StratsysApps\Requests\FilterDashboardsRequest.cs" />
     <Compile Include="Apis\StratsysApps\Requests\FilterReportingListsRequest.cs" />
     <Compile Include="Apis\StratsysApps\Requests\GetUserReportingListRequest.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Apis\StratsysApps\Resources\ReportingListResource.cs" />
     <Compile Include="Apis\StratsysApps\Resources\ReportListResource.cs" />
     <Compile Include="Apis\StratsysApps\Services\DasbhoardService.cs" />
+    <Compile Include="Apis\Organization\Services\ExternalPageService.cs" />
     <Compile Include="Apis\StratsysApps\Services\ReportingListService.cs" />
     <Compile Include="Apis\GenericService.cs" />
     <Compile Include="Apis\GetRequest.cs" />
@@ -152,6 +155,9 @@
     <Compile Include="Dtos\Activities\SimpleActivityDto.cs" />
     <Compile Include="Dtos\Applications\ApplicationDto.cs" />
     <Compile Include="Dtos\Applications\ExternalSourceDto.cs" />
+    <Compile Include="Dtos\Organization\CreateExternalPageDto.cs" />
+    <Compile Include="Dtos\Organization\ExternalPageDto.cs" />
+    <Compile Include="Dtos\Scorecards\NodeExternalPageDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardViewDto.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardViewResource.cs" />
     <Compile Include="Apis\Scorecards\ScorecardColumnPath.cs" />

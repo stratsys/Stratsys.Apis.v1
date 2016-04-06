@@ -34,6 +34,11 @@ namespace Stratsys.Apis.v1.Apis
             get { return m_path + "responsibilityroles"; }
         }
 
+        public string ExternalPages
+        {
+            get { return m_path + "externalpages"; }
+        }
+
         public static Path Scorecard(string id)
         {
             return new Path("scorecards/" + id + "/");

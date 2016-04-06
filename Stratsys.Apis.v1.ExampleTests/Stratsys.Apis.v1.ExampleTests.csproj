@@ -59,6 +59,8 @@
     <Compile Include="Apis\Activities\StatusServiceUT.cs" />
     <Compile Include="Apis\Applications\ApplicationServiceUT.cs" />
     <Compile Include="Apis\Comments\CommentServiceUT.cs" />
+    <Compile Include="Apis\Organizations\ExternalPageServiceUT.cs" />
+    <Compile Include="Apis\Scorecards\NodeExternalPagesServiceUT.cs" />
     <Compile Include="Apis\StratsysApps\DashboardServiceUT.cs" />
     <Compile Include="Apis\StratsysApps\ReportingListServiceUT.cs" />
     <Compile Include="Apis\Kpis\ExampleFlowFindAndUpdateKpiData.cs" />

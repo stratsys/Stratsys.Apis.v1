@@ -10,6 +10,7 @@ namespace Stratsys.Apis.v1.Apis.Scorecards
         private readonly IClientService m_descriptionFieldValueService;
         private readonly IClientService m_nodeKeywordService;
         private ScorecardsDepartmentsNodesResponsibilityRolesPath m_scorecardsDepartmentsNodesResponsibilityRolesPath;
+        private readonly IClientService m_nodeExternalPageService;
 
         public ScorecardsDepartmentsNodesPath(StratsysAuthentication authentication,
             Path path)
@@ -18,6 +19,7 @@ namespace Stratsys.Apis.v1.Apis.Scorecards
             m_path = path;
             m_descriptionFieldValueService = new GenericService(authentication, path.Descriptionfields);
             m_nodeKeywordService = new GenericService(authentication, path.Keywords);
+            m_nodeExternalPageService = new GenericService(authentication, path.ExternalPages);
 
             m_scorecardsDepartmentsNodesResponsibilityRolesPath =
                 new ScorecardsDepartmentsNodesResponsibilityRolesPath(authentication, path.Resource("responsibilityroles"));
@@ -39,5 +41,9 @@ namespace Stratsys.Apis.v1.Apis.Scorecards
             get { return new NodeKeywordResource(m_nodeKeywordService); }
         }
 
+        public NodeExternalPageResource ExternalPages
+        {
+            get { return new NodeExternalPageResource(m_nodeExternalPageService); }
+        }
     }
 }

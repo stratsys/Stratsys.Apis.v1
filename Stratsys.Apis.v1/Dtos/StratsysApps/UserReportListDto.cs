@@ -13,9 +13,9 @@
 
     public class UserReportListItemProgressDto
     {
+        public bool ShouldShowProgressReady { get; set; }
+        public bool ShouldShowProgressFinished { get; set; }
         public double PercentageReady { get; set; }
         public double PercentageFinished { get; set; }
-        public bool ShouldRender { get; set; }
-        public bool ShouldShowBothReadyAndPassed { get; set; }
     }
 }

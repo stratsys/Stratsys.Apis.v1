@@ -24,10 +24,10 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.StratsysApps
             Assert.That(item.DepartmentName, Is.EqualTo("Administrativa avdelningen"));
 
             var progress = item.ReportProgress;
-            Assert.That(progress.ShouldShowProgressReady, Is.EqualTo(true));
-            Assert.That(progress.ShouldShowProgressFinished, Is.EqualTo(true));
-            Assert.That(progress.PercentageFinished, Is.EqualTo(2.0d));
-            Assert.That(progress.PercentageReady, Is.EqualTo(67.0d));
+            Assert.That(progress.ShouldShowProgressReadyForApproval, Is.EqualTo(true));
+            Assert.That(progress.ShouldShowProgressApproved, Is.EqualTo(true));
+            Assert.That(progress.PercentageApproved, Is.EqualTo(2.0d));
+            Assert.That(progress.PercentageReadyForApproval, Is.EqualTo(67.0d));
         }
     }
 }

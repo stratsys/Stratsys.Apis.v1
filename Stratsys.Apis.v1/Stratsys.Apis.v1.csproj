@@ -201,6 +201,9 @@
     <Compile Include="Dtos\Comments\AddCommentDto.cs" />
     <Compile Include="Dtos\Comments\CommentDto.cs" />
     <Compile Include="Dtos\Comments\UpdateCommentDto.cs" />
+    <Compile Include="Dtos\Shared\MeetingsAuthorizationDto.cs" />
+    <Compile Include="Dtos\Shared\ModuleAuthorizationsDto.cs" />
+    <Compile Include="Dtos\Shared\RektorAuthorizationDto.cs" />
     <Compile Include="Dtos\StratsysApps\DashboardDto.cs" />
     <Compile Include="Dtos\StratsysApps\DeadlineViewModelDto.cs" />
     <Compile Include="Dtos\StratsysApps\ReportListDto.cs" />

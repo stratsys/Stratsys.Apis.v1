@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public string IconUrl { get; set; }
         public int SortOrder { get; set; }
+        public string StatusType { get; set; }
     }
 }

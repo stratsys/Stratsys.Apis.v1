@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Stratsys.Apis.v1.Dtos.Activities;
 using Stratsys.Apis.v1.Dtos.Organization;
 
 namespace Stratsys.Apis.v1.Dtos.Scorecards
@@ -12,6 +13,7 @@ namespace Stratsys.Apis.v1.Dtos.Scorecards
         public IList<DescriptionFieldValueDto> DescriptionFields { get; set; }
         public IList<KeywordDto> Keywords { get; set; }
         public IList<ResponsibleDto> Responsibles { get; set; }
+        public IList<StatusDto> AvailableStatuses { get; set; }
         public double SortOrder { get; set; }
     }
 

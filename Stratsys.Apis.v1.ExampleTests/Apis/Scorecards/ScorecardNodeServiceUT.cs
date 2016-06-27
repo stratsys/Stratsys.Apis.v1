@@ -150,7 +150,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 
         //Bostadsbyggnadstakten ska vara hög
         [TestCase("1", "1", "21412")]
-        public void Get_node_for_scorecard_with_available_statuses(string scorecardId, string departmentId, string nodeId)
+        public void Get_node_for_scorecard_with_statuses(string scorecardId, string departmentId, string nodeId)
         {
             var resource = Api
                 .Scorecard(scorecardId)
@@ -159,7 +159,7 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Scorecards
 
             var dto = resource.Get(nodeId, "availablestatuses").Result;
             Assert.That(dto.Name, Is.EqualTo("Bostadsbyggnadstakten ska vara hög"));
-            Assert.That(dto.AvailableStatuses, Is.Not.Null);
+            Assert.That(dto.Statuses, Is.Not.Null);
         }
 
         // Stadens soliditet

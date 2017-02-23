@@ -4,12 +4,12 @@ namespace Stratsys.Apis.v1.Apis.Scorecards.Services
 {
     public class ScorecardColumnService : StratsysClientService
     {
-        private readonly StratsysAuthentication m_authentication;
+        private readonly StratsysAuthentication m_stratsysAuthentication;
 
         public ScorecardColumnService(StratsysAuthentication authentication)
             : base(authentication)
         {
-            m_authentication = authentication;
+            m_stratsysAuthentication = authentication;
             ScorecardColumns = new ScorecardColumnResource(this);
         }
 

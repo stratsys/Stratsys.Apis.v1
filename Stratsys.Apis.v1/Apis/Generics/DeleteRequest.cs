@@ -1,6 +1,6 @@
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis
+namespace Stratsys.Apis.v1.Apis.Generics
 {
     public class DeleteRequest<TR> : StratsysClientRequest<TR>
     {

@@ -6,9 +6,9 @@ namespace Stratsys.Apis.v1.Apis
     public abstract class StratsysClientService : BaseClientService
     {
         private readonly string m_apiUrl = ConfigurationManager.AppSettings.Get("StratsysApiUrl") ?? "https://www.stratsys.se/api/v1/";
-        protected StratsysClientService(StratsysAuthentication authentication)
+        protected StratsysClientService(StratsysAuthentication stratsysAuthentication)
         {
-            Authentication = authentication.AuthenticationHeaderValue;
+            Authentication = stratsysAuthentication.AuthenticationHeaderValue;
         }
 
         public sealed override string BaseUrl

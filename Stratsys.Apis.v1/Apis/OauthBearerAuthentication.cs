@@ -11,6 +11,11 @@ namespace Stratsys.Apis.v1.Apis
             m_token = token;
         }
 
+        public OauthBearerAuthentication(string companyCode, string token)
+        {
+            m_token = companyCode + "_" + token;
+        }
+
         public override AuthenticationHeaderValue AuthenticationHeaderValue
         {
             get

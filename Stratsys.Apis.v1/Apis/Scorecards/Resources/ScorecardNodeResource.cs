@@ -1,4 +1,5 @@
 ﻿using Stratsys.Apis.v1.Apis.Activities.Requests;
+using Stratsys.Apis.v1.Apis.Generics;
 using Stratsys.Apis.v1.Dtos.Scorecards;
 using Stratsys.Core.Apis.Services;
 

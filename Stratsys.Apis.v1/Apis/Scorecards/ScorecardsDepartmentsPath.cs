@@ -1,4 +1,5 @@
-﻿using Stratsys.Apis.v1.Apis.Scorecards.Resources;
+﻿using Stratsys.Apis.v1.Apis.Generics;
+using Stratsys.Apis.v1.Apis.Scorecards.Resources;
 
 namespace Stratsys.Apis.v1.Apis.Scorecards
 {

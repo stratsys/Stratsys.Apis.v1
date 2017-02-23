@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using Stratsys.Apis.v1.Dtos;
 using Stratsys.Apis.v1.Dtos.Kpis;
+using Stratsys.Apis.v1.Dtos.Organization;
 
 namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
 {
@@ -25,5 +27,8 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Kpis
             var stratsysApiMetadata = Api.KpiData.SaveOrUpdate(kpiData).Fetch();
             Assert.That(stratsysApiMetadata.Result, Is.EqualTo(value));
         }
+
+        
+       
     }
 }

@@ -9,6 +9,7 @@ using Stratsys.Apis.v1.Apis.Kpis.Resources;
 using Stratsys.Apis.v1.Apis.Kpis.Services;
 using Stratsys.Apis.v1.Apis.Organization.Resources;
 using Stratsys.Apis.v1.Apis.Organization.Services;
+using Stratsys.Apis.v1.Apis.ResourcePlanning;
 using Stratsys.Apis.v1.Apis.Scorecards;
 using Stratsys.Apis.v1.Apis.Scorecards.Resources;
 using Stratsys.Apis.v1.Apis.Scorecards.Services;
@@ -179,6 +180,11 @@ namespace Stratsys.Apis.v1.Apis
         public ExternalPageResource ExternalPages
         {
             get { return new ExternalPageService(m_authentication).ExternalPages; }
+        }
+
+        public ResourcePlanningService ResourcePlanning
+        {
+            get { return new ResourcePlanningService(m_authentication); }
         }
     }
 }

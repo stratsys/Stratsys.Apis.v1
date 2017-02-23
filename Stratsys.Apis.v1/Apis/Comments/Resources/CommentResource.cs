@@ -1,4 +1,5 @@
 ﻿using Stratsys.Apis.v1.Apis.Comments.Requests;
+using Stratsys.Apis.v1.Apis.Generics;
 using Stratsys.Apis.v1.Dtos.Comments;
 using Stratsys.Core.Apis.Services;
 

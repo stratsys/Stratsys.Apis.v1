@@ -1,4 +1,5 @@
-﻿using Stratsys.Apis.v1.Apis.Organization.Requests;
+﻿using Stratsys.Apis.v1.Apis.Generics;
+using Stratsys.Apis.v1.Apis.Organization.Requests;
 using Stratsys.Apis.v1.Dtos.Organization;
 using Stratsys.Core.Apis.Services;
 

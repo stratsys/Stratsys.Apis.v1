@@ -1,4 +1,5 @@
-﻿using Stratsys.Apis.v1.Apis.Shared.Requests;
+﻿using Stratsys.Apis.v1.Apis.Generics;
+using Stratsys.Apis.v1.Apis.Shared.Requests;
 using Stratsys.Apis.v1.Dtos.Shared;
 using Stratsys.Core.Apis.Services;
 

@@ -1,23 +1,7 @@
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis
+namespace Stratsys.Apis.v1.Apis.Generics
 {
-    public class GenericService : StratsysClientService
-    {
-        private readonly string m_controller;
-
-        public GenericService(StratsysAuthentication authentication, string controller)
-            : base(authentication)
-        {
-            m_controller = controller;
-        }
-
-        public override string Controller
-        {
-            get { return m_controller; }
-        }
-    }
-
     public class GenericResource<T>
     {
         private readonly IClientService m_service;
@@ -37,10 +21,30 @@ namespace Stratsys.Apis.v1.Apis
             return new ListRequest<T>(m_service);
         }
 
+        public ListRequest<T> List(params RequestParameter[] parameters)
+        {
+            var listRequest = new ListRequest<T>(m_service);
+            foreach (var parameter in parameters)
+            {
+                listRequest.RequestParameters.Add(parameter.Name, parameter.Value);
+            }
+            return listRequest;
+        }
+
         public FilterRequest<T> Filter(string name)
         {
             var filterRequest = new FilterRequest<T>(m_service);
             filterRequest.RequestParameters.Add("name", name);
+            return filterRequest;
+        }
+
+        public FilterRequest<T> Filter(params RequestParameter[] parameters)
+        {
+            var filterRequest = new FilterRequest<T>(m_service);
+            foreach (var parameter in parameters)
+            {
+                filterRequest.RequestParameters.Add(parameter.Name, parameter.Value);
+            }
             return filterRequest;
         }
 

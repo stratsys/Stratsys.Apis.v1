@@ -7,11 +7,28 @@ namespace Stratsys.Apis.v1.ExampleTests
     [TestFixture]
     public abstract class BaseTest
     {
-        protected string ClientId = ConfigurationManager.AppSettings.Get("TestClientId");
-        protected string ClientSecret = ConfigurationManager.AppSettings.Get("TestClientSecret"); //ask Stratsys support for access to database used in tests.
-        protected StratsysApi Api { get { return new StratsysApi(new ServiceAccountBasicAuthentication(ClientId, ClientSecret)); } }
+        protected readonly string ClientId = ConfigurationManager.AppSettings.Get("TestClientId");
 
-        protected StratsysAuthentication Auth { get { return new ServiceAccountBasicAuthentication(ClientId, ClientSecret); } }
+        protected string ClientSecret = ConfigurationManager.AppSettings.Get("TestClientSecret"); //ask Stratsys support for access to database used in tests.
+
+        private readonly string ClientToken = ConfigurationManager.AppSettings.Get("TestClientToken"); //ask Stratsys support for access to database used in tests.
+
+        protected StratsysApi Api { get { return new StratsysApi(ServiceAuthentication); } }
+
+        protected ServiceAccountBasicAuthentication ServiceAuthentication
+        {
+            get { return new ServiceAccountBasicAuthentication(ClientId, ClientSecret); }
+        }
+
+        protected OauthBearerAuthentication BearerAuthentication
+        {
+            get { return new OauthBearerAuthentication(ClientId, ClientToken); }
+        }
+
+        protected StratsysApi StratsysApi(StratsysAuthentication stratsysAuthentication)
+        {
+            return new StratsysApi(stratsysAuthentication);
+        }
 
         [TestFixtureSetUp]
         public void SetUpFixtureBase_DoNotCall()

@@ -1,3 +1,4 @@
+using Stratsys.Apis.v1.Apis.Generics;
 using Stratsys.Apis.v1.Apis.Scorecards.Resources;
 using Stratsys.Core.Apis.Services;
 

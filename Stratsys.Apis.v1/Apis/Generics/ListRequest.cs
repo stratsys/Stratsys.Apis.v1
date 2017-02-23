@@ -1,21 +1,14 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis
+namespace Stratsys.Apis.v1.Apis.Generics
 {
-    public class GetRequest<T> : StratsysClientRequest<T>
+    public class ListRequest<T> : StratsysClientRequest<List<T>>
     {
-        private readonly string m_id;
-
-        public GetRequest(IClientService service)
+        public ListRequest(IClientService service)
             : base(service)
         {
-        }
-
-        public GetRequest(IClientService service, string id)
-            : base(service)
-        {
-            m_id = id;
         }
 
         public override string HttpMethod
@@ -23,13 +16,7 @@ namespace Stratsys.Apis.v1.Apis
             get { return "GET"; }
         }
 
-        public override string RestPath
-        {
-            get { return m_id; }
-        }
-
-
-        public T Result
+        public IList<T> Result
         {
             get
             {
@@ -42,5 +29,4 @@ namespace Stratsys.Apis.v1.Apis
             }
         }
     }
-
 }

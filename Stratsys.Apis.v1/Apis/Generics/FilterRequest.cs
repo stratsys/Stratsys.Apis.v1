@@ -2,11 +2,11 @@
 using System.Net.Http;
 using Stratsys.Core.Apis.Services;
 
-namespace Stratsys.Apis.v1.Apis
+namespace Stratsys.Apis.v1.Apis.Generics
 {
-    public class ListRequest<T> : StratsysClientRequest<List<T>>
+    public class FilterRequest<T> : StratsysClientRequest<IList<T>>
     {
-        public ListRequest(IClientService service)
+        public FilterRequest(IClientService service)
             : base(service)
         {
         }
@@ -14,6 +14,11 @@ namespace Stratsys.Apis.v1.Apis
         public override string HttpMethod
         {
             get { return "GET"; }
+        }
+
+        public override string RestPath
+        {
+            get { return "filter"; }
         }
 
         public IList<T> Result

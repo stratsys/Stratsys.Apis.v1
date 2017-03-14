@@ -12,10 +12,10 @@ namespace Stratsys.Apis.v1.Apis.ResourcePlanning.Me
             m_resource = new GenericResource<string>(roleService);
         }
 
-        public ListRequest<string> OnDepartment(string departmentId) => 
+        public ListRequest<string> List(string departmentId) => 
             m_resource.List(new RequestParameter(nameof(departmentId), departmentId));
 
-        public FilterRequest<string> FilterDepartment(string departmentId) => 
+        public FilterRequest<string> Filter(string departmentId) => 
             m_resource.Filter(new RequestParameter(nameof(departmentId), departmentId));
     }
 }

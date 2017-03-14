@@ -23,13 +23,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Applications
         }
 
         [Test]
-        public void Filter_me_rektor_roles()
+        public void List_me_rektor_roles()
         {
             var metadata = new StratsysApi(BearerAuthentication)
                 .ResourcePlanning
                 .Me
                 .Roles
-                .FilterDepartment("2")
+                .List(departmentId:"2")
                 .Fetch();
 
             Assert.That(metadata.Success, metadata.Message);
@@ -41,13 +41,13 @@ namespace Stratsys.Apis.v1.ExampleTests.Apis.Applications
         }
 
         [Test]
-        public void List_me_rektor_roles()
+        public void Filter_me_rektor_roles()
         {
             var metadata = new StratsysApi(BearerAuthentication)
                 .ResourcePlanning
                 .Me
                 .Roles
-                .OnDepartment("2")
+                .Filter(departmentId:"2")
                 .Fetch();
 
             Assert.That(metadata.Success, metadata.Message);

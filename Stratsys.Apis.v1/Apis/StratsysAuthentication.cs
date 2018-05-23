@@ -5,5 +5,6 @@ namespace Stratsys.Apis.v1.Apis
     public abstract class StratsysAuthentication
     {
         public abstract AuthenticationHeaderValue AuthenticationHeaderValue { get; }
+        public string ApiBaseUrl { get; set; }
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="Dtos\Activities\SimpleActivityDto.cs" />
     <Compile Include="Dtos\Applications\ApplicationDto.cs" />
     <Compile Include="Dtos\Applications\ExternalSourceDto.cs" />
+    <Compile Include="Dtos\Comments\CommentTypeDto.cs" />
     <Compile Include="Dtos\Organization\CreateExternalPageDto.cs" />
     <Compile Include="Dtos\Organization\ExternalPageDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeExternalPageDto.cs" />

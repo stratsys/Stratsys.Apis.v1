@@ -9,5 +9,6 @@
         public string PostedDate { get; set; }
         public string LastUpdatedDate { get; set; }
         public string UserId { get; set; }
+        public CommentTypeDto CommentType { get; set; }
     }
 }

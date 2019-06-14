@@ -1,8 +1,11 @@
-﻿namespace Stratsys.Apis.v1.Dtos.Organization
+﻿using System.Collections.Generic;
+
+namespace Stratsys.Apis.v1.Dtos.Organization
 {
     public class UserDto : UserProperties
     {
         public string Id { get; set; }
+        public IList<MembershipDto> ExtraMemberships { get; set; }
     }
 
     public class CreateUserDto : UserProperties

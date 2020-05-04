@@ -1,3 +1,5 @@
+# [DEPRECATED
+
 Stratsys Api v1 - .NET Client Library
 ==============
 

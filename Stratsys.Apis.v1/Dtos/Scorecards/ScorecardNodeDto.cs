@@ -16,6 +16,7 @@ namespace Stratsys.Apis.v1.Dtos.Scorecards
         public StatusDto CurrentStatus { get; set; }
         public IList<StatusDto> Statuses { get; set; }
         public double SortOrder { get; set; }
+        public DocumentRootFolder DocumentFolder { get; set; }
     }
 
     public class PutNodeDto

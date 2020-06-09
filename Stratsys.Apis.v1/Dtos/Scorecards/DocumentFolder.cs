@@ -10,7 +10,7 @@ namespace Stratsys.Apis.v1.Dtos.Scorecards
 
     public class DocumentFolder : DocumentRootFolder
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string ParentId { get; set; }
     }

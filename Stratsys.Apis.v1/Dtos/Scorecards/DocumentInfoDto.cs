@@ -2,7 +2,7 @@
 
 namespace Stratsys.Apis.v1.Dtos.Scorecards
 {
-    public class DocumentInfo
+    public class DocumentInfoDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

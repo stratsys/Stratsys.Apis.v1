@@ -167,8 +167,8 @@
     <Compile Include="Dtos\Organization\CreateExternalPageDto.cs" />
     <Compile Include="Dtos\Organization\ExternalPageDto.cs" />
     <Compile Include="Dtos\Organization\MembershipDto.cs" />
-    <Compile Include="Dtos\Scorecards\DocumentFolder.cs" />
-    <Compile Include="Dtos\Scorecards\DocumentInfo.cs" />
+    <Compile Include="Dtos\Scorecards\DocumentFolderDto.cs" />
+    <Compile Include="Dtos\Scorecards\DocumentInfoDto.cs" />
     <Compile Include="Dtos\Scorecards\NodeExternalPageDto.cs" />
     <Compile Include="Dtos\Scorecards\ScorecardViewDto.cs" />
     <Compile Include="Apis\Scorecards\Resources\ScorecardViewResource.cs" />

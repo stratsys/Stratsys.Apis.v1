@@ -8,7 +8,7 @@ namespace Stratsys.Apis.v1.Dtos.Kpis
         public string DepartmentId { get; set; }
         public string Name { get; set; }
         public string PeriodicityId { get; set; }
+        public int? KpiTemplateId { get; set; }
         public IList<string> KpiColumnIds { get; set; }
     }
-
 }
